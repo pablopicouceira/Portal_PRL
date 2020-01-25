@@ -8,6 +8,7 @@ const authRouter = require('./routes/auth-router');
 const {
   accountRouter,
   authRouter,
+  projectRouter,
   workerRouter
   // noteRouter,
   // tagRouter,
@@ -19,6 +20,7 @@ const app = express();
 app.use(express.json());
 app.use("/api", accountRouter);
 app.use("/api", authRouter);
+app.use("/api", projectRouter);
 app.use("/api", workerRouter);
 // app.use('/api', noteRouter);
 // app.use('/api', tagRouter);
