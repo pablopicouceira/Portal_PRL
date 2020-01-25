@@ -6,8 +6,8 @@ const accountRouter = require('./routes/account-router');
 const authRouter = require('./routes/auth-router');
 */
 const {
-  accountRouter
-  // authRouter,
+  accountRouter,
+  authRouter
   // noteRouter,
   // tagRouter,
   // userRouter
@@ -17,7 +17,7 @@ const app = express();
 
 app.use(express.json());
 app.use("/api", accountRouter);
-// app.use('/api', authRouter);
+app.use("/api", authRouter);
 // app.use('/api', noteRouter);
 // app.use('/api', tagRouter);
 // app.use('/api', userRouter);
