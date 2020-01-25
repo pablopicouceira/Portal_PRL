@@ -5,22 +5,22 @@ const express = require("express");
 const accountRouter = require('./routes/account-router');
 const authRouter = require('./routes/auth-router');
 */
-// const {
-//   accountRouter,
-//   authRouter,
-//   noteRouter,
-//   tagRouter,
-//   userRouter
-// } = require("./routes");
+const {
+  accountRouter
+  // authRouter,
+  // noteRouter,
+  // tagRouter,
+  // userRouter
+} = require("./routes");
 
 const app = express();
 
-// app.use(express.json());
-// app.use("/api", accountRouter);
-// app.use("/api", authRouter);
-// app.use("/api", noteRouter);
-// app.use("/api", tagRouter);
-// app.use("/api", userRouter);
+app.use(express.json());
+app.use("/api", accountRouter);
+// app.use('/api', authRouter);
+// app.use('/api', noteRouter);
+// app.use('/api', tagRouter);
+// app.use('/api', userRouter);
 
 let server = null;
 async function listen(port) {
