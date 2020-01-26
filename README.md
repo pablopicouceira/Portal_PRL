@@ -10,14 +10,15 @@ Listado de endpoints:
 4.  ❌️ Subir archivo de Trabajador 
 5.  ✔️ Actualizar Trabajador
 6.  ✔️ Borrar Trabajador
-7.  ❌️ Asociar Trabajador
-8.  ✔️ Mostrar Trabajadores
-9.  ❌️ Mostrar Trabajador y Actuaciones en las que está asociado
-10. ✔️ Crear Actuación
-11. ✔️ Actualizar Actuación
-12. ✔️ Borrar Actuación
-13. ✔️ Mostrar Actuaciones
-14. ❌️ Mostrar Actuación con Trabajadores asociados
+7.  ❌️ Recuperar Trabajador
+8.  ❌️ Asociar Trabajador
+9.  ✔️ Mostrar Trabajadores
+10. ❌️ Mostrar Trabajador y Actuaciones en las que está asociado
+11. ✔️ Crear Actuación
+12. ✔️ Actualizar Actuación
+13. ✔️ Borrar Actuación
+14. ✔️ Mostrar Actuaciones
+15. ❌️ Mostrar Actuación con Trabajadores asociados
 
 
 
