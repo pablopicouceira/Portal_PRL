@@ -15,7 +15,7 @@ async function validate(payload) {
   Joi.assert(payload, schema);
 }
 
-async function deleteWorker(req, res, next) {
+async function recoverWorker(req, res, next) {
   const { workerId } = req.params;
   //const { userId } = req.claims;
 
@@ -31,19 +31,17 @@ async function deleteWorker(req, res, next) {
     const sqlQuery = `UPDATE Trabajadores
       SET deleted_At = ?
       WHERE id = ?
-      AND deleted_At IS NULL`;
+      AND deleted_At IS NOT NULL`;
 
-    const deleted_At = new Date()
-      .toISOString()
-      .substring(0, 19)
-      .replace("T", " ");
+    const deleted_At = null;
+
     const [deletedStatus] = await connection.execute(sqlQuery, [
       deleted_At,
       workerId
     ]);
     connection.release();
 
-    if (deletedStatus.changedRows !== 1) {
+    if (deletedStatus.changedRows !== 0) {
       return res.status(404).send();
     }
 
@@ -57,4 +55,4 @@ async function deleteWorker(req, res, next) {
   }
 }
 
-module.exports = deleteWorker;
+module.exports = recoverWorker;
