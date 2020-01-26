@@ -38,6 +38,7 @@ CREATE TABLE `Actuaciones` (
 
 LOCK TABLES `Actuaciones` WRITE;
 /*!40000 ALTER TABLE `Actuaciones` DISABLE KEYS */;
+INSERT INTO `Actuaciones` VALUES ('865e8047-473b-4225-9a11-997067cd6b98','Obra menor','Bº Karega - CC Max Center','Barakaldo','Vizcaya'),('9993302b-641c-47d4-8d41-cf142638c12e','Instalación eléctrica oficina','Pol. de Pocomaco, 1º Avda, Parcela A6','A Coruña','A Coruña'),('efd9e2d1-d59a-4cc3-a526-27c51202b21c','Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona');
 /*!40000 ALTER TABLE `Actuaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +104,11 @@ CREATE TABLE `Trabajadores` (
   `dni` varchar(9) NOT NULL,
   `apellidos` varchar(45) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  `created_At` datetime NOT NULL,
+  `updated_At` datetime DEFAULT NULL,
+  `deleted_At` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `dni_UNIQUE` (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -113,6 +118,7 @@ CREATE TABLE `Trabajadores` (
 
 LOCK TABLES `Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Trabajadores` DISABLE KEYS */;
+INSERT INTO `Trabajadores` VALUES ('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','97648160G','Perdomo Arévalo','José Miguel','2020-01-24 23:30:01',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,NULL),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','Z5790285V','Niño Carbo','Cristian','2020-01-25 00:42:07',NULL,NULL);
 /*!40000 ALTER TABLE `Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +204,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES ('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20');
+INSERT INTO `Usuarios` VALUES ('18b68eca-66ff-4a36-a3ef-a9a5cc2df6a1','pablo02@yopmail.com','$2b$10$NQ7Sim.HZvkn8UUCWUEzF.3oqxXJxt5rM8bPn7qWLCN0NwDGk5SZu','2020-01-25 14:55:20'),('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -211,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-25 13:59:51
+-- Dump completed on 2020-01-26 14:39:51
