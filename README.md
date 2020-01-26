@@ -9,7 +9,7 @@ Listado de endpoints:
 3.  ✔️ Crear Trabajador
 4.  ❌️ Subir archivo de Trabajador 
 5.  ✔️ Actualizar Trabajador
-6.  ❌️ Borrar Trabajador
+6.  ✔️ Borrar Trabajador
 7.  ❌️ Asociar Trabajador
 8.  ✔️ Mostrar Trabajadores
 9.  ❌️ Mostrar Trabajador y Actuaciones en las que está asociado
