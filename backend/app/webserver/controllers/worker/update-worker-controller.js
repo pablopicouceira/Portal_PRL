@@ -62,17 +62,18 @@ async function updateWorker(req, res, next) {
   let connection;
   try {
     connection = await mysqlPool.getConnection();
-    // const now = new Date()
-    //   .toISOString()
-    //   .replace("T", " ")
-    //   .substring(0, 19);
+    const updated_At = new Date()
+      .toISOString()
+      .replace("T", " ")
+      .substring(0, 19);
     /**
      * Exercise: modify upated_at column to keep track when this record was modified
      */
     const sqlUpdateWorker = `UPDATE Trabajadores
       SET dni = ?,
         apellidos = ?,
-        nombre = ?
+        nombre = ?,
+        updated_At = ?
       WHERE id = ?`;
 
     /**
@@ -82,6 +83,7 @@ async function updateWorker(req, res, next) {
       workerData.dni,
       workerData.apellidos,
       workerData.nombre,
+      updated_At,
       workerId
     ]);
     connection.release();
