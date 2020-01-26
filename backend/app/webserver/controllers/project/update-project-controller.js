@@ -67,10 +67,10 @@ async function updateProject(req, res, next) {
   let connection;
   try {
     connection = await mysqlPool.getConnection();
-    // const now = new Date()
-    //   .toISOString()
-    //   .replace("T", " ")
-    //   .substring(0, 19);
+    const updated_At = new Date()
+      .toISOString()
+      .replace("T", " ")
+      .substring(0, 19);
     /**
      * Exercise: modify upated_at column to keep track when this record was modified
      */
@@ -78,8 +78,10 @@ async function updateProject(req, res, next) {
       SET descripcion = ?,
         direccion = ?,
         poblacion = ?,
-        provincia = ?
-      WHERE id = ?`;
+        provincia = ?,
+        updated_At = ?
+      WHERE id = ?
+      AND deleted_At IS NULL`;
 
     /**
      * Exercise: return 404 if the update was not possible
@@ -89,6 +91,7 @@ async function updateProject(req, res, next) {
       projectData.direccion,
       projectData.poblacion,
       projectData.provincia,
+      updated_At,
       projectId
     ]);
     connection.release();
