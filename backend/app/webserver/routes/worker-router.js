@@ -6,10 +6,12 @@ const checkAccountSession = require("../controllers/account/check-account-sessio
 
 const createWorker = require("../controllers/worker/create-worker-controller");
 const getWorkers = require("../controllers/worker/get-workers-controller");
+const updateWorker = require("../controllers/worker/update-worker-controller");
 
 const router = express.Router();
 
 router.post("/workers", checkAccountSession, createWorker);
 router.get("/workers", checkAccountSession, getWorkers);
+router.put("/workers/:workerId", checkAccountSession, updateWorker);
 
 module.exports = router;
