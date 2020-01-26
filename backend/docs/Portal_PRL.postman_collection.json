@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Crear Usuario",
+			"name": "1. Crear Usuario",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -40,7 +40,7 @@
 			"response": []
 		},
 		{
-			"name": "Login",
+			"name": "2. Login",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -68,7 +68,7 @@
 			"response": []
 		},
 		{
-			"name": "Crear Trabajador",
+			"name": "3. Crear Trabajador",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -112,7 +112,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Trabajador",
+			"name": "5. Actualizar Trabajador",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -156,7 +156,7 @@
 			"response": []
 		},
 		{
-			"name": "Mostrar Trabajadores",
+			"name": "8. Mostrar Trabajadores",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -167,7 +167,38 @@
 			"response": []
 		},
 		{
-			"name": "Crear Actuación",
+			"name": "6. Borrar Trabajador",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/workers/12c92c00-396c-4dc9-b7a0-285bfc611e5c",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers",
+						"12c92c00-396c-4dc9-b7a0-285bfc611e5c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Crear Actuación",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -211,7 +242,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Actuación",
+			"name": "11. Actualizar Actuación",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -246,7 +277,38 @@
 			"response": []
 		},
 		{
-			"name": "Mostrar Actuaciones",
+			"name": "12. Borrar Actuación",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/notes/37664a0b-0811-4005-8a26-db41b93825a8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"37664a0b-0811-4005-8a26-db41b93825a8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. Mostrar Actuaciones",
 			"request": {
 				"auth": {
 					"type": "bearer",
