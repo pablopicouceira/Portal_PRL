@@ -19,7 +19,7 @@ Listado de endpoints:
 13. ✔️ Actualizar Actuación (pendiente modificar para que muestre 404 si el update no fue posible)
 14. ✔️ Borrar Actuación
 15. ✔️ Mostrar Actuaciones
-16. ❌️ Mostrar actuaciones inactivas
+16. ✔️ Mostrar actuaciones inactivas
 17. ❌️ Mostrar Actuación con Trabajadores asociados
 
 
