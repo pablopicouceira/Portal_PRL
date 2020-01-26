@@ -45,10 +45,10 @@ async function createWorker(req, res, next) {
     return res.status(400).send(e);
   }
 
-  //   const now = new Date()
-  //     .toISOString()
-  //     .substring(0, 19)
-  //     .replace("T", " ");
+  const created_At = new Date()
+    .toISOString()
+    .substring(0, 19)
+    .replace("T", " ");
   const { dni, apellidos, nombre } = workerData;
 
   const id = uuidV4();
@@ -56,8 +56,8 @@ async function createWorker(req, res, next) {
     id,
     dni,
     apellidos,
-    nombre
-    //created_at: now
+    nombre,
+    created_At
   };
 
   try {
