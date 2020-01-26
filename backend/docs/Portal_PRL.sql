@@ -28,6 +28,9 @@ CREATE TABLE `Actuaciones` (
   `direccion` varchar(45) NOT NULL,
   `poblacion` varchar(45) NOT NULL,
   `provincia` varchar(45) NOT NULL,
+  `created_At` datetime NOT NULL,
+  `updated_At` datetime DEFAULT NULL,
+  `deleted_At` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +41,7 @@ CREATE TABLE `Actuaciones` (
 
 LOCK TABLES `Actuaciones` WRITE;
 /*!40000 ALTER TABLE `Actuaciones` DISABLE KEYS */;
-INSERT INTO `Actuaciones` VALUES ('865e8047-473b-4225-9a11-997067cd6b98','Obra menor','Bº Karega - CC Max Center','Barakaldo','Vizcaya'),('9993302b-641c-47d4-8d41-cf142638c12e','Instalación eléctrica oficina','Pol. de Pocomaco, 1º Avda, Parcela A6','A Coruña','A Coruña'),('efd9e2d1-d59a-4cc3-a526-27c51202b21c','Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona');
+INSERT INTO `Actuaciones` VALUES ('865e8047-473b-4225-9a11-997067cd6b98','Obra menor','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17',NULL,NULL),('9993302b-641c-47d4-8d41-cf142638c12e','Instalación eléctrica oficina','Pol. de Pocomaco, 1º Avda, Parcela A6','A Coruña','A Coruña','2020-01-25 00:08:23',NULL,NULL),('efd9e2d1-d59a-4cc3-a526-27c51202b21c','Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona','2020-01-25 07:19:58',NULL,NULL);
 /*!40000 ALTER TABLE `Actuaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +121,7 @@ CREATE TABLE `Trabajadores` (
 
 LOCK TABLES `Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Trabajadores` DISABLE KEYS */;
-INSERT INTO `Trabajadores` VALUES ('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','97648160G','Perdomo Arévalo','José Miguel','2020-01-24 23:30:01',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,NULL),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','Z5790285V','Niño Carbo','Cristian','2020-01-25 00:42:07',NULL,NULL);
+INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,'2020-01-26 18:15:32'),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,NULL),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,NULL),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Sicilia','Antonia','2020-01-25 00:42:07','2020-01-26 17:57:13',NULL);
 /*!40000 ALTER TABLE `Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-26 14:39:51
+-- Dump completed on 2020-01-26 19:37:10
