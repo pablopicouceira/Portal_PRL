@@ -2,7 +2,7 @@
 
 const mysqlPool = require("../../../database/mysql-pool");
 
-async function getProjects(req, res, next) {
+async function getInactiveProjects(req, res, next) {
   const { userId } = req.claims;
 
   // 2. Select all tags
@@ -36,4 +36,4 @@ async function getProjects(req, res, next) {
   }
 }
 
-module.exports = getProjects;
+module.exports = getInactiveProjects;
