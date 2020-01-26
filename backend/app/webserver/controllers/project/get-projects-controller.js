@@ -9,14 +9,18 @@ async function getProjects(req, res, next) {
   try {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT *
-      FROM Actuaciones`;
+      FROM Actuaciones
+      WHERE deleted_At IS NULL`;
     const [rows] = await connection.execute(sqlQuery);
     connection.release();
 
     // preparar respuesta
     const projects = rows.map(project => {
       return {
-        ...project
+        ...project,
+        created_At: undefined,
+        updated_At: undefined,
+        deleted_At: undefined
         // createdAt: tag.created_at,
         // updatedAt: tag.updated_at,
         // user_id: undefined,
