@@ -45,6 +45,7 @@ async function createProject(req, res, next) {
   const projectData = { ...req.body };
   // const { userId } = req.claims;
 
+  let id = null;
   try {
     await validate(projectData);
   } catch (e) {
@@ -57,9 +58,23 @@ async function createProject(req, res, next) {
     .replace("T", " ");
   const { descripcion, direccion, poblacion, provincia } = projectData;
 
-  const id = uuidV4();
+  try {
+    const connection = await mysqlPool.getConnection();
+    const sqlQuery = `SELECT *
+      FROM Actuaciones 
+      ORDER BY id DESC LIMIT 1`;
+    const [rows] = await connection.execute(sqlQuery);
+    id = rows[0].id;
+    console.log(id);
+    connection.release();
+  } catch (e) {
+    console.error(e);
+    return res.status(500).send();
+  }
+
+  //const id = uuidV4();
   const project = {
-    id,
+    // id,
     descripcion,
     direccion,
     poblacion,
