@@ -51,10 +51,10 @@ async function createProject(req, res, next) {
     return res.status(418).send(e);
   }
 
-  //   const now = new Date()
-  //     .toISOString()
-  //     .substring(0, 19)
-  //     .replace("T", " ");
+  const created_At = new Date()
+    .toISOString()
+    .substring(0, 19)
+    .replace("T", " ");
   const { descripcion, direccion, poblacion, provincia } = projectData;
 
   const id = uuidV4();
@@ -63,8 +63,8 @@ async function createProject(req, res, next) {
     descripcion,
     direccion,
     poblacion,
-    provincia
-    //created_at: now
+    provincia,
+    created_At
   };
 
   try {
