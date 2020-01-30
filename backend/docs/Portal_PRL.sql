@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.28, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: Portal_PRL
 -- ------------------------------------------------------
--- Server version	5.7.28-0ubuntu0.18.04.4
+-- Server version	5.7.29-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Actuaciones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Actuaciones` (
-  `id` varchar(64) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(256) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `poblacion` varchar(45) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `Actuaciones` (
   `updated_At` datetime DEFAULT NULL,
   `deleted_At` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `Actuaciones` (
 
 LOCK TABLES `Actuaciones` WRITE;
 /*!40000 ALTER TABLE `Actuaciones` DISABLE KEYS */;
-INSERT INTO `Actuaciones` VALUES ('865e8047-473b-4225-9a11-997067cd6b98','Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),('9993302b-641c-47d4-8d41-cf142638c12e','Montaje de paneles solares','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:08:23','2020-01-26 20:31:00',NULL),('efd9e2d1-d59a-4cc3-a526-27c51202b21c','Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona','2020-01-25 07:19:58',NULL,NULL);
+INSERT INTO `Actuaciones` VALUES (1,'Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona','2020-01-25 07:19:58',NULL,NULL),(2,'Carretera','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:08:23','2020-01-27 02:03:34',NULL),(3,'Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),(4,'Puente','Caneliñas','Ferrol','A Coruña','2020-01-28 23:42:36',NULL,NULL),(5,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:10:49',NULL,NULL),(6,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(7,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(8,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:27',NULL,NULL),(9,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:28',NULL,NULL),(10,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-29 01:12:01',NULL,NULL);
 /*!40000 ALTER TABLE `Actuaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `Actuaciones_Trabajadores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Actuaciones_Trabajadores` (
-  `Actuaciones_id` varchar(64) NOT NULL,
+  `Actuaciones_id` int(11) NOT NULL AUTO_INCREMENT,
   `Trabajadores_id` varchar(64) NOT NULL,
   PRIMARY KEY (`Actuaciones_id`,`Trabajadores_id`),
   KEY `fk_Actuaciones_has_Trabajadores_Trabajadores1_idx` (`Trabajadores_id`),
@@ -121,7 +121,7 @@ CREATE TABLE `Trabajadores` (
 
 LOCK TABLES `Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Trabajadores` DISABLE KEYS */;
-INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,'2020-01-26 21:42:45'),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,'2020-01-26 21:53:05'),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,'2020-01-26 21:43:05'),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,'2020-01-26 21:57:45'),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,NULL),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Sicilia','Antonia','2020-01-25 00:42:07','2020-01-26 17:57:13',NULL);
+INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,'2020-01-26 21:43:05'),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,'2020-01-26 21:57:45'),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,NULL),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Rodríguez','Antonia','2020-01-25 00:42:07','2020-01-27 09:36:20',NULL);
 /*!40000 ALTER TABLE `Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-26 23:08:13
+-- Dump completed on 2020-01-30 21:05:31
