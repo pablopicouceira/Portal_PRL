@@ -258,7 +258,18 @@
 			"response": []
 		},
 		{
-			"name": "12. Crear Actuación",
+			"name": "11. Mostrar Trabajador",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. Crear Actuación",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -302,7 +313,7 @@
 			"response": []
 		},
 		{
-			"name": "13. Actualizar Actuación",
+			"name": "14. Actualizar Actuación",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -337,7 +348,7 @@
 			"response": []
 		},
 		{
-			"name": "14. Borrar Actuación",
+			"name": "15. Borrar Actuación",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -368,7 +379,7 @@
 			"response": []
 		},
 		{
-			"name": "15. Mostrar Actuaciones",
+			"name": "16. Mostrar Actuaciones",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -396,7 +407,35 @@
 			"response": []
 		},
 		{
-			"name": "16. Mostrar Actuaciones inactivas",
+			"name": "17. Mostrar Actuaciones inactivas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18. Mostrar Actuación",
 			"request": {
 				"auth": {
 					"type": "bearer",
