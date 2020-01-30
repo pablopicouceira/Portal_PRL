@@ -5,7 +5,7 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 async function validate(payload) {
   const schema = Joi.object({
-    projectId: Joi.number().required(),
+    workerId: Joi.string().required(),
     userId: Joi.string()
       .guid({
         version: ["uuidv4"]
@@ -33,7 +33,7 @@ async function getWorker(req, res, next) {
 
   try {
     const connection = await mysqlPool.getConnection();
-    const getProjectQuery = `SELECT id, dni, apellidos, nombre
+    const getWorkerQuery = `SELECT id, dni, apellidos, nombre
       FROM Trabajadores 
       WHERE id = ?`;
     const [results] = await connection.execute(getWorkerQuery, [workerId]);
