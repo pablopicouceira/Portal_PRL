@@ -21,5 +21,5 @@ Listado de endpoints:
 15. ✔️ Borrar Actuación
 16. ✔️ Mostrar Actuaciones
 17. ✔️ Mostrar Actuaciones inactivas
-18. ❌️ Mostrar Actuación
+18. ✔️ Mostrar Actuación
 19. ❌️ Mostrar Actuación con Trabajadores asociados
