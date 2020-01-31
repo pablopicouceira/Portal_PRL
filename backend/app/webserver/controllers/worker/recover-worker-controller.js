@@ -42,10 +42,10 @@ async function recoverWorker(req, res, next) {
     connection.release();
 
     if (deletedStatus.changedRows !== 0) {
-      return res.status(404).send();
+      return res.status(204).send();
     }
 
-    return res.status(204).send();
+    return res.status(404).send();
   } catch (e) {
     if (connection) {
       connection.release();
