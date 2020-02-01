@@ -18,12 +18,10 @@ async function getWorkers(req, res, next) {
     // preparar respuesta
     const Trabajadores = rows.map(trabajador => {
       return {
-        ...trabajador
-        // createdAt: tag.created_at,
-        // updatedAt: tag.updated_at,
-        // user_id: undefined,
-        // created_at: undefined,
-        // updated_at: undefined
+        ...trabajador,
+        created_At: undefined,
+        updated_At: undefined,
+        deleted_At: undefined
       };
     });
 

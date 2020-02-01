@@ -218,6 +218,50 @@
 			"response": []
 		},
 		{
+			"name": "8. Asociar Trabajador a Actuación",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descripción\": \"Ejecución de edificio de 144 viviendas\",\n\t\"direccion\": \"Avda. de Aragón 148\",\n\t\"poblacion\": \"Terrassa\"\n\t\"provincia\": \"Barcelona\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "9. Mostrar Trabajadores",
 			"request": {
 				"method": "GET",
@@ -263,7 +307,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{baseUrl}}/api/workers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers"
+					]
 				}
 			},
 			"response": []
@@ -457,6 +508,36 @@
 					"path": [
 						"api",
 						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19. Mostrar Trabajadores asociados a una Actuación",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/projects/4/workers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"4",
+						"workers"
 					]
 				}
 			},

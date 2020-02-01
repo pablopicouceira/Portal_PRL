@@ -32,7 +32,7 @@ CREATE TABLE `Actuaciones` (
   `updated_At` datetime DEFAULT NULL,
   `deleted_At` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `Actuaciones` (
 
 LOCK TABLES `Actuaciones` WRITE;
 /*!40000 ALTER TABLE `Actuaciones` DISABLE KEYS */;
-INSERT INTO `Actuaciones` VALUES (1,'Ejecución de edificio de 144 viviendas','Avda. de Aragón 148','Terrassa','Barcelona','2020-01-25 07:19:58',NULL,NULL),(2,'Carretera','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:08:23','2020-01-27 02:03:34',NULL),(3,'Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),(4,'Puente','Caneliñas','Ferrol','A Coruña','2020-01-28 23:42:36',NULL,NULL),(5,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:10:49',NULL,NULL),(6,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(7,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(8,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:27',NULL,NULL),(9,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:28',NULL,NULL),(10,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-29 01:12:01',NULL,NULL);
+INSERT INTO `Actuaciones` VALUES (1,'Adecuación de divesas actuaciones del Palacion de Ferias y Congresos de Lugo','Avda. de los Deportes s/n','Lugo','Lugo','2020-01-25 07:19:58','2020-01-31 18:28:37',NULL),(2,'Remodelación de edificion','C/ Ayala 8','Madrid','Madrid','2020-01-25 00:08:23','2020-01-31 18:28:47',NULL),(3,'Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),(4,'Acondicionamiento y mejora de trazado','Ctra. N-432 Tramo: Cerro Muriano - Córdoba','Córdoba','Córdoba','2020-01-28 23:42:36','2020-01-31 18:34:29',NULL),(5,'Sucursal nº 2 Correos','C/ Cantera 25-27','Valladolid','Valladolid','2020-01-29 01:10:49','2020-01-31 18:51:18',NULL),(6,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(7,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(8,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:27',NULL,NULL),(9,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:28',NULL,NULL),(10,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-29 01:12:01',NULL,NULL),(23,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-30 20:39:03',NULL,NULL);
 /*!40000 ALTER TABLE `Actuaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `Actuaciones_Trabajadores` (
   KEY `fk_Actuaciones_has_Trabajadores_Actuaciones1_idx` (`Actuaciones_id`),
   CONSTRAINT `fk_Actuaciones_has_Trabajadores_Actuaciones1` FOREIGN KEY (`Actuaciones_id`) REFERENCES `Actuaciones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Actuaciones_has_Trabajadores_Trabajadores1` FOREIGN KEY (`Trabajadores_id`) REFERENCES `Trabajadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +69,7 @@ CREATE TABLE `Actuaciones_Trabajadores` (
 
 LOCK TABLES `Actuaciones_Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Actuaciones_Trabajadores` DISABLE KEYS */;
+INSERT INTO `Actuaciones_Trabajadores` VALUES (1,'4cf5e836-9a1b-4deb-af39-9eeebd70a88c'),(2,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(2,'6d72f03f-905b-4fdf-a265-52a1e92d946a'),(5,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(5,'13cf1066-918d-4467-8e6e-6e3cec10fb31'),(5,'66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473');
 /*!40000 ALTER TABLE `Actuaciones_Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +122,7 @@ CREATE TABLE `Trabajadores` (
 
 LOCK TABLES `Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Trabajadores` DISABLE KEYS */;
-INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,'2020-01-26 21:43:05'),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,'2020-01-26 21:57:45'),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,NULL),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Rodríguez','Antonia','2020-01-25 00:42:07','2020-01-27 09:36:20',NULL);
+INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,NULL),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,'2020-01-31 18:17:44'),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Rodríguez','Antonia','2020-01-25 00:42:07','2020-01-27 09:36:20',NULL);
 /*!40000 ALTER TABLE `Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +196,7 @@ CREATE TABLE `Usuarios` (
   `id` varchar(64) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `creada_en` datetime NOT NULL,
+  `created_At` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -207,7 +208,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES ('18b68eca-66ff-4a36-a3ef-a9a5cc2df6a1','pablo02@yopmail.com','$2b$10$NQ7Sim.HZvkn8UUCWUEzF.3oqxXJxt5rM8bPn7qWLCN0NwDGk5SZu','2020-01-25 14:55:20'),('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20');
+INSERT INTO `Usuarios` VALUES ('18b68eca-66ff-4a36-a3ef-a9a5cc2df6a1','pablo02@yopmail.com','$2b$10$NQ7Sim.HZvkn8UUCWUEzF.3oqxXJxt5rM8bPn7qWLCN0NwDGk5SZu','2020-01-25 14:55:20'),('1bbf897a-fb89-4fa1-aa1c-bea23df1d179','pablo25@yopmail.com','$2b$10$mX0rMroPJIwfj4AmUKckYeddSePM2l.FMbFBs6yOjhdSzL.NQOHV2','2020-02-01 11:37:22'),('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -220,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-30 21:05:31
+-- Dump completed on 2020-02-01 19:43:29

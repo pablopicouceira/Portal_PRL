@@ -25,11 +25,7 @@ async function validateSchema(payload) {
       .min(1)
       .max(45)
       .required(),
-    projectId: Joi.string()
-      .guid({
-        version: ["uuidv4"]
-      })
-      .required(),
+    projectId: Joi.number().required(),
     userId: Joi.string()
       .guid({
         version: ["uuidv4"]
