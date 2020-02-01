@@ -5,11 +5,7 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 async function validate(payload) {
   const schema = Joi.object({
-    projectId: Joi.string()
-      .guid({
-        version: ["uuidv4"]
-      })
-      .required()
+    projectId: Joi.number().required()
   });
 
   Joi.assert(payload, schema);
