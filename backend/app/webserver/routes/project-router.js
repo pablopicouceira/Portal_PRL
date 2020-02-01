@@ -16,6 +16,7 @@ const getWorkersFromProject = require("../controllers/project/get-workers-projec
 const router = express.Router();
 
 router.post("/projects", checkAccountSession, createProject);
+router.get("/projects/inactive", checkAccountSession, getInactiveProject);
 router.delete("/projects/:projectId", checkAccountSession, deleteProject);
 router.get("/projects", checkAccountSession, getProjects);
 router.get("/projects/:projectId", checkAccountSession, getProject);
@@ -24,7 +25,6 @@ router.get(
   checkAccountSession,
   getWorkersFromProject
 );
-router.get("/projects/inactive", checkAccountSession, getInactiveProject);
 router.put("/projects/:projectId", checkAccountSession, updateProject);
 router.post(
   "/projects/:projectId/:workerId",
