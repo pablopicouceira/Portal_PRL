@@ -22,4 +22,4 @@ Listado de endpoints:
 16. ✔️ Mostrar Actuaciones
 17. ✔️ Mostrar Actuaciones inactivas
 18. ✔️ Mostrar Actuación
-19. ❌️ Mostrar Actuación con Trabajadores asociados
+19. ✔️ Mostrar Actuación con Trabajadores asociados
