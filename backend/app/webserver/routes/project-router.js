@@ -11,7 +11,7 @@ const getInactiveProject = require("../controllers/project/get-inactive-projects
 const getProjects = require("../controllers/project/get-projects-controller");
 const getProject = require("../controllers/project/get-project-controller");
 const updateProject = require("../controllers/project/update-project-controller");
-const getWorkersFromProject = require("../controllers/project/get-workers-project controller");
+const getWorkersFromProject = require("../controllers/project/get-workers-project-controller");
 
 const router = express.Router();
 
