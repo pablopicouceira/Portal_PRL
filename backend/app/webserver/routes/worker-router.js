@@ -11,7 +11,7 @@ const getWorkers = require("../controllers/worker/get-workers-controller");
 const getWorker = require("../controllers/worker/get-worker-controller");
 const recoverWorker = require("../controllers/worker/recover-worker-controller");
 const updateWorker = require("../controllers/worker/update-worker-controller");
-const getProjectsFromWorker = require("../controllers/worker/get-projects-worker controller");
+//const getProjectsFromWorker = require("../controllers/worker/get-projects-worker-controller");
 
 const router = express.Router();
 
@@ -22,10 +22,10 @@ router.get("/workers/:workerId", checkAccountSession, getWorker);
 router.put("/workers/:workerId", checkAccountSession, updateWorker);
 router.put("/workers/recover/:workerId", checkAccountSession, recoverWorker);
 router.delete("/workers/:workerId", checkAccountSession, deleteWorker);
-router.post(
-  "/worker/:workerId/:projectId",
-  checkAccountSession,
-  getProjectsFromWorker
-);
+// router.post(
+//   "/worker/:workerId/:projectId",
+//   checkAccountSession,
+//   getProjectsFromWorker
+// );
 
 module.exports = router;
