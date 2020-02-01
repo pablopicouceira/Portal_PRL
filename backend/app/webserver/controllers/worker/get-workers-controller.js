@@ -10,7 +10,8 @@ async function getWorkers(req, res, next) {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT *
       FROM Trabajadores
-      WHERE deleted_At IS NULL`;
+      WHERE deleted_At IS NULL
+      ORDER BY Apellidos ASC`;
     //WHERE user_id = ?`;
     const [rows] = await connection.execute(sqlQuery); //, [userId]);
     connection.release();
