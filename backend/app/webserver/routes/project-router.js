@@ -4,6 +4,7 @@ const express = require("express");
 
 const checkAccountSession = require("../controllers/account/check-account-session");
 
+const associateWorkerToProject = require("../controllers/project/associate-worker-project");
 const createProject = require("../controllers/project/create-project-controller");
 const deleteProject = require("../controllers/project/delete-project-controller");
 const getInactiveProject = require("../controllers/project/get-inactive-projects-controller");
@@ -19,5 +20,10 @@ router.get("/projects", checkAccountSession, getProjects);
 router.get("/projects/:projectId", checkAccountSession, getProject);
 router.get("/projects/inactive", checkAccountSession, getInactiveProject);
 router.put("/projects/:projectId", checkAccountSession, updateProject);
+router.post(
+  "/projects/:projectId/:workerId",
+  checkAccountSession,
+  associateWorkerToProject
+);
 
 module.exports = router;
