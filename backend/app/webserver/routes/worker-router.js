@@ -25,7 +25,7 @@ router.delete("/workers/:workerId", checkAccountSession, deleteWorker);
 router.post(
   "/worker/:workerId/:projectId",
   checkAccountSession,
-  associateProjectToWorker
+  getProjectsFromWorker
 );
 
 module.exports = router;
