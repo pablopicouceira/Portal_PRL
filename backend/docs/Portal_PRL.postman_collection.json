@@ -514,7 +514,7 @@
 			"response": []
 		},
 		{
-			"name": "19. Mostrar Actuación con Trabajadores asociados",
+			"name": "19. Mostrar Trabajadores asociados a una Actuación",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -529,13 +529,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/projects",
+					"raw": "{{baseUrl}}/api/projects/4/workers",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"projects"
+						"projects",
+						"4",
+						"workers"
 					]
 				}
 			},
