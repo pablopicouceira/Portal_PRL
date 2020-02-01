@@ -10,7 +10,8 @@ async function getInactiveWorkers(req, res, next) {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT *
       FROM Trabajadores
-      WHERE deleted_At IS NOT NULL`;
+      WHERE deleted_At IS NOT NULL
+      ORDER BY Apellidos ASC`;
     //WHERE user_id = ?`;
     const [rows] = await connection.execute(sqlQuery); //, [userId]);
     connection.release();
