@@ -11,7 +11,7 @@ Listado de endpoints:
 5.  ✔️ Actualizar Trabajador
 6.  ✔️ Borrar Trabajador
 7.  ✔️ Recuperar Trabajador
-8.  ❌️ Asociar Trabajador
+8.  ✔️ Asociar Trabajador
 9.  ✔️ Mostrar Trabajadores
 10. ✔️ Mostrar trabajador inactivos
 11. ✔️ Mostrar trabajador
