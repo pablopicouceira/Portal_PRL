@@ -48,8 +48,7 @@ async function createAccount(req, res, next) {
   /**
    * At this point, all data is valid
    */
-  const now = new Date();
-  const createdAt = now
+  const created_At = new Date()
     .toISOString()
     .replace("T", " ")
     .substring(0, 19);
@@ -64,7 +63,7 @@ async function createAccount(req, res, next) {
       id: userId,
       email: accountData.email,
       password: securePassword,
-      creada_en: createdAt
+      created_At
     });
     connection.release();
 
