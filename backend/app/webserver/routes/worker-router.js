@@ -15,9 +15,9 @@ const updateWorker = require("../controllers/worker/update-worker-controller");
 const router = express.Router();
 
 router.post("/workers", checkAccountSession, createWorker);
+router.get("/workers/inactive", checkAccountSession, getInactiveWorkers);
 router.get("/workers", checkAccountSession, getWorkers);
 router.get("/workers/:workerId", checkAccountSession, getWorker);
-router.get("/workers/inactive", checkAccountSession, getInactiveWorkers);
 router.put("/workers/:workerId", checkAccountSession, updateWorker);
 router.put("/workers/recover/:workerId", checkAccountSession, recoverWorker);
 router.delete("/workers/:workerId", checkAccountSession, deleteWorker);

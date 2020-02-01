@@ -35,7 +35,7 @@ async function login(req, res, next) {
     return res.status(400).send(e);
   }
 
-  const sqlQuery = `SELECT id, email, password, creada_en
+  const sqlQuery = `SELECT id, email, password, created_At
     FROM Usuarios
     WHERE email = '${accountData.email}'`;
   // pedir conexion + hacer query + release
