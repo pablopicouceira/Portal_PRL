@@ -1,13 +1,22 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Portada } from "./pages/Portada";
+import { Login } from "./pages/Login";
 
-import "./App.css";
+import "./css/App.css";
 
 function App() {
   return (
-    <div className="App">
-      <p>Portal Gestión PRL</p>
-    </div>
+    <BrowserRouter>
+      <switch>
+        <Route exact path="/">
+          <Portada />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </switch>
+    </BrowserRouter>
   );
 }
 
