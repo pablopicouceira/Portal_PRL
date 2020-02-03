@@ -11,11 +11,11 @@ Listado de endpoints:
 5.  ✔️ Actualizar Trabajador
 6.  ✔️ Borrar Trabajador
 7.  ✔️ Recuperar Trabajador
-8.  ✔️ Asociar Trabajador
+8.  ✔️ Asociar Trabajador a Actuación
 9.  ✔️ Mostrar Trabajadores
 10. ✔️ Mostrar trabajador inactivos
 11. ✔️ Mostrar trabajador
-12. ❌️ Mostrar Actuaciones en las que está asociado un Trabajador
+12. ✔️ Mostrar Actuaciones en las que está asociado un Trabajador
 13. ✔️ Crear Actuación
 14. ✔️ Actualizar Actuación (pendiente modificar para que muestre 404 si el update no fue posible)
 15. ✔️ Borrar Actuación
