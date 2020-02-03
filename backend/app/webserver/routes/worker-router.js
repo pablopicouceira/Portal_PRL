@@ -22,8 +22,8 @@ router.get("/workers/:workerId", checkAccountSession, getWorker);
 router.put("/workers/:workerId", checkAccountSession, updateWorker);
 router.put("/workers/recover/:workerId", checkAccountSession, recoverWorker);
 router.delete("/workers/:workerId", checkAccountSession, deleteWorker);
-router.post(
-  "/worker/:workerId/:projectId",
+router.get(
+  "/workers/:workerId/projects",
   checkAccountSession,
   getProjectsWorkerController
 );
