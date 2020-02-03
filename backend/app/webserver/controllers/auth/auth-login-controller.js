@@ -77,8 +77,9 @@ async function login(req, res, next) {
 
     return res.send({
       accessToken: token,
-      avatarUrl: user.avatar_url,
-      expiresIn: jwtExpiresIn
+
+      expiresIn: jwtExpiresIn,
+      user
     });
   } catch (e) {
     console.error(e);
