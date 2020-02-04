@@ -1,12 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from "../http/authService";
+import { useAuth } from "../context/auth-context";
 
 export function Login() {
-  const { handleSubmit, register, errors } = useForm();
+  // const [backendErrorMessage, setBackendErrorMessage] = useState("");
+
+  const {
+    handleSubmit,
+    register,
+    errors,
+    watch,
+    formState,
+    setError,
+    setValue
+  } = useForm();
+
+  const history = useHistory();
+
   const handleLogin = formData => {
-    login(formData);
+    login(formData)
+      .then(response => {
+        localStorage.setItem("currentUser", JSON.stringify(response.data));
+
+        history.push("/portada");
+      })
+      .catch(error => {
+        // setBackendErrorMessage("The credentials are not valid");
+        setValue("password", "");
+        setError("password", "credentials", "The credentials are invalid");
+      });
   };
 
   console.log("ERROR:", errors);
@@ -14,6 +38,14 @@ export function Login() {
     <React.Fragment>
       <main className="centered-container">
         <h3>Please Login</h3>
+
+        {/* {backendErrorMessage && !formState.isValid && (
+          <p className="alert">
+            {backendErrorMessage}
+            <span onClick={() => setBackendErrorMessage("")}>close</span>
+          </p>
+        )} */}
+
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="form-control">
             <label>Email</label>
@@ -53,7 +85,11 @@ export function Login() {
             )}
           </div>
           <div className="button-container">
-            <button type="submit" className="btn">
+            <button
+              type="submit"
+              className="btn"
+              disabled={formState.isSubmitting}
+            >
               Login
             </button>
             <Link to="/portada">"Don't have an account?"</Link>
