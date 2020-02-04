@@ -23,7 +23,7 @@ export function Login() {
   const handleLogin = formData => {
     login(formData)
       .then(response => {
-        localStorage.setItem("currentUser", JSON.stringify(response.data));
+        //localStorage.setItem("currentUser", JSON.stringify(response.data));
         setIsAuthenticated(true);
         setCurrentUser(response.data);
 
@@ -32,11 +32,11 @@ export function Login() {
       .catch(error => {
         // setBackendErrorMessage("The credentials are not valid");
         setValue("password", "");
-        setError("password", "credentials", "The credentials are invalid");
+        setError("password", "credentials", "Problem with the credentials");
       });
   };
 
-  console.log("ERROR:", errors);
+  // console.log("ERROR:", errors);
   return (
     <React.Fragment>
       <main className="centered-container">
