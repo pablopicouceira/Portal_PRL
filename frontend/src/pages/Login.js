@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { login } from "../http/authService";
 import { useAuth } from "../context/auth-context";
 
+import "../css/login.css";
+
 export function Login() {
   // const [backendErrorMessage, setBackendErrorMessage] = useState("");
 
@@ -39,6 +41,11 @@ export function Login() {
   console.log("ERROR:", errors);
   return (
     <React.Fragment>
+      <header className="header">
+        {" "}
+        <h1>Portal_PRL</h1>{" "}
+      </header>
+
       <main className="centered-container">
         <h3>Please Login</h3>
 
