@@ -6,6 +6,7 @@ import "./css/App.css";
 import { Trabajadores } from "./pages/Trabajadores";
 import { Actuaciones } from "./pages/Actuaciones";
 import { AuthProvider } from "./context/auth-context";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -15,15 +16,15 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          <Route path="/portada">
+          <PrivateRoute path="/portada">
             <Portada />
-          </Route>
-          <Route path="/trabajadores">
+          </PrivateRoute>
+          <PrivateRoute path="/trabajadores">
             <Trabajadores />
-          </Route>
-          <Route path="/actuaciones">
+          </PrivateRoute>
+          <PrivateRoute path="/actuaciones">
             <Actuaciones />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </AuthProvider>
     </BrowserRouter>
