@@ -18,11 +18,14 @@ export function Login() {
   } = useForm();
 
   const history = useHistory();
+  const { setIsAuthenticated, setCurrentUser } = useAuth();
 
   const handleLogin = formData => {
     login(formData)
       .then(response => {
         localStorage.setItem("currentUser", JSON.stringify(response.data));
+        setIsAuthenticated(true);
+        setCurrentUser(response.data);
 
         history.push("/portada");
       })
