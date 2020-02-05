@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-const token = (storedUser && storedUser.accessToken) || null;
+// const token = (storedUser && storedUser.accessToken) || null;
 axios.interceptors.request.use(function(config) {
   console.log("REQUEST INTERCEPTOR:", config);
-  if (config.url.indexOf("/auth") !== -1) {
-    config.headers["Authorization"] = `Bearer ${token}`;
+  if (config.url.indexOf("/auth") === -1) {
+    config.headers["Authorization"] = `Bearer ${storedUser.accessToken}`;
   }
   return config;
 });
