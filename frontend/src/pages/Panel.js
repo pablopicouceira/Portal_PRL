@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Portada() {
+export function Panel() {
   return (
     <div className="App">
       <p>Portal Gestión PRL</p>

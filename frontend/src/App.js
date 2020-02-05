@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Portada } from "./pages/Portada";
+import { Panel } from "./pages/Panel";
 import { Login } from "./pages/Login";
 import "./css/App.css";
 import { Trabajadores } from "./pages/Trabajadores";
@@ -17,7 +17,7 @@ function App() {
             <Login />
           </Route>
           <PrivateRoute path="/portada">
-            <Portada />
+            <Panel />
           </PrivateRoute>
           <PrivateRoute path="/trabajadores">
             <Trabajadores />
