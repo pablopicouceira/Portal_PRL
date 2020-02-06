@@ -1,9 +1,6 @@
 import React from "react";
+import { Header } from "../components/Header";
 
 export function Panel() {
-  return (
-    <div className="App">
-      <p>Portal Gestión PRL</p>
-    </div>
-  );
+  return <Header />;
 }
