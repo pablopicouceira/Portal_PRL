@@ -6,15 +6,15 @@ export function Header({ title }) {
     <header>
       <p>{title}</p>
       <nav>
-        <a>
+        <span>
           <Link to="/panel">Panel</Link>
-        </a>
-        <a>
+        </span>
+        <span>
           <Link to="/actuaciones">Actuaciones</Link>
-        </a>
-        <a>
+        </span>
+        <span>
           <Link to="/trabajadores">Trabajadores</Link>
-        </a>
+        </span>
       </nav>
     </header>
   );

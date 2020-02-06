@@ -15,7 +15,7 @@ export function Trabajadores() {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header title="Portal Gestión PRL" />
       <div className="App">
         <h1>Trabajadores</h1>
         <ul>
