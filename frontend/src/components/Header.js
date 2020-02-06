@@ -1,19 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export function Header() {
+export function Header({ title }) {
   return (
     <header>
-      <p>Portal Gestión PRL</p>
-      <div>
-        <Link to="/panel">Panel</Link>
-      </div>
-      <div>
-        <Link to="/actuaciones">Actuaciones</Link>;
-      </div>
-      <div>
-        <Link to="/trabajadores">Trabajadores</Link>;
-      </div>
+      <p>{title}</p>
+      <nav>
+        <a>
+          <Link to="/panel">Panel</Link>
+        </a>
+        <a>
+          <Link to="/actuaciones">Actuaciones</Link>
+        </a>
+        <a>
+          <Link to="/trabajadores">Trabajadores</Link>
+        </a>
+      </nav>
     </header>
   );
 }
