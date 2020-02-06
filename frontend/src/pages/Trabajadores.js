@@ -14,7 +14,6 @@ export function Trabajadores() {
 
   return (
     <div className="App">
-      <button>Ver Trabajadores</button>
       <h1>Trabajadores</h1>
       <ul>
         {workers.map(worker => (

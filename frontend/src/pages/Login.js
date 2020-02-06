@@ -29,7 +29,7 @@ export function Login() {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
 
-        history.push("/portada");
+        history.push("/trabajadores");
       })
       .catch(error => {
         // setBackendErrorMessage("The credentials are not valid");

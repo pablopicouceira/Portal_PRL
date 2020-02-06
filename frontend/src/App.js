@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          <PrivateRoute path="/portada">
+          <PrivateRoute path="/panel">
             <Panel />
           </PrivateRoute>
           <PrivateRoute path="/trabajadores">
