@@ -1,11 +1,13 @@
 import axios from "axios";
 
-const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+// const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 // const token = (storedUser && storedUser.accessToken) || null;
 axios.interceptors.request.use(function(config) {
   console.log("REQUEST INTERCEPTOR:", config);
   if (config.url.indexOf("/auth") === -1) {
-    config.headers["Authorization"] = `Bearer ${storedUser.accessToken}`;
+    config.headers["Authorization"] = `Bearer ${
+      JSON.parse(localStorage.getItem("currentUser")).accessToken
+    }`;
   }
   return config;
 });
@@ -14,6 +16,7 @@ axios.interceptors.response.use(function(response) {
   console.log("RESPONSE INTERCEPTOR:", response);
   if (response.data.accessToken) {
     localStorage.setItem("currentUser", JSON.stringify(response.data));
+    console.log(JSON.parse(localStorage.getItem("currentUser")));
   }
   return response;
 });

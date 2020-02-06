@@ -16,7 +16,6 @@ export function Trabajadores() {
   return (
     <React.Fragment>
       <Header />
-
       <div className="App">
         <h1>Trabajadores</h1>
         <ul>

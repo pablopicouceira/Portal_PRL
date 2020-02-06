@@ -15,7 +15,7 @@ export function Actuaciones() {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header title="Portal Gestión PRL" />
       <div className="App">
         <h1>Actuaciones</h1>
         <ul>
