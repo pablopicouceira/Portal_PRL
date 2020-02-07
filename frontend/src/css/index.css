@@ -29,3 +29,8 @@ code {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.selected {
+  background-color: white;
+  color: blue;
+}
