@@ -7,7 +7,7 @@ export function Panel() {
       <Header title="Portal Gestión PRL" />
 
       <p className="caja">Actuaciones</p>
-      <p>Trabajadores</p>
+      <p className="caja">Trabajadores</p>
     </React.Fragment>
   );
 }

@@ -37,12 +37,12 @@ code {
 }
 
 .caja {
-  width: 50%;
+  width: 25%;
   font-family: sans-serif;
   font-size: 3rem;
   font-weight: 400;
   color: #ffffff;
-  background: #ee0467;
+  background: #1239a3;
   padding: 20px;
   margin: 25px;
   overflow: hidden;
