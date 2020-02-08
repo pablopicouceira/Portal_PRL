@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { getWorkers } from "../http/workersService";
 import { WorkersList } from "../components/WorkersList";
+import { Worker } from "../components/Worker";
 import { useAuth } from "../context/auth-context";
 
 function workersReducer(state, action) {
@@ -28,10 +29,14 @@ export function Trabajadores() {
   }, []);
 
   return (
-    <WorkersList
-      workers={state.workers}
-      selectedIndex={state.selectedWorker}
-      onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
-    />
+    <React.Fragment>
+      <WorkersList
+        workers={state.workers}
+        selectedIndex={state.selectedWorker}
+        onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
+      />
+
+      <Worker worker={state.workers[state.selectedWorker]} />
+    </React.Fragment>
   );
 }
