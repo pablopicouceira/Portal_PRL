@@ -32,7 +32,7 @@ export function Trabajadores() {
     getWorkers(currentUser.accessToken).then(response =>
       dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
     );
-  }, []);
+  }, [state.workers.length]);
 
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)
