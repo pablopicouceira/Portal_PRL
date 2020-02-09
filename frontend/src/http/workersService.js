@@ -7,3 +7,15 @@ export function getWorkers(accessToken) {
     }
   });
 }
+
+export function createWorker(accessToken, worker) {
+  return axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/api/workers`,
+    worker,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  );
+}
