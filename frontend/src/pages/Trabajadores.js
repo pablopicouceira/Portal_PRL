@@ -5,7 +5,7 @@ import { Worker } from "../components/Worker";
 import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import { createWorker } from "../http/workersService";
+import { createWorker, deactivateWorker } from "../http/workersService";
 
 function workersReducer(state, action) {
   switch (action.type) {
@@ -15,6 +15,11 @@ function workersReducer(state, action) {
       return { ...state, selectedWorker: action.index };
     case "CREATE_WORKER":
       return { ...state, workers: [action.worker, ...state.workers] };
+    case "DEACTIVATE_WORKER":
+      return {
+        ...state,
+        workers: state.workers.filter(w => w.id !== action.id)
+      };
     default:
       return state;
   }
@@ -45,6 +50,12 @@ export function Trabajadores() {
           setError("email", "conflict", "The email you entered already exists");
         }
       });
+  };
+
+  const handleDeactivateWorker = id => {
+    deactivateWorker(id).then(() => {
+      dispatch({ type: "DEACTIVATE_WORKER", id });
+    });
   };
 
   return (
@@ -133,7 +144,15 @@ export function Trabajadores() {
         </div>
       </form>
 
-      <Worker worker={state.workers[state.selectedWorker]} />
+      {state.workers[state.selectedWorker] && (
+        <Worker
+          worker={state.workers[state.selectedWorker]}
+          onDeactivateWorker={id => {
+            console.log(id);
+            handleDeactivateWorker(id);
+          }}
+        />
+      )}
     </React.Fragment>
   );
 }

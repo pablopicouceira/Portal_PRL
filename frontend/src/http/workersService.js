@@ -19,3 +19,7 @@ export function createWorker(accessToken, worker) {
     }
   );
 }
+
+export function deactivateWorker(id) {
+  return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}`);
+}
