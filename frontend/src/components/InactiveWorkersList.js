@@ -9,8 +9,9 @@ export function InactiveWorkersList({
   return (
     <React.Fragment>
       <Header title="Portal Gestión PRL" />
+      {console.log("Inactivos")}
       <div className="App">
-        <h1>Trabajadores</h1>
+        <h1>Inactivos</h1>
         <ul>
           {workers.map((worker, index) => (
             <li
