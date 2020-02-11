@@ -5,7 +5,11 @@ import { Worker } from "../components/Worker";
 import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import { createWorker, deactivateWorker } from "../http/workersService";
+import {
+  createWorker,
+  deactivateWorker,
+  updateWorker
+} from "../http/workersService";
 
 function workersReducer(state, action) {
   switch (action.type) {
@@ -29,15 +33,22 @@ export function Trabajadores() {
   const { currentUser } = useAuth();
   const [state, dispatch] = useReducer(workersReducer, {
     workers: [],
+    // inactiveWorkers: [],
     selectedWorker: null
+    // showInactive: false
   });
-  const { register, errors, formState, handleSubmit, setError } = useForm();
+  const { register, errors, formState, handleSubmit, setError } = useForm(
+    //{ mode: "onBlur", defaultValues: worker});
 
-  useEffect(() => {
-    getWorkers(currentUser.accessToken).then(response =>
-      dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
-    );
-  }, [state.workers.length]);
+    useEffect(() => {
+      getWorkers(currentUser.accessToken).then(response =>
+        dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
+      );
+      // getInactiveWorkers(currentUser.accessToken).then(response =>
+      //   dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
+      // );
+    }, [state.workers.length])
+  );
 
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)
@@ -58,10 +69,17 @@ export function Trabajadores() {
     });
   };
 
+  const handleUpdateWorker = id => {
+    updateWorker(id).then(() => {
+      dispatch({ type: "UPDATE_WORKER", id });
+    });
+  };
+
   return (
     <React.Fragment>
       <WorkersList
         workers={state.workers}
+        // workers={state.showInactive ? state.inactiveWorkers : state.workers}
         selectedIndex={state.selectedWorker}
         onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
       />
@@ -150,6 +168,10 @@ export function Trabajadores() {
           onDeactivateWorker={id => {
             console.log(id);
             handleDeactivateWorker(id);
+          }}
+          onUpdateWorker={id => {
+            console.log(id);
+            handleUpdateWorker(id);
           }}
         />
       )}
