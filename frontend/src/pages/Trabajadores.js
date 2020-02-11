@@ -1,20 +1,26 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { getWorkers } from "../http/workersService";
+import {
+  getWorkers,
+  getInactiveWorkers,
+  createWorker,
+  deactivateWorker,
+  updateWorker
+} from "../http/workersService";
 import { WorkersList } from "../components/WorkersList";
 import { Worker } from "../components/Worker";
 import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import {
-  createWorker,
-  deactivateWorker,
-  updateWorker
-} from "../http/workersService";
+import { InactiveWorkersList } from "../components/InactiveWorkersList";
 
 function workersReducer(state, action) {
   switch (action.type) {
     case "GET_WORKERS":
       return { ...state, workers: action.initialWorkers };
+    case "GET_INACTIVE_WORKERS":
+      return { ...state, inactiveWorkers: action.initialWorkers };
+    case "TOGGLE_SHOWN_WORKERS":
+      return { ...state, showInactive: !state.showInactive };
     case "SELECT_WORKER":
       return { ...state, selectedWorker: action.index };
     case "CREATE_WORKER":
@@ -33,9 +39,9 @@ export function Trabajadores() {
   const { currentUser } = useAuth();
   const [state, dispatch] = useReducer(workersReducer, {
     workers: [],
-    // inactiveWorkers: [],
-    selectedWorker: null
-    // showInactive: false
+    inactiveWorkers: [],
+    selectedWorker: null,
+    showInactive: false
   });
   const { register, errors, formState, handleSubmit, setError } = useForm(
     //{ mode: "onBlur", defaultValues: worker});
@@ -44,12 +50,15 @@ export function Trabajadores() {
       getWorkers(currentUser.accessToken).then(response =>
         dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
       );
-      // getInactiveWorkers(currentUser.accessToken).then(response =>
-      //   dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
-      // );
+
+      getInactiveWorkers(currentUser.accessToken).then(response =>
+        dispatch({
+          type: "GET_INACTIVE_WORKERS",
+          initialWorkers: response.data
+        })
+      );
     }, [state.workers.length])
   );
-
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)
       .then(response => {
@@ -77,12 +86,29 @@ export function Trabajadores() {
 
   return (
     <React.Fragment>
-      <WorkersList
-        workers={state.workers}
-        // workers={state.showInactive ? state.inactiveWorkers : state.workers}
-        selectedIndex={state.selectedWorker}
-        onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
-      />
+      {state.showInactive === false && (
+        <WorkersList
+          workers={state.workers}
+          selectedIndex={state.selectedWorker}
+          onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
+        />
+      )}
+      {console.log(state.showInactive, "state inactive")}
+      {state.showInactive && (
+        <InactiveWorkersList
+          workers={state.inactiveWorkers}
+          selectedIndex={state.selectedWorker}
+          onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
+        />
+      )}
+
+      <button
+        onClick={() => {
+          dispatch({ type: "TOGGLE_SHOWN_WORKERS" });
+        }}
+      >
+        Trabajadores {!state.showInactive ? "Inactivos" : "Activos"}
+      </button>
 
       <form onSubmit={handleSubmit(handleRegister)}>
         <div
@@ -161,9 +187,9 @@ export function Trabajadores() {
           </div>
         </div>
       </form>
-
       {state.workers[state.selectedWorker] && (
         <Worker
+          activeWorker={state.showInactive}
           worker={state.workers[state.selectedWorker]}
           onDeactivateWorker={id => {
             console.log(id);
