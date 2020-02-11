@@ -32,7 +32,7 @@ CREATE TABLE `Actuaciones` (
   `updated_At` datetime DEFAULT NULL,
   `deleted_At` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `Actuaciones` (
 
 LOCK TABLES `Actuaciones` WRITE;
 /*!40000 ALTER TABLE `Actuaciones` DISABLE KEYS */;
-INSERT INTO `Actuaciones` VALUES (1,'Adecuación de divesas actuaciones del Palacion de Ferias y Congresos de Lugo','Avda. de los Deportes s/n','Lugo','Lugo','2020-01-25 07:19:58','2020-01-31 18:28:37',NULL),(2,'Remodelación de edificion','C/ Ayala 8','Madrid','Madrid','2020-01-25 00:08:23','2020-01-31 18:28:47',NULL),(3,'Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),(4,'Acondicionamiento y mejora de trazado','Ctra. N-432 Tramo: Cerro Muriano - Córdoba','Córdoba','Córdoba','2020-01-28 23:42:36','2020-01-31 18:34:29',NULL),(5,'Sucursal nº 2 Correos','C/ Cantera 25-27','Valladolid','Valladolid','2020-01-29 01:10:49','2020-01-31 18:51:18',NULL),(6,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(7,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,NULL),(8,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:27',NULL,NULL),(9,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:28',NULL,NULL),(10,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-29 01:12:01',NULL,NULL),(23,'Nueva Carretera','Ronda de Castilla','Narón','Madrid','2020-01-30 20:39:03',NULL,NULL);
+INSERT INTO `Actuaciones` VALUES (1,'Adecuación de divesas actuaciones del Palacion de Ferias y Congresos de Lugo','Avda. de los Deportes s/n','Lugo','Lugo','2020-01-25 07:19:58','2020-01-31 18:28:37',NULL),(2,'Remodelación de edificion','C/ Ayala 8','Madrid','Madrid','2020-01-25 00:08:23','2020-01-31 18:28:47',NULL),(3,'Construcción de vivienda unifamiliar','Bº Karega - CC Max Center','Barakaldo','Vizcaya','2020-01-25 00:04:17','2020-01-26 19:52:52','2020-01-26 18:46:53'),(4,'Acondicionamiento y mejora de trazado','Ctra. N-432 Tramo: Cerro Muriano - Córdoba','Córdoba','Córdoba','2020-01-28 23:42:36','2020-01-31 18:34:29',NULL),(5,'62 viviendas protegidas','Parcela Urbana RC-9','Zuera','Zaragoza','2020-01-29 01:10:49','2020-02-01 23:28:13',NULL),(6,'Nueva Carretera','Ronda de Castilla','Narón','Barcelona','2020-01-29 01:11:26',NULL,'2020-02-01 23:01:16');
 /*!40000 ALTER TABLE `Actuaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `Actuaciones_Trabajadores` (
 
 LOCK TABLES `Actuaciones_Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Actuaciones_Trabajadores` DISABLE KEYS */;
-INSERT INTO `Actuaciones_Trabajadores` VALUES (1,'4cf5e836-9a1b-4deb-af39-9eeebd70a88c'),(2,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(2,'6d72f03f-905b-4fdf-a265-52a1e92d946a'),(5,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(5,'13cf1066-918d-4467-8e6e-6e3cec10fb31'),(5,'66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473');
+INSERT INTO `Actuaciones_Trabajadores` VALUES (1,'4cf5e836-9a1b-4deb-af39-9eeebd70a88c'),(2,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(2,'6d72f03f-905b-4fdf-a265-52a1e92d946a'),(3,'6d72f03f-905b-4fdf-a265-52a1e92d946a'),(5,'12c92c00-396c-4dc9-b7a0-285bfc611e5c'),(5,'13cf1066-918d-4467-8e6e-6e3cec10fb31'),(5,'422972bf-fbbd-4b51-a83e-4363b9d9e3f3'),(5,'66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473'),(5,'6d72f03f-905b-4fdf-a265-52a1e92d946a');
 /*!40000 ALTER TABLE `Actuaciones_Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +93,7 @@ CREATE TABLE `Requisitos` (
 
 LOCK TABLES `Requisitos` WRITE;
 /*!40000 ALTER TABLE `Requisitos` DISABLE KEYS */;
+INSERT INTO `Requisitos` VALUES (1,'Formacion'),(2,'Apto'),(3,'Epis');
 /*!40000 ALTER TABLE `Requisitos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +123,7 @@ CREATE TABLE `Trabajadores` (
 
 LOCK TABLES `Trabajadores` WRITE;
 /*!40000 ALTER TABLE `Trabajadores` DISABLE KEYS */;
-INSERT INTO `Trabajadores` VALUES ('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,NULL),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Iglesias Sanz','Juan Antonio','2020-01-24 23:30:01',NULL,NULL),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,NULL),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,NULL),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,'2020-01-31 18:17:44'),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','29997002B','Cañadas Rodríguez','Antonia','2020-01-25 00:42:07','2020-01-27 09:36:20',NULL);
+INSERT INTO `Trabajadores` VALUES ('053b8a62-c79a-46a5-b2cc-077a9362aa7a','32378572T','Pérez Torres','Pablo','2020-02-09 04:26:30',NULL,'2020-02-10 18:59:25'),('07ebadba-d801-4c71-9e0b-3ef7a4af38d4','22038299K','Vila Pérez','Iñaki','2020-01-26 17:19:33',NULL,NULL),('12c92c00-396c-4dc9-b7a0-285bfc611e5c','26057558F','Parada Tirado','Nicolás','2020-01-24 23:24:21',NULL,'2020-02-10 18:49:08'),('13cf1066-918d-4467-8e6e-6e3cec10fb31','45127665D','Villar Martínez','Joaquín','2020-01-24 23:30:01','2020-02-06 02:00:11',NULL),('28b03bd5-db61-403e-90a4-8679f6146734','89924575A','Rodríguez Lazar','María','2020-02-10 11:20:33',NULL,NULL),('383d4b9a-5473-4e45-a367-b4af8166030c','04341620W','Pulido Heredia','José','2020-02-10 19:03:49',NULL,NULL),('399e390c-bc38-4519-9178-fc3d779e2c01','66036790H','María Rosario','Romero Tendero','2020-02-09 04:19:21',NULL,NULL),('422972bf-fbbd-4b51-a83e-4363b9d9e3f3','24851831D','Montes De Castro','Beatriz','2020-02-01 22:53:21',NULL,'2020-02-10 19:27:08'),('4cf5e836-9a1b-4deb-af39-9eeebd70a88c','32024399G','Moreno Lozano','Francisco','2020-01-26 15:42:14',NULL,'2020-02-10 19:27:11'),('66f5ba82-5e1a-4a69-ab5b-fbd27bb5d473','76734942L','Ribera Verdugo','Luis','2020-01-24 23:35:19',NULL,'2020-02-01 23:24:14'),('6d72f03f-905b-4fdf-a265-52a1e92d946a','98190258S','Rodríguez Casas','Hugo','2020-01-25 00:16:48',NULL,NULL),('7c544d83-87d4-463d-b6ee-6b73080d32d3','83252770S','Olmo Carril','María','2020-02-09 12:47:01',NULL,NULL),('8a78c214-b2f0-4585-b901-4f2a7f198c75','33142702R','Carrasco Díaz','Dolores','2020-02-09 04:25:14',NULL,NULL),('9e0cd316-7a78-4743-a680-aa5e59874d0d','05212957F','Moreno Mejías','Roberto','2020-01-26 15:44:15',NULL,'2020-01-31 18:17:44'),('9fea86bf-7eb8-4efd-abf9-1e532e2ec232','32035524C','Roca Mota','Isabel','2020-02-09 04:14:13',NULL,NULL),('a9ca31fe-d2b4-4a43-a213-019aa91c2b94','29543702H','González González','Mireia','2020-02-06 15:03:53',NULL,NULL),('aa2922b3-b905-45c6-b692-fe3b0b318548','38387256A','Iglesias Sanz','Juan Antonio','2020-01-26 14:55:39',NULL,'2020-02-10 18:25:45'),('acff66ac-61f6-4c27-9a91-41f1ca2d9f28','65894013W','Ortega Carbó','María José','2020-02-08 12:54:58',NULL,NULL),('b15c0417-144b-43c7-993e-10a169d05f63','93168103W','Díaz Mendoza','Alberto','2020-02-10 18:11:39',NULL,NULL),('bfcee3c5-5079-4cfc-8fcb-0822b15e4298','55490662B','López González','María Carmen','2020-02-10 00:41:43',NULL,'2020-02-10 19:03:59'),('bfed04ed-05db-4e9c-9a59-bfac89078750','81368818Q','Gómez Vázquez','Juan Carlos','2020-02-10 18:59:07',NULL,NULL),('c30a76c7-73d0-4b4e-bbfb-fdfa01391c89','35616233C','Centeno Diez','María Teresa','2020-02-01 23:18:06',NULL,NULL),('c875bce0-d45d-4518-8a67-355ef9316d43','72781349B','Cañadas Rodríguez','Antonia','2020-01-25 00:42:07','2020-02-01 23:18:24',NULL),('d6351768-f816-4187-9211-1ad791293ad4','54698254E','Pastor Ribera','Manuel','2020-02-09 03:26:06',NULL,'2020-02-11 00:12:17'),('e9571e91-21ce-4f75-9946-25fee13fa2b1','10868316B','Vázquez López','Fernando','2020-02-11 00:12:03',NULL,'2020-02-11 00:12:09'),('f446195d-a487-4a0f-bf0c-55a17a2d38f3','40432008D','Zambrano González','Jesús','2020-02-06 15:06:08',NULL,'2020-02-10 18:28:05');
 /*!40000 ALTER TABLE `Trabajadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,11 +162,11 @@ DROP TABLE IF EXISTS `Uploads`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Uploads` (
-  `id` int(11) NOT NULL,
-  `fecha_de_caducidad` date NOT NULL,
+  `id` varchar(64) NOT NULL,
   `Trabajadores_id` varchar(64) NOT NULL,
   `Requisitos_id` int(11) NOT NULL,
   `Usuarios_id` varchar(64) NOT NULL,
+  `secureUrl` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`,`Trabajadores_id`,`Requisitos_id`,`Usuarios_id`),
   KEY `fk_Uploads_Trabajadores_idx` (`Trabajadores_id`),
   KEY `fk_Uploads_Requisitos1_idx` (`Requisitos_id`),
@@ -182,6 +183,7 @@ CREATE TABLE `Uploads` (
 
 LOCK TABLES `Uploads` WRITE;
 /*!40000 ALTER TABLE `Uploads` DISABLE KEYS */;
+INSERT INTO `Uploads` VALUES ('1bb3c1c6-c2db-4324-bce1-0d17a1b34f97','07ebadba-d801-4c71-9e0b-3ef7a4af38d4',2,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581386746/1bb3c1c6-c2db-4324-bce1-0d17a1b34f97.pdf'),('3cb4e4b7-6f42-48a6-b2a9-14b0c797e5b1','07ebadba-d801-4c71-9e0b-3ef7a4af38d4',3,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581386775/3cb4e4b7-6f42-48a6-b2a9-14b0c797e5b1.pdf'),('645bed9a-2cc8-4172-8067-ab517cee234e','07ebadba-d801-4c71-9e0b-3ef7a4af38d4',1,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581386732/645bed9a-2cc8-4172-8067-ab517cee234e.pdf'),('66b974f0-a34a-460b-86da-98785e3479be','7c544d83-87d4-463d-b6ee-6b73080d32d3',3,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581387153/66b974f0-a34a-460b-86da-98785e3479be.pdf'),('732ca7a1-5dda-4cf2-aee8-25a1c66bc11f','7c544d83-87d4-463d-b6ee-6b73080d32d3',1,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581386813/732ca7a1-5dda-4cf2-aee8-25a1c66bc11f.pdf'),('7778dac7-37be-4643-aad4-cd517d662c40','7c544d83-87d4-463d-b6ee-6b73080d32d3',2,'e0f93f72-8887-42d8-948f-98dfa0a3f4df','https://res.cloudinary.com/dcbefsoty/image/upload/v1581386838/7778dac7-37be-4643-aad4-cd517d662c40.pdf');
 /*!40000 ALTER TABLE `Uploads` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +210,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES ('18b68eca-66ff-4a36-a3ef-a9a5cc2df6a1','pablo02@yopmail.com','$2b$10$NQ7Sim.HZvkn8UUCWUEzF.3oqxXJxt5rM8bPn7qWLCN0NwDGk5SZu','2020-01-25 14:55:20'),('1bbf897a-fb89-4fa1-aa1c-bea23df1d179','pablo25@yopmail.com','$2b$10$mX0rMroPJIwfj4AmUKckYeddSePM2l.FMbFBs6yOjhdSzL.NQOHV2','2020-02-01 11:37:22'),('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20');
+INSERT INTO `Usuarios` VALUES ('18b68eca-66ff-4a36-a3ef-a9a5cc2df6a1','pablo02@yopmail.com','$2b$10$NQ7Sim.HZvkn8UUCWUEzF.3oqxXJxt5rM8bPn7qWLCN0NwDGk5SZu','2020-01-25 14:55:20'),('1bbf897a-fb89-4fa1-aa1c-bea23df1d179','pablo25@yopmail.com','$2b$10$mX0rMroPJIwfj4AmUKckYeddSePM2l.FMbFBs6yOjhdSzL.NQOHV2','2020-02-01 11:37:22'),('1ddbfc68-e563-47d5-bf39-53c1a07cf517','pablo01@yopmail.com','$2b$10$7YfryFfdqFc8SuCBCbed3.jmD2vY5FZGtU3UrZNo.77XwfvJINvue','2020-01-25 02:24:21'),('2e902dcb-4d95-4903-a788-2081e919021c','pablo18@yopmail.com','$2b$10$Tn.muHTb6tTTbdRNx46Sxu/HnPYL5cPj8ja5tzkamjELPL7rujQVK','2020-02-01 22:49:40'),('76dce147-a9a5-4ad9-a999-fc35fac6408f','pablo09@yopmail.com','$2b$10$.kjDLrclyQFuxL3nOPPUxetSp9pkB4OoqYrnc6PRNNWiR54qVmYHq','2020-01-25 12:27:20'),('8716c0a5-7fba-4d6d-980a-c02cacc03f88','pablo23@yopmail.com','$2b$10$cP2EjhHfans8cU6HMOYZnun9KysAkmJqMSbvK.3VqALgDrA7wRoFm','2020-02-01 23:16:25'),('e0f93f72-8887-42d8-948f-98dfa0a3f4df','pablo.pico.uceira@gmail.com','$2b$10$lZnMfC8XAoJgIcgxCfQ1WOzWRUVhhNBEny44FxN4HkfjDDchLnGOK','2020-02-03 23:13:29');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -221,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-01 19:43:29
+-- Dump completed on 2020-02-11  3:15:30

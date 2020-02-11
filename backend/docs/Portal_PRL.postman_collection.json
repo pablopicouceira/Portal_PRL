@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"pablo06@yopmail.com\",\n\t\"password\": \"dogLegs12\",\n}",
+					"raw": "{\n\t\"email\": \"pablo.pico.uceira@gmail.com\",\n\t\"password\": \"dogLegs\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,6 +41,18 @@
 		},
 		{
 			"name": "2. Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1e8ee21-323f-4598-bb7a-d46259c1ee83",
+						"exec": [
+							"pm.environment.set(\"accessToken\", pm.response.json().accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -52,7 +64,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"pablo1@yopmail.com\",\n\t\"password\": \"dogLegs\"\n}"
+					"raw": "{\n\t\"email\": \"pablo23@yopmail.com\",\n\t\"password\": \"dogLegs\"\n}"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/auth",
@@ -62,6 +74,13 @@
 					"path": [
 						"api",
 						"auth"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -112,6 +131,68 @@
 			"response": []
 		},
 		{
+			"name": "4. Subir documento de Trabajador",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{accessToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/jose.mato/Desktop/calabaza-ruperta5.jpg"
+						},
+						{
+							"key": "title",
+							"value": "Halloween",
+							"type": "text"
+						},
+						{
+							"key": "avatar[]",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users/avatar",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "5. Actualizar Trabajador",
 			"request": {
 				"auth": {
@@ -135,7 +216,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"dni\": \"Z5790285V\",\n\t\"apellidos\": \"Niño Carbo\",\n\t\"nombre\": \"Cristian\"\n}",
+					"raw": "{\n\t\"dni\": \"45127665D\",\n\t\"apellidos\": \"Villar Martínez\",\n\t\"nombre\": \"Joaquín\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -143,13 +224,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/workers",
+					"raw": "{{baseUrl}}/api/workers/13cf1066-918d-4467-8e6e-6e3cec10fb31",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"workers"
+						"workers",
+						"13cf1066-918d-4467-8e6e-6e3cec10fb31"
 					]
 				}
 			},
@@ -264,10 +346,27 @@
 		{
 			"name": "9. Mostrar Trabajadores",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{baseUrl}}/api/workers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers"
+					]
 				}
 			},
 			"response": []
@@ -320,6 +419,36 @@
 			"response": []
 		},
 		{
+			"name": "12. Mostrar Actuaciones en las que está asociado un Trabajador",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workers/12c92c00-396c-4dc9-b7a0-285bfc611e5c/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers",
+						"12c92c00-396c-4dc9-b7a0-285bfc611e5c",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "13. Crear Actuación",
 			"request": {
 				"auth": {
@@ -366,6 +495,16 @@
 		{
 			"name": "14. Actualizar Actuación",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -401,6 +540,16 @@
 		{
 			"name": "15. Borrar Actuación",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [
 					{
@@ -473,13 +622,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/projects",
+					"raw": "{{baseUrl}}/api/projects/inactive",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"projects"
+						"projects",
+						"inactive"
 					]
 				}
 			},
@@ -501,13 +651,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/projects",
+					"raw": "{{baseUrl}}/api/projects/5",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"projects"
+						"projects",
+						"5"
 					]
 				}
 			},
