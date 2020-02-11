@@ -7,7 +7,7 @@ Listado de endpoints:
 1.  ✔️ Crear Usuario
 2.  ✔️ Login
 3.  ✔️ Crear Trabajador
-4.  ❌️ Subir archivo de Trabajador
+4.  ✔️ Subir documento de Trabajador (Upload)
 5.  ✔️ Actualizar Trabajador
 6.  ✔️ Borrar Trabajador
 7.  ✔️ Recuperar Trabajador
@@ -17,7 +17,7 @@ Listado de endpoints:
 11. ✔️ Mostrar trabajador
 12. ✔️ Mostrar Actuaciones en las que está asociado un Trabajador
 13. ✔️ Crear Actuación
-14. ✔️ Actualizar Actuación (pendiente modificar para que muestre 404 si el update no fue posible)
+14. ✔️ Actualizar Actuación
 15. ✔️ Borrar Actuación
 16. ✔️ Mostrar Actuaciones
 17. ✔️ Mostrar Actuaciones inactivas
