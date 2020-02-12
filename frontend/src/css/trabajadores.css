@@ -1,0 +1,5 @@
+.trabajadores-container-columns {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
