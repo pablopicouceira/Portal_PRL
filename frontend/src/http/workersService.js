@@ -36,7 +36,9 @@ export function deactivateWorker(id) {
 }
 
 export function reactivateWorker(id) {
-  return axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}`);
+  return axios.put(
+    `${process.env.REACT_APP_BACKEND_URL}/api/workers/recover/${id}`
+  );
 }
 
 export function updateWorker(worker) {

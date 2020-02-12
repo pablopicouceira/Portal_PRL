@@ -11,5 +11,5 @@ span {
 }
 
 li {
-  list-style-type: none;
+  list-style-type: decimal-leading-zero;
 }
