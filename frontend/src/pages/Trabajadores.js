@@ -13,6 +13,7 @@ import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import { InactiveWorkersList } from "../components/InactiveWorkersList";
+import { Header } from "../components/Header";
 
 function workersReducer(state, action) {
   switch (action.type) {
@@ -111,6 +112,7 @@ export function Trabajadores() {
 
   return (
     <React.Fragment>
+      <Header title="Portal Gestión PRL" />
       {state.showInactive === false && (
         <WorkersList
           workers={state.workers}
@@ -119,7 +121,7 @@ export function Trabajadores() {
         />
       )}
       {console.log(state.showInactive, "state inactive")}
-      {state.showInactive && (
+      {state.showInactive === true && (
         <InactiveWorkersList
           workers={state.inactiveWorkers}
           selectedIndex={state.selectedInactiveWorker}
