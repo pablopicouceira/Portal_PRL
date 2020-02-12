@@ -35,6 +35,10 @@ export function deactivateWorker(id) {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}`);
 }
 
+export function reactivateWorker(id) {
+  return axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}`);
+}
+
 export function updateWorker(worker) {
   return axios.delete(
     `${process.env.REACT_APP_BACKEND_URL}/api/workers/${worker.id}`,

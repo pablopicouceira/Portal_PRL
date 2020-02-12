@@ -4,7 +4,9 @@ export function Worker({
   worker = {},
   onDeactivateWorker,
   onUpdateWorker,
-  activeWorker
+  activeWorker,
+  inactiveWorker = {},
+  onReactivateWorker
 }) {
   return (
     <React.Fragment>
@@ -12,10 +14,14 @@ export function Worker({
       <p>{worker.nombre}</p>
       <p>{worker.apellidos}</p>
       <p>{worker.dni}</p>
+      <p>{inactiveWorker.id}</p>
+      <p>{inactiveWorker.nombre}</p>
+      <p>{inactiveWorker.apellidos}</p>
+      <p>{inactiveWorker.dni}</p>
 
       {activeWorker ? (
-        <button onClick={() => onDeactivateWorker(worker.id)}>
-          Activar Trabajador
+        <button onClick={() => onReactivateWorker(inactiveWorker.id)}>
+          Reactivar Trabajador
         </button>
       ) : (
         <button onClick={() => onDeactivateWorker(worker.id)}>

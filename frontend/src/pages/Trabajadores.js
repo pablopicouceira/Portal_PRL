@@ -4,7 +4,8 @@ import {
   getInactiveWorkers,
   createWorker,
   deactivateWorker,
-  updateWorker
+  updateWorker,
+  reactivateWorker
 } from "../http/workersService";
 import { WorkersList } from "../components/WorkersList";
 import { Worker } from "../components/Worker";
@@ -20,15 +21,27 @@ function workersReducer(state, action) {
     case "GET_INACTIVE_WORKERS":
       return { ...state, inactiveWorkers: action.initialWorkers };
     case "TOGGLE_SHOWN_WORKERS":
-      return { ...state, showInactive: !state.showInactive };
+      return {
+        ...state,
+        showInactive: !state.showInactive,
+        selectedWorker: null,
+        selectedInactiveWorker: null
+      };
     case "SELECT_WORKER":
       return { ...state, selectedWorker: action.index };
+    case "SELECT_INACTIVE_WORKER":
+      return { ...state, selectedInactiveWorker: action.index };
     case "CREATE_WORKER":
       return { ...state, workers: [action.worker, ...state.workers] };
     case "DEACTIVATE_WORKER":
       return {
         ...state,
         workers: state.workers.filter(w => w.id !== action.id)
+      };
+    case "REACTIVATE_WORKER":
+      return {
+        ...state,
+        workers: state.inactiveWorkers.filter(w => w.id !== action.id)
       };
     default:
       return state;
@@ -41,23 +54,28 @@ export function Trabajadores() {
     workers: [],
     inactiveWorkers: [],
     selectedWorker: null,
-    showInactive: false
+    showInactive: false,
+    selectedInactiveWorker: null
   });
   const { register, errors, formState, handleSubmit, setError } = useForm(
     //{ mode: "onBlur", defaultValues: worker});
 
-    useEffect(() => {
-      getWorkers(currentUser.accessToken).then(response =>
-        dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
-      );
+    useEffect(
+      () => {
+        getWorkers(currentUser.accessToken).then(response =>
+          dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
+        );
 
-      getInactiveWorkers(currentUser.accessToken).then(response =>
-        dispatch({
-          type: "GET_INACTIVE_WORKERS",
-          initialWorkers: response.data
-        })
-      );
-    }, [state.workers.length])
+        getInactiveWorkers(currentUser.accessToken).then(response =>
+          dispatch({
+            type: "GET_INACTIVE_WORKERS",
+            initialWorkers: response.data
+          })
+        );
+      },
+      [state.workers.length],
+      [state.inactiveWorkers.length]
+    )
   );
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)
@@ -75,6 +93,12 @@ export function Trabajadores() {
   const handleDeactivateWorker = id => {
     deactivateWorker(id).then(() => {
       dispatch({ type: "DEACTIVATE_WORKER", id });
+    });
+  };
+
+  const handleReactivateWorker = id => {
+    reactivateWorker(id).then(() => {
+      dispatch({ type: "REACTIVATE_WORKER", id });
     });
   };
 
@@ -97,8 +121,10 @@ export function Trabajadores() {
       {state.showInactive && (
         <InactiveWorkersList
           workers={state.inactiveWorkers}
-          selectedIndex={state.selectedWorker}
-          onWorkerSelected={index => dispatch({ type: "SELECT_WORKER", index })}
+          selectedIndex={state.selectedInactiveWorker}
+          onWorkerSelected={index =>
+            dispatch({ type: "SELECT_INACTIVE_WORKER", index })
+          }
         />
       )}
 
@@ -187,20 +213,24 @@ export function Trabajadores() {
           </div>
         </div>
       </form>
-      {state.workers[state.selectedWorker] && (
-        <Worker
-          activeWorker={state.showInactive}
-          worker={state.workers[state.selectedWorker]}
-          onDeactivateWorker={id => {
-            console.log(id);
-            handleDeactivateWorker(id);
-          }}
-          onUpdateWorker={id => {
-            console.log(id);
-            handleUpdateWorker(id);
-          }}
-        />
-      )}
+
+      <Worker
+        activeWorker={state.showInactive}
+        worker={state.workers[state.selectedWorker]}
+        inactiveWorker={state.inactiveWorkers[state.selectedInactiveWorker]}
+        onDeactivateWorker={id => {
+          console.log(id);
+          handleDeactivateWorker(id);
+        }}
+        onUpdateWorker={id => {
+          console.log(id);
+          handleUpdateWorker(id);
+        }}
+        onReactivateWorker={id => {
+          console.log(id);
+          handleReactivateWorker(id);
+        }}
+      />
     </React.Fragment>
   );
 }
