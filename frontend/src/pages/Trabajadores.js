@@ -74,7 +74,8 @@ export function Trabajadores() {
         );
       },
       [state.workers.length],
-      [state.inactiveWorkers.length]
+      [state.inactiveWorkers.length],
+      state.showInactive
     )
   );
   const handleRegister = formData => {
