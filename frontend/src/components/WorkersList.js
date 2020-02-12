@@ -4,7 +4,6 @@ import { Header } from "./Header";
 export function WorkersList({ workers, selectedIndex, onWorkerSelected }) {
   return (
     <React.Fragment>
-      <Header title="Portal Gestión PRL" />
       <div className="App">
         <h1>Trabajadores</h1>
         <ul>
