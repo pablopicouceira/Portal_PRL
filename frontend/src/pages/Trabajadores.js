@@ -15,7 +15,7 @@ import { Link, useHistory } from "react-router-dom";
 import { InactiveWorkersList } from "../components/InactiveWorkersList";
 import { Header } from "../components/Header";
 import FileUpload from "../components/FileUpload";
-import "../css/trabajadores.css";
+import "../css/Trabajadores.css";
 import { TrabajadoresForm } from "../components/TrabajadoresForm";
 
 function workersReducer(state, action) {

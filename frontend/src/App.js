@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Panel } from "./pages/Panel";
 import { Login } from "./pages/Login";
-import "./css/App.css";
+//import "./css/App.css";
 import { Trabajadores } from "./pages/Trabajadores";
 import { Actuaciones } from "./pages/Actuaciones";
 import { AuthProvider } from "./context/auth-context";
