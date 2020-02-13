@@ -1,9 +1,13 @@
 //@ts-check
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export function TrabajadoresForm({ data, action, limpiar }) {
-  const { errors, register, handleSubmit, formState } = useForm();
+  const { errors, register, handleSubmit, formState, reset } = useForm();
+
+  useEffect(() => {
+    reset(data);
+  }, [data]);
 
   return (
     <form onSubmit={handleSubmit(action)}>
@@ -79,12 +83,16 @@ export function TrabajadoresForm({ data, action, limpiar }) {
           disabled={formState.isSubmitting}
           onSubmit={handleSubmit(action)}
         >
-          Guardar
+          {Object.keys(data).length
+            ? "Actualizar datos"
+            : "Crear nuevo trabajador"}
         </button>
         <button
           className="btn"
           disabled={formState.isSubmitting}
-          onClick={() => limpiar()}
+          onClick={() => {
+            limpiar();
+          }}
         >
           Limpiar Formulario
         </button>

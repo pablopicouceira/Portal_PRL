@@ -47,3 +47,9 @@ export function updateWorker(id, worker) {
     worker
   );
 }
+
+export function getProjectsFromWorker(id) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}/projects`
+  );
+}

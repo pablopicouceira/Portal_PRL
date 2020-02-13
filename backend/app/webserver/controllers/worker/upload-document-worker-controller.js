@@ -1,7 +1,5 @@
 "use strict";
 
-"use strict";
-
 const cloudinary = require("cloudinary").v2;
 const mysqlPool = require("../../../database/mysql-pool");
 const uuidV4 = require("uuid/v4");
