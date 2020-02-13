@@ -1,3 +1,4 @@
+// @ts-check
 import React, { useState, useEffect, useReducer } from "react";
 import {
   getWorkers,
@@ -5,7 +6,8 @@ import {
   createWorker,
   deactivateWorker,
   updateWorker,
-  reactivateWorker
+  reactivateWorker,
+  getProjectsFromWorker
 } from "../http/workersService";
 import { WorkersList } from "../components/WorkersList";
 import { Worker } from "../components/Worker";
@@ -17,6 +19,7 @@ import { Header } from "../components/Header";
 import FileUpload from "../components/FileUpload";
 import "../css/Trabajadores.css";
 import { TrabajadoresForm } from "../components/TrabajadoresForm";
+import ProjectsFromWorker from "../components/ProjectsFromWorker";
 
 function workersReducer(state, action) {
   switch (action.type) {
@@ -49,6 +52,8 @@ function workersReducer(state, action) {
       };
     case "DESELECT_WORKER": //Al deseleccionar el trabajdor, se limpia el formulario porque no tiene ningún trabajador seleccionado
       return { ...state, selectedWorker: null };
+    case "GET_PROJECTS_FROM_wORKER":
+      return { ...state };
     default:
       return state;
   }
@@ -65,11 +70,11 @@ export function Trabajadores() {
   });
 
   const getData = () => {
-    getWorkers(currentUser.accessToken).then(response =>
+    getWorkers().then(response =>
       dispatch({ type: "GET_WORKERS", initialWorkers: response.data })
     );
 
-    getInactiveWorkers(currentUser.accessToken).then(response =>
+    getInactiveWorkers().then(response =>
       dispatch({
         type: "GET_INACTIVE_WORKERS",
         initialWorkers: response.data
@@ -141,6 +146,18 @@ export function Trabajadores() {
     });
   };
 
+  const getWorker = () => {
+    if (state.selectedWorker) {
+      const selected = state.workers[state.selectedWorker];
+
+      if (selected) {
+        return selected;
+      }
+    }
+
+    return null;
+  };
+
   return (
     <div>
       <Header title="Portal Gestión PRL" />
@@ -191,6 +208,9 @@ export function Trabajadores() {
               handleReactivateWorker(id);
             }}
           />
+        </div>
+        <div>
+          <ProjectsFromWorker worker={getWorker()} />
         </div>
       </div>
 

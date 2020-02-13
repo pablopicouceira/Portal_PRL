@@ -3,47 +3,20 @@ import axios from "axios";
 import "../css/FileUpload.css";
 
 function FileUpload() {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState({});
   const [uploading, setUploading] = useState(false);
   const [previews, setPreviews] = useState([]);
   const [isDrag, setDrag] = useState(false);
   const fileInput = useRef();
 
-  useEffect(() => {
-    async function getPreviews() {
-      const promises = files.map(getPreview);
-      setPreviews(await Promise.all(promises));
-    }
-
-    getPreviews();
-  }, [files]);
-
-  const handleDrop = e => {
-    e.preventDefault();
-
-    const draggedFiles = [];
-
-    if (e.dataTransfer.items) {
-      Array.from(e.dataTransfer.items).forEach(item => {
-        if (item.kind === "file") {
-          let file = item.getAsFile();
-          console.log(file);
-          draggedFiles.push(file);
-        }
-      });
-    } else {
-      Array.from(e.dataTransfer.files).forEach(file => {
-        console.log(file);
-        draggedFiles.push(file);
-      });
-    }
-
-    setFiles([...draggedFiles, ...files]);
-    setDrag(false);
-  };
-
-  const handleChange = e => {
-    setFiles([...Array.from(e.target.files), ...files]);
+  const handleChange = (name, e) => {
+    const newFiles = {
+      ...files,
+      [name]: {
+        file: e.target.files
+      }
+    };
+    setFiles(newFiles);
   };
 
   const handleUpload = () => {
@@ -75,20 +48,27 @@ function FileUpload() {
       });
   };
 
-  const handleDragOver = e => {
-    e.preventDefault();
-    setDrag(true);
-  };
+  const filesTypes = ["Epis", "Apto", "Formación"];
 
-  const handleDragLeave = e => {
-    e.preventDefault();
-    setDrag(false);
-  };
+  console.log(files);
 
-  const openFileDialog = () => {
-    fileInput.current.click();
-  };
-
+  return (
+    <div>
+      Subir archivos
+      {filesTypes.map(fT => (
+        <div>
+          <label>{fT}</label>
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={e => handleChange(fT, e)}
+          />
+          <input type="date" />
+        </div>
+      ))}
+    </div>
+  );
+  /*
   return (
     <main>
       <div
@@ -123,6 +103,7 @@ function FileUpload() {
       </button>
     </main>
   );
+  */
 }
 
 function getPreview(file) {
