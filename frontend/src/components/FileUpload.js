@@ -1,8 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "../css/FileUpload.css";
+import { uploadDocument } from "../http/workersService";
 
-function FileUpload() {
+const filesTypes = [
+  { id: 1, name: "Formacion" },
+  { id: 2, name: "Apto" },
+  { id: 3, name: "Epis" }
+];
+function FileUpload({ worker }) {
   const [files, setFiles] = useState({});
   const [uploading, setUploading] = useState(false);
   const [previews, setPreviews] = useState([]);
@@ -13,25 +19,46 @@ function FileUpload() {
     const newFiles = {
       ...files,
       [name]: {
+        ...files[name],
         file: e.target.files
       }
     };
     setFiles(newFiles);
   };
 
+  const handleDate = (name, e) => {
+    const newFiles = {
+      ...files,
+      [name]: {
+        ...files[name],
+        date: e.target.value
+      }
+    };
+
+    setFiles(newFiles);
+  };
+
   const handleUpload = () => {
-    if (!files) {
-      return;
+    console.log(worker);
+
+    if (worker) {
+      Object.entries(files).forEach(([key, values]) => {
+        const code = filesTypes.find(fT => fT.name == key).id;
+        const data = new FormData();
+        data.append("document", values.file[0]);
+        data.append("fechaCaducidad", values.date);
+
+        uploadDocument(worker.id, code, data);
+      });
+    } else {
+      alert("selecciona un trabajador");
     }
 
-    const data = new FormData();
+    //data.append("files", file);
 
-    files.forEach(file => {
-      data.append("files", file);
-    });
+    return;
 
-    setUploading(true);
-
+    /*
     axios
       .post(
         "http://localhost:8000/api/workers/8a78c214-b2f0-4585-b901-4f2a7f198c75/3/document",
@@ -39,33 +66,36 @@ function FileUpload() {
       )
       .then(response => {
         console.log(response);
-        setFiles([]);
-        setUploading(false);
+        //setFiles([]);
+        //setUploading(false);
       })
       .catch(error => {
-        setUploading(false);
+        // setUploading(false);
         console.log(error);
       });
+      */
   };
 
-  const filesTypes = ["Epis", "Apto", "Formación"];
-
-  console.log(files);
+  console.log(files, worker);
 
   return (
     <div>
       <h3>Documentos:</h3>
       {filesTypes.map(fT => (
         <div>
-          <label>{fT}</label>
+          <label>{fT.name}</label>
           <input
             type="file"
             accept=".pdf"
-            onChange={e => handleChange(fT, e)}
+            onChange={e => handleChange(fT.name, e)}
           />
-          <input type="date" />
+          <input type="date" onChange={e => handleDate(fT.name, e)} />
+          <a>ver archivo</a>
+          <div className="trabajadores-file-status" />
         </div>
       ))}
+
+      <button onClick={() => handleUpload()}>Subir archivos</button>
     </div>
   );
   /*

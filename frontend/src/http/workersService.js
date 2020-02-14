@@ -53,3 +53,10 @@ export function getProjectsFromWorker(id) {
     `${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}/projects`
   );
 }
+
+export function uploadDocument(workerId, requirementId, formData) {
+  return axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/api/workers/${workerId}/${requirementId}/document`,
+    formData
+  );
+}

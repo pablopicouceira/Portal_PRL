@@ -14,6 +14,7 @@ async function uploadDocument(req, res, next) {
   const { userId } = req.claims;
   const { workerId, requirementId } = req.params;
   const { file } = req;
+  const { fechaCaducidad } = req.body;
 
   if (!file || !file.buffer) {
     return res.status(400).send({
@@ -43,7 +44,8 @@ async function uploadDocument(req, res, next) {
           Trabajadores_id: workerId,
           Requisitos_id: requirementId,
           Usuarios_id: userId,
-          secureUrl
+          secureUrl,
+          fechaCaducidad
         };
 
         let connection;
