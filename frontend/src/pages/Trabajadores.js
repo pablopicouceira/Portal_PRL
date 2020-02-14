@@ -6,8 +6,7 @@ import {
   createWorker,
   deactivateWorker,
   updateWorker,
-  reactivateWorker,
-  getProjectsFromWorker
+  reactivateWorker
 } from "../http/workersService";
 import { WorkersList } from "../components/WorkersList";
 import { Worker } from "../components/Worker";
@@ -163,7 +162,7 @@ export function Trabajadores() {
       <Header title="Portal Gestión PRL" />
 
       <div className="trabajadores-container-columns">
-        <div>
+        <div className="trabajadores-container-column1">
           {state.showInactive === false && (
             <WorkersList
               workers={state.workers}
@@ -183,33 +182,39 @@ export function Trabajadores() {
             />
           )}
         </div>
+        <div className="trabajadores-container-column2">
+          <div className=".trabajadores-container-column2 input">
+            <TrabajadoresForm
+              data={state.workers[state.selectedWorker]}
+              action={action}
+              limpiar={() => dispatch({ type: "DESELECT_WORKER" })}
+            />
 
-        <div>
-          <TrabajadoresForm
-            data={state.workers[state.selectedWorker]}
-            action={action}
-            limpiar={() => dispatch({ type: "DESELECT_WORKER" })}
-          />
-
-          <Worker
-            activeWorker={state.showInactive}
-            worker={state.workers[state.selectedWorker]}
-            inactiveWorker={state.inactiveWorkers[state.selectedInactiveWorker]}
-            onDeactivateWorker={id => {
-              console.log(id);
-              handleDeactivateWorker(id);
-            }}
-            onUpdateWorker={id => {
-              console.log(id);
-              handleUpdateWorker(id);
-            }}
-            onReactivateWorker={id => {
-              console.log(id);
-              handleReactivateWorker(id);
-            }}
-          />
+            <Worker
+              activeWorker={state.showInactive}
+              worker={state.workers[state.selectedWorker]}
+              inactiveWorker={
+                state.inactiveWorkers[state.selectedInactiveWorker]
+              }
+              onDeactivateWorker={id => {
+                console.log(id);
+                handleDeactivateWorker(id);
+              }}
+              onUpdateWorker={id => {
+                console.log(id);
+                handleUpdateWorker(id);
+              }}
+              onReactivateWorker={id => {
+                console.log(id);
+                handleReactivateWorker(id);
+              }}
+            />
+          </div>
+          <div>
+            <FileUpload />
+          </div>
         </div>
-        <div>
+        <div className="trabajadores-container-column3">
           <ProjectsFromWorker worker={getWorker()} />
         </div>
       </div>
@@ -221,8 +226,6 @@ export function Trabajadores() {
       >
         Trabajadores {!state.showInactive ? "Inactivos" : "Activos"}
       </button>
-
-      <FileUpload />
     </div>
   );
 }
