@@ -41,7 +41,7 @@ export default function ProjectsFromWorkers({ worker }) {
 
   return (
     <div className="App">
-      <h1>Proyectos </h1>
+      <h1>Proyectos asociados</h1>
       {projects.length ? (
         <ul className="li">
           {projects.map((project, index) => (

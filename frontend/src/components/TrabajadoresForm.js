@@ -11,6 +11,7 @@ export function TrabajadoresForm({ data, action, limpiar }) {
 
   return (
     <form onSubmit={handleSubmit(action)}>
+      <h3>Datos Personales:</h3>
       <div
         className={`form-control ${
           errors.name ? "ko" : formState.touched.name && "ok"

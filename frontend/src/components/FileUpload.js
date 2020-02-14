@@ -54,7 +54,7 @@ function FileUpload() {
 
   return (
     <div>
-      Subir archivos
+      <h3>Documentos:</h3>
       {filesTypes.map(fT => (
         <div>
           <label>{fT}</label>
