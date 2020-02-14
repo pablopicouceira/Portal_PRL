@@ -2,20 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Header.css";
 
-export function Header({ title }) {
+export function Header({ title, onLogout }) {
   return (
     <header>
       <p>{title}</p>
       <nav>
-        <span>
+        <div>
           <Link to="/panel">Panel</Link>
-        </span>
-        <span>
+        </div>
+        <div>
           <Link to="/actuaciones">Actuaciones</Link>
-        </span>
-        <span>
+        </div>
+        <div>
           <Link to="/trabajadores">Trabajadores</Link>
-        </span>
+        </div>
+        <div>
+          <a href="/" onClick={onLogout}>
+            Salir
+          </a>
+        </div>
       </nav>
     </header>
   );

@@ -159,7 +159,13 @@ export function Trabajadores() {
 
   return (
     <div>
-      <Header title="Portal Gestión PRL" />
+      <Header
+        title="Portal Gestión PRL"
+        onLogout={e => {
+          localStorage.removeItem("currentUser");
+          window.location.href = "/";
+        }}
+      />
 
       <div className="trabajadores-container-columns">
         <div className="trabajadores-container-column1">

@@ -3,6 +3,18 @@ header {
   height: 12vh;
   font-size: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: large;
+  align-items: flex-end;
+  padding-bottom: 10px;
 }
 
 span {
