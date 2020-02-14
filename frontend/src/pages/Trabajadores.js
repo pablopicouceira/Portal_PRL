@@ -146,7 +146,7 @@ export function Trabajadores() {
   };
 
   const getWorker = () => {
-    if (state.selectedWorker) {
+    if (state.selectedWorker >= 0) {
       const selected = state.workers[state.selectedWorker];
 
       if (selected) {
@@ -187,6 +187,14 @@ export function Trabajadores() {
               }
             />
           )}
+
+          <button
+            onClick={() => {
+              dispatch({ type: "TOGGLE_SHOWN_WORKERS" });
+            }}
+          >
+            Trabajadores {!state.showInactive ? "Inactivos" : "Activos"}
+          </button>
         </div>
         <div className="trabajadores-container-column2">
           <div className=".trabajadores-container-column2 input">
@@ -217,21 +225,13 @@ export function Trabajadores() {
             />
           </div>
           <div>
-            <FileUpload />
+            <FileUpload worker={getWorker()} />
           </div>
         </div>
         <div className="trabajadores-container-column3">
           <ProjectsFromWorker worker={getWorker()} />
         </div>
       </div>
-
-      <button
-        onClick={() => {
-          dispatch({ type: "TOGGLE_SHOWN_WORKERS" });
-        }}
-      >
-        Trabajadores {!state.showInactive ? "Inactivos" : "Activos"}
-      </button>
     </div>
   );
 }

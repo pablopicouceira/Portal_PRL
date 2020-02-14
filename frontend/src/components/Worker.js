@@ -19,10 +19,6 @@ export function Worker({
           Desactivar Trabajador
         </button>
       )}
-
-      <button onClick={() => onUpdateWorker(worker.id)}>
-        Actualizar Trabajador
-      </button>
     </React.Fragment>
   );
 }
