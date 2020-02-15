@@ -1,6 +1,8 @@
 "use strict";
 
 const express = require("express");
+const multer = require("multer");
+const upload = multer();
 
 const checkAccountSession = require("../controllers/account/check-account-session");
 
@@ -12,6 +14,7 @@ const getProjects = require("../controllers/project/get-projects-controller");
 const getProject = require("../controllers/project/get-project-controller");
 const updateProject = require("../controllers/project/update-project-controller");
 const getWorkersFromProject = require("../controllers/project/get-workers-project-controller");
+const uploadImageProject = require("../controllers/project/upload-image-project-controller");
 
 const router = express.Router();
 
@@ -30,6 +33,12 @@ router.post(
   "/projects/:projectId/:workerId",
   checkAccountSession,
   associateWorkerToProject
+);
+router.post(
+  "/projects/:projectId",
+  checkAccountSession,
+  upload.single("image"),
+  uploadImageProject
 );
 
 module.exports = router;
