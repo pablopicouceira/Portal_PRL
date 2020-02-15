@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis&display=swap");
+
+li {
+  color: #e24e1b;
+  font-size: large;
+  font-family: "Dosis", sans-serif;
+}
+
+.ProjectsList-selected {
+  color: yellow;
+  font-size: large;
+  font-weight: bold;
+}
