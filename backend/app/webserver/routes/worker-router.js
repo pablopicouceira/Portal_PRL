@@ -15,6 +15,7 @@ const recoverWorker = require("../controllers/worker/recover-worker-controller")
 const updateWorker = require("../controllers/worker/update-worker-controller");
 const getProjectsWorkerController = require("../controllers/worker/get-projects-worker-controller");
 const uploadDocument = require("../controllers/worker/upload-document-worker-controller");
+const getDocumentWorker = require("../controllers/worker/get-document-worker-controller");
 
 const router = express.Router();
 
@@ -22,6 +23,16 @@ router.post("/workers", checkAccountSession, createWorker);
 router.get("/workers/inactive", checkAccountSession, getInactiveWorkers);
 router.get("/workers", checkAccountSession, getWorkers);
 router.get("/workers/:workerId", checkAccountSession, getWorker);
+router.get(
+  "/workers/:workerId/projects",
+  checkAccountSession,
+  getProjectsWorkerController
+);
+router.get(
+  "/workers/:workerId/:requirementId/document",
+  checkAccountSession,
+  getDocumentWorker
+);
 router.put("/workers/:workerId", checkAccountSession, updateWorker);
 router.post(
   "/workers/:workerId/:requirementId/document",
@@ -31,10 +42,5 @@ router.post(
 );
 router.put("/workers/recover/:workerId", checkAccountSession, recoverWorker);
 router.delete("/workers/:workerId", checkAccountSession, deleteWorker);
-router.get(
-  "/workers/:workerId/projects",
-  checkAccountSession,
-  getProjectsWorkerController
-);
 
 module.exports = router;
