@@ -23,3 +23,5 @@ Listado de endpoints:
 17. ✔️ Mostrar Actuaciones inactivas
 18. ✔️ Mostrar Actuación
 19. ✔️ Mostrar Trabajadores asociados a una Actuación
+20. ✔️ Mostrar Documento de Trabajador
+21. ✔️ Cargar Imagen en Acutación
