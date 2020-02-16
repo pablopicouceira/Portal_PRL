@@ -27,3 +27,4 @@ Listado de endpoints:
 21. ✔️ Cargar Imagen en Acutación
 22. ✔️ Mostrar Trabajadores no asociados a Actuación
 23. ✔️ Mostrar Documentos caducados
+24. ✔️ Total de Documentos subidos por Usuario
