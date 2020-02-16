@@ -54,3 +54,9 @@ export function getExpiredDocuments() {
     `${process.env.REACT_APP_BACKEND_URL}/api/workers/expireddocuments`
   );
 }
+
+export function getDocumentsUser(id) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/api/accounts/documents/${id}`
+  );
+}
