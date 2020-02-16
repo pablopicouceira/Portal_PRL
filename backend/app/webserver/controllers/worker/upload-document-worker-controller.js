@@ -22,6 +22,8 @@ async function uploadDocument(req, res, next) {
     });
   }
 
+  console.log(file.originalname, "theeee nameeeee");
+
   //poner a nulll las fechas antetiores
 
   try {

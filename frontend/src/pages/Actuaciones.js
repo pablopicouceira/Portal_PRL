@@ -5,7 +5,8 @@ import {
   createProject,
   deactivateProject,
   updateProject,
-  getNonAssociatedWorkers
+  getNonAssociatedWorkers,
+  getWorkersFromProject
 } from "../http/projectsService";
 import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
@@ -16,6 +17,8 @@ import { InactiveProjectsList } from "../components/InactiveProjectsList";
 import { ActuacionesForm } from "../components/ActuacionesForm";
 import { Project } from "../components/Project";
 import { WorkersList } from "../components/WorkersList";
+
+import "../css/Actuaciones.css";
 
 function projectsReducer(state, action) {
   switch (action.type) {
@@ -34,6 +37,8 @@ function projectsReducer(state, action) {
       return { ...state, selectedProject: action.index };
     case "SET_NON_ASSOCIATED_WORKERS":
       return { ...state, workersNonAssociated: action.data };
+    case "SET_ASSOCIATED_WORKERS":
+      return { ...state, workersAssociated: action.data };
     case "SELECT_INACTIVE_PROJECT":
       return { ...state, selectedInactiveProject: action.index };
     case "CREATE_PROJECT":
@@ -54,7 +59,8 @@ export function Actuaciones() {
     selectedProject: null,
     showInactive: false,
     selectedInactiveProject: null,
-    workersNonAssociated: []
+    workersNonAssociated: [],
+    workersAssociated: []
   });
 
   const { register, errors, formState, handleSubmit, setError } = useForm();
@@ -76,9 +82,11 @@ export function Actuaciones() {
   }, []);
 
   const handleRegister = formData => {
-    return createProject(currentUser.accessToken, formData)
+    return createProject(formData)
       .then(response => {
-        dispatch({ type: "CREATE_PROJECT", project: response.data });
+        // dispatch({ type: "CREATE_PROJECT", project: response.data });
+
+        getData();
         console.log(response.data);
       })
       .catch(error => {
@@ -131,8 +139,18 @@ export function Actuaciones() {
       .catch(err => {
         console.log(err);
       });
-  };
 
+    getWorkersFromProject(projectId)
+      .then(response => {
+        dispatch({
+          type: "SET_ASSOCIATED_WORKERS",
+          data: response.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   const getWorker = () => {
     if (state.selectedWorker >= 0) {
       const selected = state.workers[state.selectedWorker];
@@ -144,6 +162,10 @@ export function Actuaciones() {
 
     return null;
   };
+
+  const project = state.projects[state.selectedProject]
+    ? state.projects[state.selectedProject]
+    : {};
 
   return (
     <div>
@@ -183,36 +205,47 @@ export function Actuaciones() {
           >
             Actuaciones {!state.showInactive ? "Inactivas" : "Activas"}
           </button>
+
+          <ActuacionesForm
+            data={state.projects[state.selectedProject]}
+            action={action}
+            limpiar={() => dispatch({ type: "DESELECT_PROJECT" })}
+          />
+          <Project
+            activeProject={state.showInactive}
+            project={state.projects[state.selectedProject]}
+            inactiveProject={
+              state.inactiveProjects[state.selectedInactiveProject]
+            }
+            onDeactivateProject={id => {
+              console.log(id);
+              handleDeactivateProject(id);
+            }}
+            onUpdateProject={id => {
+              console.log(id);
+              handleUpdateProject(id);
+            }}
+          />
         </div>
 
-        <WorkersList
-          workers={state.workersNonAssociated}
-          selectedIndex={-1}
-          onWorkerSelected={() => {}}
-        />
-
         <div className="actuaciones-container-column2">
-          <div className=".actuaciones-container-column2 input">
-            <ActuacionesForm
-              data={state.projects[state.selectedProject]}
-              action={action}
-              limpiar={() => dispatch({ type: "DESELECT_PROJECT" })}
+          <div className="actuaciones-container-info">
+            <img
+              src="https://www.ismedioambiente.com/wp-content/uploads/2019/04/Convenio-Europeo-del-Paisaje.jpg"
+              style={{ width: "20em" }}
             />
+            <label>{project.nombre}</label>
+            <label>{project.direccion}</label>
+            <label>{project.poblacion}</label>
+            <label>{project.provincia}</label>
+            <label>{project.descripcion}</label>
+          </div>
 
-            <Project
-              activeProject={state.showInactive}
-              project={state.projects[state.selectedProject]}
-              inactiveProject={
-                state.inactiveProjects[state.selectedInactiveProject]
-              }
-              onDeactivateProject={id => {
-                console.log(id);
-                handleDeactivateProject(id);
-              }}
-              onUpdateProject={id => {
-                console.log(id);
-                handleUpdateProject(id);
-              }}
+          <div className="actuaciones-container-info">
+            <WorkersList
+              workers={state.workersAssociated}
+              selectedIndex={-1}
+              onWorkerSelected={() => {}}
             />
           </div>
         </div>

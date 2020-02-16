@@ -35,6 +35,11 @@ async function validate(payload) {
       .trim()
       .min(1)
       .max(45)
+      .required(),
+    descripcion: Joi.string()
+      .trim()
+      .min(1)
+      .max(10000)
       .required()
   });
 
@@ -49,14 +54,14 @@ async function createProject(req, res, next) {
   try {
     await validate(projectData);
   } catch (e) {
-    return res.status(418).send(e);
+    return res.status(400).send(e);
   }
 
   const created_At = new Date()
     .toISOString()
     .substring(0, 19)
     .replace("T", " ");
-  const { nombre, direccion, poblacion, provincia } = projectData;
+  const { nombre, direccion, poblacion, provincia, descripcion } = projectData;
 
   try {
     const connection = await mysqlPool.getConnection();
@@ -79,6 +84,7 @@ async function createProject(req, res, next) {
     direccion,
     poblacion,
     provincia,
+    descripcion,
     created_At
   };
 

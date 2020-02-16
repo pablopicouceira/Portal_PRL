@@ -88,6 +88,25 @@ export function ActuacionesForm({ data, action, limpiar }) {
           <span className="errorMessage">{errors.password.message}</span>
         )}
       </div>
+      <div
+        className={`form-control ${
+          errors.password ? "ko" : formState.touched.password && "ok"
+        }`}
+      >
+        <label>Descripción</label>
+        <input
+          ref={register({
+            required: "The password is mandatory"
+          })}
+          defaultValue={data.provincia}
+          name="descripcion"
+          type="text"
+          placeholder="Please enter your password"
+        ></input>
+        {errors.password && (
+          <span className="errorMessage">{errors.password.message}</span>
+        )}
+      </div>
       <div className="btn-container">
         <button
           type="submit"

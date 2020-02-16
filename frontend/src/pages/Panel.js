@@ -70,6 +70,7 @@ export function Panel() {
             padding={{ top: 100, bottom: 60 }}
             theme={VictoryTheme.material}
           />
+          <VictoryLabel labelPlacement="vertical" />
         </div>
       </div>
     </div>

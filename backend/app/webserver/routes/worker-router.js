@@ -26,6 +26,7 @@ router.get(
   checkAccountSession,
   getExpiredDocuments
 );
+
 router.get("/workers/inactive", checkAccountSession, getInactiveWorkers);
 router.get("/workers", checkAccountSession, getWorkers);
 router.get("/workers/:workerId", checkAccountSession, getWorker);
