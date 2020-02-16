@@ -33,7 +33,7 @@ async function getProject(req, res, next) {
 
   try {
     const connection = await mysqlPool.getConnection();
-    const getProjectQuery = `SELECT id, descripcion, direccion, poblacion, provincia
+    const getProjectQuery = `SELECT id, nombre, direccion, poblacion, provincia
       FROM Actuaciones 
       WHERE id = ?`;
     const [results] = await connection.execute(getProjectQuery, [projectId]);

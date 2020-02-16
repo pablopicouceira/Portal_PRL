@@ -16,7 +16,7 @@ const httpServerDomain = process.env.HTTP_SERVER_DOMAIN;
 */
 async function validate(payload) {
   const schema = Joi.object({
-    descripcion: Joi.string()
+    nombre: Joi.string()
       .trim()
       .min(1)
       .max(255)
@@ -56,7 +56,7 @@ async function createProject(req, res, next) {
     .toISOString()
     .substring(0, 19)
     .replace("T", " ");
-  const { descripcion, direccion, poblacion, provincia } = projectData;
+  const { nombre, direccion, poblacion, provincia } = projectData;
 
   try {
     const connection = await mysqlPool.getConnection();
@@ -75,7 +75,7 @@ async function createProject(req, res, next) {
   //const id = uuidV4();
   const project = {
     // id,
-    descripcion,
+    nombre,
     direccion,
     poblacion,
     provincia,

@@ -110,7 +110,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"dni\": \"Z5790285V\",\n\t\"apellidos\": \"Niño Carbo\",\n\t\"nombre\": \"Cristian\"\n}",
+					"raw": "{\n\t\"apellidos\": \"Pastor Ribera\",\n\t\"nombre\": \"Manuel\",\n\t\"dni\": \"54698254E\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,13 +161,13 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "avatar",
+							"key": "document",
 							"type": "file",
-							"src": "/Users/jose.mato/Desktop/calabaza-ruperta5.jpg"
+							"src": "/home/hab30/Desktop/Documentos/EPIS 3 Vila Pérez, Iñaki.pdf"
 						},
 						{
 							"key": "title",
-							"value": "Halloween",
+							"value": "document",
 							"type": "text"
 						},
 						{
@@ -179,14 +179,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/users/avatar",
+					"raw": "{{baseUrl}}/api/workers/7c544d83-87d4-463d-b6ee-6b73080d32d3/3/document",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"users",
-						"avatar"
+						"workers",
+						"7c544d83-87d4-463d-b6ee-6b73080d32d3",
+						"3",
+						"document"
 					]
 				}
 			},
@@ -271,6 +273,16 @@
 		{
 			"name": "7. Recuperar Trabajador",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -286,14 +298,15 @@
 					}
 				],
 				"url": {
-					"raw": "{{baseUrl}}/api/workers/12c92c00-396c-4dc9-b7a0-285bfc611e5c",
+					"raw": "{{baseUrl}}/api/workers/recover/aa2922b3-b905-45c6-b692-fe3b0b318548",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"workers",
-						"12c92c00-396c-4dc9-b7a0-285bfc611e5c"
+						"recover",
+						"aa2922b3-b905-45c6-b692-fe3b0b318548"
 					]
 				}
 			},
@@ -323,7 +336,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"descripción\": \"Ejecución de edificio de 144 viviendas\",\n\t\"direccion\": \"Avda. de Aragón 148\",\n\t\"poblacion\": \"Terrassa\"\n\t\"provincia\": \"Barcelona\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -331,13 +344,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/projects",
+					"raw": "{{baseUrl}}/api/projects/5/c30a76c7-73d0-4b4e-bbfb-fdfa01391c89",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"projects"
+						"projects",
+						"5",
+						"c30a76c7-73d0-4b4e-bbfb-fdfa01391c89"
 					]
 				}
 			},
@@ -403,16 +418,27 @@
 		{
 			"name": "11. Mostrar Trabajador",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/workers",
+					"raw": "{{baseUrl}}/api/workers/9e0cd316-7a78-4743-a680-aa5e59874d0d",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"workers"
+						"workers",
+						"9e0cd316-7a78-4743-a680-aa5e59874d0d"
 					]
 				}
 			},
@@ -434,14 +460,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/workers/12c92c00-396c-4dc9-b7a0-285bfc611e5c/projects",
+					"raw": "{{baseUrl}}/api/workers/c30a76c7-73d0-4b4e-bbfb-fdfa01391c89/projects",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"workers",
-						"12c92c00-396c-4dc9-b7a0-285bfc611e5c",
+						"c30a76c7-73d0-4b4e-bbfb-fdfa01391c89",
 						"projects"
 					]
 				}
@@ -472,7 +498,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"descripción\": \"Ejecución de edificio de 144 viviendas\",\n\t\"direccion\": \"Avda. de Aragón 148\",\n\t\"poblacion\": \"Terrassa\"\n\t\"provincia\": \"Barcelona\"\n}",
+					"raw": "{\n\t\"nombre\": \"Ejecución de edificio de 144 viviendas\",\n\t\"direccion\": \"Avda. de Aragón 148\",\n\t\"poblacion\": \"Terrassa\"\n\t\"provincia\": \"Barcelona\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -521,7 +547,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"descripcion\": \"Obra menor\",\n\t\"direccion\": \"Bº Karega - CC Max Center\",\n\t\"poblacion\":\"Barakaldo\",\n\t\"provincia\":\"Vizcaya\"\n}\n"
+					"raw": "{\n\t\"nombre\": \"Obra menor\",\n\t\"direccion\": \"Bº Karega - CC Max Center\",\n\t\"poblacion\":\"Barakaldo\",\n\t\"provincia\":\"Vizcaya\"\n}\n"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/projects/37664a0b-0811-4005-8a26-db41b93825a8",
@@ -680,15 +706,85 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/projects/4/workers",
+					"raw": "{{baseUrl}}/api/projects/5/workers",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"projects",
-						"4",
+						"5",
 						"workers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20. Mostrar Documento de Trabajador",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workers/07ebadba-d801-4c71-9e0b-3ef7a4af38d4/3/document",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers",
+						"07ebadba-d801-4c71-9e0b-3ef7a4af38d4",
+						"3",
+						"document"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21. Cargar Imagen en Actuación",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/projects/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"2"
 					]
 				}
 			},

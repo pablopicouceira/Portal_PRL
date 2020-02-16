@@ -5,7 +5,7 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 async function validateSchema(payload) {
   const schema = Joi.object({
-    descripcion: Joi.string()
+    nombre: Joi.string()
       .trim()
       .min(1)
       .max(255)
@@ -71,7 +71,7 @@ async function updateProject(req, res, next) {
      * Exercise: modify upated_at column to keep track when this record was modified
      */
     const sqlUpdateProject = `UPDATE Actuaciones
-      SET descripcion = ?,
+      SET nombre = ?,
         direccion = ?,
         poblacion = ?,
         provincia = ?,
@@ -83,7 +83,7 @@ async function updateProject(req, res, next) {
      * Exercise: return 404 if the update was not possible
      */
     await connection.query(sqlUpdateProject, [
-      projectData.descripcion,
+      projectData.nombre,
       projectData.direccion,
       projectData.poblacion,
       projectData.provincia,
