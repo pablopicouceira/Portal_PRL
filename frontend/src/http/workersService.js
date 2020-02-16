@@ -1,11 +1,7 @@
 import axios from "axios";
 
 export function getWorkers(accessToken) {
-  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workers`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`
-    }
-  });
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workers`);
 }
 
 export function getInactiveWorkers(accessToken) {
@@ -20,15 +16,7 @@ export function getInactiveWorkers(accessToken) {
 }
 
 export function createWorker(accessToken, worker) {
-  return axios.post(
-    `${process.env.REACT_APP_BACKEND_URL}/api/workers`,
-    worker,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    }
-  );
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/workers`, worker);
 }
 
 export function deactivateWorker(id) {
@@ -58,5 +46,11 @@ export function uploadDocument(workerId, requirementId, formData) {
   return axios.post(
     `${process.env.REACT_APP_BACKEND_URL}/api/workers/${workerId}/${requirementId}/document`,
     formData
+  );
+}
+
+export function getExpiredDocuments() {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/api/workers/expireddocuments`
   );
 }
