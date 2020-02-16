@@ -26,3 +26,4 @@ Listado de endpoints:
 20. ✔️ Mostrar Documento de Trabajador
 21. ✔️ Cargar Imagen en Acutación
 22. ✔️ Mostrar Trabajadores no asociados a Actuación
+23. ✔️ Mostrar Documentos caducados
