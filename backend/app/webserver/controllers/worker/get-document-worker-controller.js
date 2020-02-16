@@ -36,7 +36,9 @@ async function getDocumentWorker(req, res, next) {
     const getDocumentQuery = `SELECT id, Trabajadores_id, Requisitos_id, Usuarios_id, secureUrl,FechaCaducidad
       FROM Uploads 
       WHERE Trabajadores_id = ?
-      AND Requisitos_id =?`;
+      AND Requisitos_id =?
+      ORDER BY id DESC
+      LIMIT 1`;
     const [results] = await connection.execute(getDocumentQuery, [
       workerId,
       requirementId

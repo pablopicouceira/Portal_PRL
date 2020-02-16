@@ -51,7 +51,7 @@ function workersReducer(state, action) {
       };
     case "DESELECT_WORKER": //Al deseleccionar el trabajdor, se limpia el formulario porque no tiene ningún trabajador seleccionado
       return { ...state, selectedWorker: null };
-    case "GET_PROJECTS_FROM_wORKER":
+    case "GET_PROJECTS_FROM_WORKER":
       return { ...state };
     default:
       return state;
@@ -67,6 +67,7 @@ export function Trabajadores() {
     showInactive: false,
     selectedInactiveWorker: null
   });
+  const { register, errors, formState, handleSubmit, setError } = useForm();
 
   const getData = () => {
     getWorkers().then(response =>
@@ -81,17 +82,14 @@ export function Trabajadores() {
     );
   };
 
-  const { register, errors, formState, handleSubmit, setError } = useForm(
-    //{ mode: "onBlur", defaultValues: worker});
-
-    useEffect(
-      () => {
-        getData();
-      },
-      [state.workers.length],
-      [state.inactiveWorkers.length],
-      state.showInactive
-    )
+  //{ mode: "onBlur", defaultValues: worker});
+  useEffect(
+    () => {
+      getData();
+    },
+    [state.workers.length],
+    [state.inactiveWorkers.length],
+    state.showInactive
   );
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)

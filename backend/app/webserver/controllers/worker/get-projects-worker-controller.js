@@ -35,7 +35,7 @@ async function getProjectsFromWorker(req, res, next) {
   let connection;
   try {
     connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT a.id, a.descripcion, a.poblacion 
+    const sqlQuery = `SELECT a.id, a.nombre, a.poblacion 
     FROM Actuaciones a 
     JOIN Actuaciones_Trabajadores at 
     ON a.id = at.Actuaciones_id

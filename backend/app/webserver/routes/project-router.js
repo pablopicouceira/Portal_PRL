@@ -15,6 +15,7 @@ const getProject = require("../controllers/project/get-project-controller");
 const updateProject = require("../controllers/project/update-project-controller");
 const getWorkersFromProject = require("../controllers/project/get-workers-project-controller");
 const uploadImageProject = require("../controllers/project/upload-image-project-controller");
+const getNonAssociatedWorkers = require("../controllers/project/get-non-associated-workers-project-controller");
 
 const router = express.Router();
 
@@ -23,6 +24,11 @@ router.get("/projects/inactive", checkAccountSession, getInactiveProject);
 router.delete("/projects/:projectId", checkAccountSession, deleteProject);
 router.get("/projects", checkAccountSession, getProjects);
 router.get("/projects/:projectId", checkAccountSession, getProject);
+router.get(
+  "/projects/:projectId/non-associated",
+  checkAccountSession,
+  getNonAssociatedWorkers
+);
 router.get(
   "/projects/:projectId/workers",
   checkAccountSession,

@@ -1,0 +1,126 @@
+.actuaciones-container-columns {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-around;
+}
+
+.actuaciones-container-column1 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px rgba(255, 255, 255, 0.75);
+  flex-basis: 30%;
+  margin: 10px;
+}
+
+.actuaciones-container-column2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px rgba(255, 255, 255, 0.75);
+  flex-basis: 40%;
+  margin: 10px;
+}
+
+.actuaciones-container-column3 {
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px rgba(255, 255, 255, 0.75);
+  text-align: left;
+  flex-basis: 30%;
+  margin: 10px;
+}
+
+.actuaciones-container-column2 input {
+  background-color: transparent;
+  color: green;
+  padding: 5px;
+  margin: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #100f0f;
+  background-size: cover;
+  color: #fff;
+}
+
+.header {
+  background: gray;
+  margin: 0;
+  padding: 0;
+}
+
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0.15px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.centered-container h3 {
+  font-size: 25px;
+  margin: 0 0 30px;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+.centered-container .form-control {
+  position: relative;
+}
+
+.centered-container .form-control input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  background: transparent;
+}
+
+.centered-container .form-control label {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.button-container button {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.actuaciones-file-status {
+  height: 2em;
+  background-color: red;
+  width: 2em;
+  border-radius: 20px;
+}
+input {
+  border-width: 0px 0px 1px;
+}

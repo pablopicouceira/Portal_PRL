@@ -22,12 +22,23 @@ async function uploadDocument(req, res, next) {
     });
   }
 
-  const id = uuidV4();
+  //poner a nulll las fechas antetiores
+
+  try {
+    const conn = await mysqlPool.getConnection();
+    const sqlUploadDocument = `update Uploads set Obsoleto = true where Requisitos_id=${requirementId} AND Trabajadores_id='${workerId}'`;
+    await conn.query(sqlUploadDocument);
+    conn.release();
+  } catch (error) {
+    console.log(error);
+  }
+
+  const fileId = uuidV4();
   cloudinary.uploader
     .upload_stream(
       {
         resource_type: "auto",
-        public_id: id,
+        public_id: fileId,
         format: "pdf"
       },
       async (err, result) => {
@@ -40,12 +51,12 @@ async function uploadDocument(req, res, next) {
         console.log(result);
 
         const upload = {
-          id,
           Trabajadores_id: workerId,
           Requisitos_id: requirementId,
           Usuarios_id: userId,
           secureUrl,
-          fechaCaducidad
+          fechaCaducidad,
+          Obsoleto: false
         };
 
         let connection;
