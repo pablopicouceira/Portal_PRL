@@ -14,15 +14,23 @@ async function uploadDocument(req, res, next) {
   const { userId } = req.claims;
   const { workerId, requirementId } = req.params;
   const { file } = req;
-  const { fechaCaducidad } = req.body;
+  //const { fechaCaducidad } = req.body;
 
   if (!file || !file.buffer) {
     return res.status(400).send({
       message: "invalid document"
     });
   }
-
-  console.log(file.originalname, "theeee nameeeee");
+  console.log(file);
+  const year = 20 + file.originalname.substring(8, 10);
+  const month = file.originalname.substring(5, 7);
+  const day = file.originalname.substring(2, 4);
+  console.log(file.originalname, "nombre del archivo");
+  console.log(year, "año");
+  console.log(month, "mes");
+  console.log(day, "día");
+  const fechaCaducidad = `${year}-${month}-${day}`;
+  console.log(fechaCaducidad);
 
   //poner a nulll las fechas antetiores
 
