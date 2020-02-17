@@ -9,8 +9,8 @@ export function ExpiredDocuments({ documents }) {
         <ul className="li">
           {documents.map((document, index) => (
             <li key={document.id}>
-              {document.FechaCaducidad} {document.apellidos}, {document.nombre}{" "}
-              - {document.tipo}
+              {document.FechaCaducidad.substring(0, 10)} {document.apellidos},{" "}
+              {document.nombre} - {document.tipo}
             </li>
           ))}
         </ul>

@@ -7,5 +7,5 @@ export function TotalDocuments({ id }) {
     getDocumentsUser(id).then(response => setDocuments(response.data));
   }, []);
   console.log(documents);
-  return <h1>Has subido {documents.length} archivos</h1>;
+  return <h1>{documents.length} archivos subidos</h1>;
 }

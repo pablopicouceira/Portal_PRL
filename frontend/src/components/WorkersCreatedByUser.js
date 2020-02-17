@@ -7,5 +7,5 @@ export function WorkersCreatedByUser() {
     getWorkersByUser().then(response => setWorkers(response.data));
   }, []);
   console.log(workers);
-  return <h1>Has registrado {workers.length} trabajadores</h1>;
+  return <h1>{workers.length} trabajadores registrados</h1>;
 }
