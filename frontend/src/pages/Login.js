@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from "../http/authService";
 import { useAuth } from "../context/auth-context";
+import { Header } from "../components/Header";
 
 import "../css/Login.css";
 
@@ -41,11 +42,7 @@ export function Login() {
   // console.log("ERROR:", errors);
   return (
     <React.Fragment>
-      <header className="header">
-        {" "}
-        <h1>Portal_PRL</h1>{" "}
-      </header>
-
+      <Header />
       <main className="centered-container">
         <h3>Please Login</h3>
 
