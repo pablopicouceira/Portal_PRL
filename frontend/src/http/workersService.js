@@ -60,3 +60,7 @@ export function getDocumentsUser(id) {
     `${process.env.REACT_APP_BACKEND_URL}/api/accounts/documents/${id}`
   );
 }
+
+export function getWorkersByUser() {
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/accounts/workers`);
+}
