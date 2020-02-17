@@ -37,7 +37,8 @@ async function validate(payload) {
 
 async function createWorker(req, res, next) {
   const workerData = { ...req.body };
-  // const { userId } = req.claims;
+  const { userId } = req.claims;
+  const Usuarios_id = userId;
 
   try {
     await validate(workerData);
@@ -57,6 +58,7 @@ async function createWorker(req, res, next) {
     dni,
     apellidos,
     nombre,
+    Usuarios_id,
     created_At
   };
 
