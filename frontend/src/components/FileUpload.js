@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "../css/FileUpload.css";
-import { uploadDocument } from "../http/workersService";
+import { uploadDocument, getDocumentsWorker } from "../http/workersService";
 
 const filesTypes = [
   { id: 1, name: "Formacion" },
@@ -10,10 +10,14 @@ const filesTypes = [
 ];
 function FileUpload({ worker }) {
   const [files, setFiles] = useState({});
-  const [uploading, setUploading] = useState(false);
-  const [previews, setPreviews] = useState([]);
-  const [isDrag, setDrag] = useState(false);
-  const fileInput = useRef();
+  const [workerFiles, setWorkerFiles] = useState([]);
+
+  useEffect(() => {
+    if (worker)
+      getDocumentsWorker(worker.id).then(result =>
+        setWorkerFiles(result.data.data)
+      );
+  }, [worker]);
 
   const handleChange = (name, e) => {
     const newFiles = {
@@ -76,24 +80,30 @@ function FileUpload({ worker }) {
       */
   };
 
-  console.log(files, worker);
+  console.log(workerFiles, "fileeeeeeees");
 
   return (
     <div>
       <h3>Documentos:</h3>
-      {filesTypes.map(fT => (
-        <div>
-          <label>{fT.name}</label>
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={e => handleChange(fT.name, e)}
-          />
-          <input type="date" onChange={e => handleDate(fT.name, e)} />
-          <a>ver archivo</a>
-          <div className="trabajadores-file-status" />
-        </div>
-      ))}
+      {filesTypes.map(fT => {
+        const file = workerFiles.find(f => fT.id == f.Requisitos_id);
+
+        return (
+          <div>
+            <label>{fT.name}</label>
+            <input
+              type="file"
+              accept=".pdf"
+              onChange={e => handleChange(fT.name, e)}
+            />
+            <input type="date" onChange={e => handleDate(fT.name, e)} />
+            <a href={file ? file.secureUrl : ""} target="_blank">
+              ver archivo
+            </a>
+            <div className="trabajadores-file-status" />
+          </div>
+        );
+      })}
 
       <button onClick={() => handleUpload()}>Subir archivos</button>
     </div>

@@ -39,3 +39,22 @@ export function getWorkersFromProject(id) {
     `${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}/workers`
   );
 }
+
+export function getNotAssociatedWorkersToProject(id) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}/not-associated`
+  );
+}
+
+export function associateWorkerToProject(projectId, workerId) {
+  return axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/api/projects/${projectId}/${workerId}`
+  );
+}
+
+export function uploadImageProject(projectId, data) {
+  return axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/api/projects/${projectId}`,
+    data
+  );
+}

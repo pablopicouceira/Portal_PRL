@@ -2,7 +2,7 @@
 
 const mysqlPool = require("../../../database/mysql-pool");
 
-async function getNonAssociatedWorkers(req, res, next) {
+async function getNotAssociatedWorkers(req, res, next) {
   const { userId } = req.claims;
   const { projectId } = req.params;
 
@@ -27,4 +27,4 @@ async function getNonAssociatedWorkers(req, res, next) {
   }
 }
 
-module.exports = getNonAssociatedWorkers;
+module.exports = getNotAssociatedWorkers;

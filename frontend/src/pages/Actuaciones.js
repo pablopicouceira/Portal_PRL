@@ -5,8 +5,9 @@ import {
   createProject,
   deactivateProject,
   updateProject,
-  getNonAssociatedWorkers,
-  getWorkersFromProject
+  getNotAssociatedWorkersToProject,
+  getWorkersFromProject,
+  associateWorkerToProject
 } from "../http/projectsService";
 import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
@@ -18,8 +19,10 @@ import { InactiveProjectsList } from "../components/InactiveProjectsList";
 import { ActuacionesForm } from "../components/ActuacionesForm";
 import { Project } from "../components/Project";
 import { WorkersList } from "../components/WorkersList";
+import { NotAssociatedWorkers } from "../components/NotAssociatedWorkers";
 
 import "../css/Actuaciones.css";
+import ProjectInfo from "../components/ProjectInfo";
 
 function projectsReducer(state, action) {
   switch (action.type) {
@@ -36,8 +39,8 @@ function projectsReducer(state, action) {
       };
     case "SELECT_PROJECT":
       return { ...state, selectedProject: action.index };
-    case "SET_NON_ASSOCIATED_WORKERS":
-      return { ...state, workersNonAssociated: action.data };
+    case "SET_NOT_ASSOCIATED_WORKERS":
+      return { ...state, notAssociatedWorkers: action.data };
     case "SET_ASSOCIATED_WORKERS":
       return { ...state, workersAssociated: action.data };
     case "SELECT_INACTIVE_PROJECT":
@@ -54,13 +57,14 @@ function projectsReducer(state, action) {
 
 export function Actuaciones() {
   const { currentUser } = useAuth();
+  const [workerIdToAdd, setworkerIdToAdd] = useState("");
   const [state, dispatch] = useReducer(projectsReducer, {
     projects: [],
     inactiveProjects: [],
-    selectedProject: null,
+    selectedProject: null, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
     showInactive: false,
     selectedInactiveProject: null,
-    workersNonAssociated: [],
+    notAssociatedWorkers: [],
     workersAssociated: []
   });
 
@@ -131,11 +135,11 @@ export function Actuaciones() {
   };
 
   const getWorkers = projectId => {
-    getNonAssociatedWorkers(projectId)
+    getNotAssociatedWorkersToProject(projectId)
       .then(response => {
         console.log(response.data);
 
-        dispatch({ type: "SET_NON_ASSOCIATED_WORKERS", data: response.data });
+        dispatch({ type: "SET_NOT_ASSOCIATED_WORKERS", data: response.data });
       })
       .catch(err => {
         console.log(err);
@@ -151,6 +155,16 @@ export function Actuaciones() {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  const addWorker = () => {
+    associateWorkerToProject(
+      state.projects[state.selectedProject].id,
+      workerIdToAdd
+    ).then(response => {
+      getData();
+      getWorkers(state.projects[state.selectedProject].id);
+    });
   };
   const getWorker = () => {
     if (state.selectedWorker >= 0) {
@@ -208,7 +222,7 @@ export function Actuaciones() {
           </button>
 
           <ActuacionesForm
-            data={state.projects[state.selectedProject]}
+            // data={state.projects[state.selectedProject]} (para incluir en el formulario los datos del proyecto seleccionado)
             action={action}
             limpiar={() => dispatch({ type: "DESELECT_PROJECT" })}
           />
@@ -231,15 +245,7 @@ export function Actuaciones() {
 
         <div className="actuaciones-container-column2">
           <div className="actuaciones-container-info">
-            <img
-              src="https://www.ismedioambiente.com/wp-content/uploads/2019/04/Convenio-Europeo-del-Paisaje.jpg"
-              style={{ width: "20em" }}
-            />
-            <label>{project.nombre}</label>
-            <label>{project.direccion}</label>
-            <label>{project.poblacion}</label>
-            <label>{project.provincia}</label>
-            <label>{project.descripcion}</label>
+            <ProjectInfo project={project} getData={getData} />
           </div>
 
           <div className="actuaciones-container-info">
@@ -248,6 +254,16 @@ export function Actuaciones() {
               selectedIndex={-1}
               onWorkerSelected={() => {}}
             />
+          </div>
+          <div>
+            <NotAssociatedWorkers
+              workers={state.notAssociatedWorkers}
+              onChange={val => {
+                console.log(val);
+                setworkerIdToAdd(val);
+              }}
+            />
+            <button onClick={() => addWorker()}>Agregar</button>
           </div>
         </div>
       </div>
