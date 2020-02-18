@@ -1,10 +1,10 @@
 import React, { useEffect, useState, Component } from "react";
-import { getDocumentsUser } from "../http/workersService";
+import { getDocumentsByUser } from "../http/usersService";
 
-export function TotalDocuments({ id }) {
+export function DocumentsUploadedByUser() {
   const [documents, setDocuments] = useState([]);
   useEffect(() => {
-    getDocumentsUser(id).then(response => setDocuments(response.data));
+    getDocumentsByUser().then(response => setDocuments(response.data));
   }, []);
   console.log(documents);
   return <h1>{documents.length} archivos subidos</h1>;

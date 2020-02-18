@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Component } from "react";
-import { getWorkersByUser } from "../http/workersService";
+import { getWorkersByUser } from "../http/usersService";
 
-export function WorkersCreatedByUser() {
+export function WorkersRegisteredByUser() {
   const [workers, setWorkers] = useState([]);
   useEffect(() => {
     getWorkersByUser().then(response => setWorkers(response.data));

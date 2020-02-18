@@ -2,16 +2,13 @@
 
 const mysqlPool = require("../../../database/mysql-pool");
 
-async function getDocuments(req, res, next) {
+async function getDocumentsByUser(req, res, next) {
   const { userId } = req.claims;
   console.log(userId);
 
   try {
     const connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT * FROM Uploads
-    WHERE Obsoleto = FALSE
-    ORDER BY FechaCaducidad ASC;
-`;
+    const sqlQuery = `SELECT * FROM Uploads WHERE Usuarios_id =?`;
 
     const [rows] = await connection.execute(sqlQuery, [userId]);
     connection.release();
@@ -31,4 +28,4 @@ async function getDocuments(req, res, next) {
   }
 }
 
-module.exports = getDocuments;
+module.exports = getDocumentsByUser;

@@ -2,30 +2,30 @@
 
 const mysqlPool = require("../../../database/mysql-pool");
 
-async function getDocumentsUser(req, res, next) {
+async function getProjectsByUser(req, res, next) {
   const { userId } = req.claims;
   console.log(userId);
 
   try {
     const connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT * FROM Uploads WHERE Usuarios_id =?`;
+    const sqlQuery = `SELECT * FROM Actuaciones WHERE Usuarios_id =?`;
 
     const [rows] = await connection.execute(sqlQuery, [userId]);
     connection.release();
-    const uploads = rows.map(upload => {
+    const Trabajadores = rows.map(trabajador => {
       return {
-        ...upload,
+        ...trabajador,
         created_At: undefined,
         updated_At: undefined,
         deleted_At: undefined
       };
     });
 
-    return res.status(200).send(uploads);
+    return res.status(200).send(Trabajadores);
   } catch (e) {
     console.error(e);
     return res.status(500).send();
   }
 }
 
-module.exports = getDocumentsUser;
+module.exports = getProjectsByUser;

@@ -5,7 +5,9 @@ const express = require("express");
 const {
   accountRouter,
   authRouter,
+  documentRouter,
   projectRouter,
+  userRouter,
   workerRouter
 } = require("./routes");
 
@@ -16,7 +18,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", accountRouter);
 app.use("/api", authRouter);
+app.use("/api", documentRouter);
 app.use("/api", projectRouter);
+app.use("/api", userRouter);
 app.use("/api", workerRouter);
 
 let server = null;
