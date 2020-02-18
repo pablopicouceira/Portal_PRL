@@ -115,12 +115,20 @@ body {
   border-radius: 5px;
 }
 
-.trabajadores-file-status {
+.trabajadores-file-status-ko {
   height: 2em;
-  background-color: red;
+  background-color: #39ff14;
   width: 2em;
   border-radius: 20px;
 }
+
+.trabajadores-file-status-ok {
+  height: 2em;
+  background-color: rgb(57, 165, 30);
+  width: 2em;
+  border-radius: 20px;
+}
+
 input {
   border-width: 0px 0px 1px;
 }

@@ -12,6 +12,7 @@ import { useAuth } from "../context/auth-context";
 import { useForm } from "react-hook-form";
 
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import { ProjectsList } from "../components/ProjectsList";
 import { InactiveProjectsList } from "../components/InactiveProjectsList";
 import { ActuacionesForm } from "../components/ActuacionesForm";
@@ -250,6 +251,7 @@ export function Actuaciones() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

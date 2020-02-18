@@ -2,6 +2,8 @@ import React, { useReducer, useEffect } from "react";
 import { useAuth } from "../context/auth-context";
 
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+
 import { ExpiredDocuments } from "../components/ExpiredDocuments";
 import { DocumentsUploadedByUser } from "../components/DocumentsUploadedByUser";
 import { WorkersRegisteredByUser } from "../components/WorkersRegisteredByUser";
@@ -87,6 +89,7 @@ export function Panel() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

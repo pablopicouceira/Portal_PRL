@@ -1,0 +1,26 @@
+footer {
+  background-color: #db995a;
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: large;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+span {
+  margin-left: 25px;
+  font-size: 1rem;
+}
+
+li {
+  list-style-type: none;
+}

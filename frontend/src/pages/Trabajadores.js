@@ -15,6 +15,8 @@ import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import { InactiveWorkersList } from "../components/InactiveWorkersList";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+
 import FileUpload from "../components/FileUpload";
 import "../css/Trabajadores.css";
 import { TrabajadoresForm } from "../components/TrabajadoresForm";
@@ -230,6 +232,7 @@ export function Trabajadores() {
           <ProjectsFromWorker worker={getWorker()} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
