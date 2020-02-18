@@ -1,10 +1,9 @@
 import React from "react";
+import { getNotObsoletDocuments } from "../http/documentsService";
 
 export function VictoryPie() {
-  const [validos, setValidos] = useState([]);
+  const [notObsoletDocuments, setNotObsoletDocuments] = useState([]);
   useEffect(() => {
-    getProjectsByUser().then(response => setProjects(response.data));
+    getNotObsoletDocuments().then(response => console.log(response.data));
   }, []);
-  console.log(projects);
-  return <h1>{projects.length} actuaciones creadas</h1>;
 }
