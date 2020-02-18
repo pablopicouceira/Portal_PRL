@@ -16,7 +16,7 @@ async function validate(payload) {
   Joi.assert(payload, schema);
 }
 
-async function getDocumentWorker(req, res, next) {
+async function getDocumentsWorker(req, res, next) {
   const { workerId, requirementId } = req.params;
   const { userId } = req.claims;
 
@@ -36,23 +36,15 @@ async function getDocumentWorker(req, res, next) {
     const getDocumentQuery = `SELECT id, Trabajadores_id, Requisitos_id, Usuarios_id, secureUrl,FechaCaducidad
       FROM Uploads 
       WHERE Trabajadores_id = ?
-      AND Requisitos_id =?
+      AND Obsoleto = 0
       ORDER BY id DESC
-      LIMIT 1`;
-    const [results] = await connection.execute(getDocumentQuery, [
-      workerId,
-      requirementId
-    ]);
+      LIMIT 3`;
+    const [results] = await connection.execute(getDocumentQuery, [workerId]);
     console.log(results);
     connection.release();
-    if (results.length < 1) {
-      return res.status(404).send();
-    }
-
-    const [uploadData] = results;
 
     return res.send({
-      data: uploadData
+      data: results
     });
   } catch (e) {
     console.error(e);
@@ -62,4 +54,4 @@ async function getDocumentWorker(req, res, next) {
   }
 }
 
-module.exports = getDocumentWorker;
+module.exports = getDocumentsWorker;
