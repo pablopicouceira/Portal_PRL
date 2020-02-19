@@ -61,7 +61,7 @@ export function Actuaciones() {
   const [state, dispatch] = useReducer(projectsReducer, {
     projects: [],
     inactiveProjects: [],
-    selectedProject: null, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
+    selectedProject: 0, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
     showInactive: false,
     selectedInactiveProject: null,
     notAssociatedWorkers: [],
