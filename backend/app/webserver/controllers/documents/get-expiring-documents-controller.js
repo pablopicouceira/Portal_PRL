@@ -2,15 +2,18 @@
 
 const mysqlPool = require("../../../database/mysql-pool");
 
-async function getExpiredDocuments(req, res, next) {
+async function getExpiringDocuments(req, res, next) {
   const { userId } = req.claims;
 
   try {
     const connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT u.id, t.apellidos, t.nombre, r.tipo, u.FechaCaducidad from Trabajadores t 
+    const sqlQuery = `SELECT u.id, t.apellidos, t.nombre, r.tipo, u.FechaCaducidad 
+    FROM Trabajadores t 
     JOIN Uploads u on t.id = u.Trabajadores_id 
     JOIN Requisitos r on u.Requisitos_id = r.id
-    WHERE u.FechaCaducidad < CURDATE()
+    WHERE u.FechaCaducidad >= CURDATE()
+    AND u.FechaCaducidad <= DATE_ADD(CURDATE(), INTERVAL 1 month)
+    AND t.deleted_At IS NULL
     AND u.Obsoleto = false
     ORDER BY u.FechaCaducidad ASC;`;
 
@@ -34,4 +37,4 @@ async function getExpiredDocuments(req, res, next) {
   }
 }
 
-module.exports = getExpiredDocuments;
+module.exports = getExpiringDocuments;

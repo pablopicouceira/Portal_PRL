@@ -16,16 +16,10 @@ const updateWorker = require("../controllers/worker/update-worker-controller");
 const getProjectsWorkerController = require("../controllers/worker/get-projects-worker-controller");
 const uploadDocument = require("../controllers/worker/upload-document-worker-controller");
 const getDocumentsWorker = require("../controllers/worker/get-documents-worker-controller");
-const getExpiredDocuments = require("../controllers/worker/get-expiredDocuments-controller");
 
 const router = express.Router();
 
 router.post("/workers", checkAccountSession, createWorker);
-router.get(
-  "/workers/expireddocuments",
-  checkAccountSession,
-  getExpiredDocuments
-);
 
 router.get("/workers/inactive", checkAccountSession, getInactiveWorkers);
 router.get("/workers", checkAccountSession, getWorkers);

@@ -5,16 +5,22 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 import { ExpiredDocuments } from "../components/ExpiredDocuments";
+import { ExpiringDocuments } from "../components/ExpiringDocuments";
 import { DocumentsUploadedByUser } from "../components/DocumentsUploadedByUser";
 import { WorkersRegisteredByUser } from "../components/WorkersRegisteredByUser";
 import { ProjectsCreatedByUser } from "../components/ProjectsCreatedByUser";
-import { getExpiredDocuments } from "../http/workersService";
+import {
+  getExpiredDocuments,
+  getExpiringDocuments
+} from "../http/documentsService";
 import { VictoryPie, VictoryTheme, VictoryLabel } from "victory";
 
 function dashboardReducer(state, action) {
   switch (action.type) {
     case "GET_EXPIRED_DOCUMENTS":
       return { ...state, expiredDocuments: action.initialExpiredDocuments };
+    case "GET_EXPIRING_DOCUMENTS":
+      return { ...state, expiringDocuments: action.initialExpiringDocuments };
     case "GET_TOTAL_DOCUMENTS":
       return { ...state, totalDcouments: action.initialTotalDocuments };
 
@@ -27,6 +33,7 @@ export function Panel() {
   const { currentUser } = useAuth();
   const [state, dispatch] = useReducer(dashboardReducer, {
     expiredDocuments: [],
+    expiringDocuments: [],
     selectedDocument: null,
     totalDocuments: null
   });
@@ -36,6 +43,15 @@ export function Panel() {
       dispatch({
         type: "GET_EXPIRED_DOCUMENTS",
         initialExpiredDocuments: response.data
+      })
+    );
+  }, []);
+
+  useEffect(() => {
+    getExpiringDocuments().then(response =>
+      dispatch({
+        type: "GET_EXPIRING_DOCUMENTS",
+        initialExpiringDocuments: response.data
       })
     );
   }, []);
@@ -58,6 +74,15 @@ export function Panel() {
           <div>
             <ExpiredDocuments
               documents={state.expiredDocuments}
+              selectedIndex={state.selectedDocument}
+              onDocumentSelected={index =>
+                dispatch({ type: "SELECT_DOCUMENT", index })
+              }
+            />
+          </div>
+          <div>
+            <ExpiringDocuments
+              documents={state.expiringDocuments}
               selectedIndex={state.selectedDocument}
               onDocumentSelected={index =>
                 dispatch({ type: "SELECT_DOCUMENT", index })
