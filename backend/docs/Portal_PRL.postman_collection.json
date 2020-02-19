@@ -721,7 +721,7 @@
 			"response": []
 		},
 		{
-			"name": "20. Mostrar Documento de Trabajador",
+			"name": "20. Obtener todos los Documentos de Trabajador",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -736,16 +736,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/workers/07ebadba-d801-4c71-9e0b-3ef7a4af38d4/3/document",
+					"raw": "{{baseUrl}}/api/workers/4cf5e836-9a1b-4deb-af39-9eeebd70a88c/documents",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"workers",
-						"07ebadba-d801-4c71-9e0b-3ef7a4af38d4",
-						"3",
-						"document"
+						"4cf5e836-9a1b-4deb-af39-9eeebd70a88c",
+						"documents"
 					]
 				}
 			},
@@ -772,19 +771,206 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": []
+							"src": "/home/hab30/Desktop/puente.jpeg"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/projects/2",
+					"raw": "{{baseUrl}}/api/projects/3",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"projects",
-						"2"
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "22. Mostrar Trabajadores no asociados a Actuación",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/projects/5/not-associated",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"5",
+						"not-associated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "23. Mostrar Documentos caducados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{accessToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/workers/expireddocuments",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workers",
+						"expireddocuments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24. Obtener Total de Documentos subidos por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/documents",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "25. Obtener Total de Trabajadores registrados por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/workers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"workers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "26. Obtener Total de Actuaciones creadas por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "27. Obtener Total de Documentos no obsoletos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/documents/notobsolete",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"documents",
+						"notobsolete"
 					]
 				}
 			},
