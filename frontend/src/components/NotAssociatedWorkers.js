@@ -8,7 +8,7 @@ export function NotAssociatedWorkers({ workers, onChange }) {
       {workers.length ? (
         <select onChange={e => onChange(e.target.value)}>
           {[
-            { id: 0, apellidos: "Selecciona", nombre: "un trabajador" },
+            { id: 0, apellidos: "Selecciona un trabajador", nombre: null },
             ...workers
           ].map((worker, index) => (
             <option key={worker.id} value={worker.id}>
