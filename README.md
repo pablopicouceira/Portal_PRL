@@ -23,8 +23,11 @@ Listado de endpoints:
 17. ✔️ Mostrar Actuaciones inactivas
 18. ✔️ Mostrar Actuación
 19. ✔️ Mostrar Trabajadores asociados a una Actuación
-20. ✔️ Mostrar Documento de Trabajador
-21. ✔️ Cargar Imagen en Acutación
+20. ✔️ 20. Obtener todos los Documentos de Trabajador
+21. ✔️ Cargar Imagen en Actuación
 22. ✔️ Mostrar Trabajadores no asociados a Actuación
 23. ✔️ Mostrar Documentos caducados
-24. ✔️ Total de Documentos subidos por Usuario
+24. ✔️ Obtener total de Documentos subidos por Usuario
+25. ✔️ Obtener total de Trabajadores registrados por Usuario
+26. ✔️ Obtener total de Actuaciones creadas por Usuario
+27. ✔️ Obtener total de Documentos no obsoletos
