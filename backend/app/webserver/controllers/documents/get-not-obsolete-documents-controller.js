@@ -9,9 +9,12 @@ async function getNotObsoletDocuments(req, res, next) {
   try {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT * 
-      FROM Uploads
-      WHERE Obsoleto = FALSE
-      ORDER BY FechaCaducidad ASC;`;
+      FROM Uploads u
+      JOIN Trabajadores t
+      ON u.Trabajadores_id = t.id
+      WHERE u.Obsoleto = FALSE
+      AND deleted_At IS NULL
+      ORDER BY u.FechaCaducidad ASC;`;
 
     const [rows] = await connection.execute(sqlQuery);
     connection.release();
