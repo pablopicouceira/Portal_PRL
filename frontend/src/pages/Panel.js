@@ -11,7 +11,8 @@ import { WorkersRegisteredByUser } from "../components/WorkersRegisteredByUser";
 import { ProjectsCreatedByUser } from "../components/ProjectsCreatedByUser";
 import {
   getExpiredDocuments,
-  getExpiringDocuments
+  getExpiringDocuments,
+  getNotObsoletDocuments
 } from "../http/documentsService";
 import { VictoryPie, VictoryTheme, VictoryLabel } from "victory";
 
@@ -21,8 +22,11 @@ function dashboardReducer(state, action) {
       return { ...state, expiredDocuments: action.initialExpiredDocuments };
     case "GET_EXPIRING_DOCUMENTS":
       return { ...state, expiringDocuments: action.initialExpiringDocuments };
-    case "GET_TOTAL_DOCUMENTS":
-      return { ...state, totalDcouments: action.initialTotalDocuments };
+    case "GET_NOT_OBSOLETE_DOCUMENTS":
+      return {
+        ...state,
+        notObsoletDocuments: action.initialNotObsoletDocuments
+      };
 
     default:
       return state;
@@ -35,7 +39,7 @@ export function Panel() {
     expiredDocuments: [],
     expiringDocuments: [],
     selectedDocument: null,
-    totalDocuments: null
+    notObsoletDocuments: []
   });
 
   useEffect(() => {
@@ -46,6 +50,7 @@ export function Panel() {
       })
     );
   }, []);
+  let expired = state.expiredDocuments.length;
 
   useEffect(() => {
     getExpiringDocuments().then(response =>
@@ -55,6 +60,19 @@ export function Panel() {
       })
     );
   }, []);
+  let expiring = state.expiringDocuments.length;
+
+  useEffect(() => {
+    getNotObsoletDocuments().then(response =>
+      dispatch({
+        type: "GET_NOT_OBSOLETE_DOCUMENTS",
+        initialNotObsoletDocuments: response.data
+      })
+    );
+  }, []);
+  let valid = state.notObsoletDocuments.length - expired - expiring;
+
+  let total = expired + expiring + valid;
 
   return (
     <div>
@@ -101,9 +119,18 @@ export function Panel() {
           <div>
             <VictoryPie
               data={[
-                { x: "Válidos", y: state.expiredDocuments.length },
-                { x: "Próximos", y: state.expiringDocuments.length },
-                { x: "Expirados", y: 40 }
+                {
+                  x: `Válidos (${((valid / total) * 100).toFixed(2)}%)`,
+                  y: valid
+                },
+                {
+                  x: `Próximos (${((expiring / total) * 100).toFixed(2)}%)`,
+                  y: expiring
+                },
+                {
+                  x: `Expirados (${((expired / total) * 100).toFixed(2)}%)`,
+                  y: expired
+                }
               ]}
               animate={{
                 duration: 5000
