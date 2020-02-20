@@ -133,10 +133,10 @@ export function Panel() {
                 }
               ]}
               animate={{
-                duration: 5000
+                duration: 10000
               }}
               colorScale={["green", "yellow", "red"]}
-              padding={{ top: 100, bottom: 60 }}
+              padding={{ top: 150, bottom: 60 }}
               theme={VictoryTheme.material}
             />
           </div>
