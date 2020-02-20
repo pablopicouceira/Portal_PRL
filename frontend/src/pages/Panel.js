@@ -101,12 +101,12 @@ export function Panel() {
           <div>
             <VictoryPie
               data={[
-                { x: "Válidos", y: 100 },
-                { x: "Próximos", y: 10 },
+                { x: "Válidos", y: state.expiredDocuments.length },
+                { x: "Próximos", y: state.expiringDocuments.length },
                 { x: "Expirados", y: 40 }
               ]}
               animate={{
-                duration: 2000
+                duration: 5000
               }}
               colorScale={["green", "yellow", "red"]}
               padding={{ top: 100, bottom: 60 }}
