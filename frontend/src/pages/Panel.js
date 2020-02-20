@@ -133,7 +133,7 @@ export function Panel() {
                 }
               ]}
               animate={{
-                duration: 10000
+                duration: 1000
               }}
               colorScale={["green", "yellow", "red"]}
               padding={{ top: 150, bottom: 60 }}

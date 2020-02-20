@@ -2,20 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Header.css";
 
-export function Header({ title, onLogout }) {
+const links = [
+  {
+    id: "panel",
+    to: "/panel",
+    name: "Panel"
+  },
+  {
+    id: "actuaciones",
+    to: "/actuaciones",
+    name: "Actuaciones"
+  },
+  {
+    id: "trabajadores",
+    to: "/trabajadores",
+    name: "Trabajadores"
+  }
+];
+
+export function Header({ title, onLogout, show }) {
   return (
     <header>
       <p>{title}</p>
       <nav>
-        <div>
-          <Link to="/panel">Panel</Link>
-        </div>
-        <div>
-          <Link to="/actuaciones">Actuaciones</Link>
-        </div>
-        <div>
-          <Link to="/trabajadores">Trabajadores</Link>
-        </div>
+        {links
+          .filter(l => show.includes(l.id))
+          .map(l => (
+            <div>
+              <Link to={l.to}>{l.name}</Link>
+            </div>
+          ))}
         <div>
           <a href="/" onClick={onLogout}>
             Salir
@@ -25,3 +41,7 @@ export function Header({ title, onLogout }) {
     </header>
   );
 }
+
+Header.defaultProps = {
+  show: ["panel", "actuaciones", "trabajadores"]
+};

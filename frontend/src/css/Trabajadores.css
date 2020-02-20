@@ -43,6 +43,7 @@
   color: green;
   padding: 5px;
   margin: 5px;
+  width: 70%;
 }
 
 body {
@@ -104,6 +105,10 @@ body {
   color: white;
 }
 
+.button-container {
+  display: flex !important;
+}
+
 .button-container button {
   background: transparent;
   border: none;
@@ -113,6 +118,7 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  width: 100%;
 }
 
 .trabajadores-file-status-ko {

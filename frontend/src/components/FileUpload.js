@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "../css/FileUpload.css";
 import { uploadDocument, getDocumentsWorker } from "../http/workersService";
+import "moment/locale/es";
+import moment from "moment";
+moment.locale("es");
 
 const filesTypes = [
   { id: 1, name: "Formacion" },
@@ -43,8 +46,6 @@ function FileUpload({ worker }) {
   };
 
   const handleUpload = () => {
-    console.log(worker);
-
     if (worker) {
       Object.entries(files).forEach(([key, values]) => {
         const code = filesTypes.find(fT => fT.name == key).id;
@@ -80,26 +81,35 @@ function FileUpload({ worker }) {
       */
   };
 
-  console.log(workerFiles, "fileeeeeeees");
+  const isExpired = date => {
+    return moment(date).isBefore(new Date());
+  };
 
   return (
     <div>
       <h3>Documentos:</h3>
-      {filesTypes.map(fT => {
+      {filesTypes.map((fT, key) => {
         const file = workerFiles.find(f => fT.id == f.Requisitos_id);
 
         return (
-          <div>
+          <div key={key}>
             <label>{fT.name}</label>
             <input
               type="file"
               accept=".pdf"
               onChange={e => handleChange(fT.name, e)}
             />
-            <input type="date" onChange={e => handleDate(fT.name, e)} />
-            <a href={file ? file.secureUrl : ""} target="_blank">
-              ver archivo
-            </a>
+            {file && (
+              <a
+                href={file ? file.secureUrl : ""}
+                target="_blank"
+                style={{
+                  color: isExpired(file.FechaCaducidad) ? "red" : "green"
+                }}
+              >
+                {moment(file.FechaCaducidad).format("DD-MMM-YY")}
+              </a>
+            )}
             <div className="trabajadores-file-status" />
           </div>
         );

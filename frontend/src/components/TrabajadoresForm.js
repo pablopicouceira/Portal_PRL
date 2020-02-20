@@ -1,8 +1,18 @@
 //@ts-check
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { Worker } from "./Worker";
 
-export function TrabajadoresForm({ data, action, limpiar }) {
+export function TrabajadoresForm({
+  data,
+  action,
+  limpiar,
+  activeWorker,
+  worker,
+  onDeactivateWorker,
+  onReactivateWorker,
+  inactiveWorker
+}) {
   const { errors, register, handleSubmit, formState, reset } = useForm();
 
   useEffect(() => {
@@ -82,7 +92,10 @@ export function TrabajadoresForm({ data, action, limpiar }) {
           type="submit"
           className="btn"
           disabled={formState.isSubmitting}
-          onSubmit={handleSubmit(action)}
+          onSubmit={() => {
+            handleSubmit(action);
+            reset({});
+          }}
         >
           {Object.keys(data).length
             ? "Actualizar datos"
@@ -93,10 +106,19 @@ export function TrabajadoresForm({ data, action, limpiar }) {
           disabled={formState.isSubmitting}
           onClick={() => {
             limpiar();
+            reset({});
           }}
         >
           Limpiar Formulario
         </button>
+
+        <Worker
+          activeWorker={activeWorker}
+          worker={worker}
+          inactiveWorker={inactiveWorker}
+          onDeactivateWorker={onDeactivateWorker}
+          onReactivateWorker={onReactivateWorker}
+        />
       </div>
     </form>
   );

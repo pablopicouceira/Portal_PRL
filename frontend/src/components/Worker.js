@@ -3,7 +3,7 @@ import React from "react";
 export function Worker({
   worker = {},
   onDeactivateWorker,
-  onUpdateWorker,
+
   activeWorker,
   inactiveWorker = {},
   onReactivateWorker

@@ -49,7 +49,7 @@ function projectsReducer(state, action) {
       return { ...state, projects: [action.project, ...state.projects] };
 
     case "DESELECT_PROJECT":
-      return { ...state, selectedWorker: null };
+      return { ...state, selectedProject: null };
     default:
       return state;
   }
@@ -61,7 +61,7 @@ export function Actuaciones() {
   const [state, dispatch] = useReducer(projectsReducer, {
     projects: [],
     inactiveProjects: [],
-    selectedProject: 0, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
+    selectedProject: null, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
     showInactive: false,
     selectedInactiveProject: null,
     notAssociatedWorkers: [],
@@ -221,26 +221,36 @@ export function Actuaciones() {
             Actuaciones {!state.showInactive ? "Inactivas" : "Activas"}
           </button>
 
-          <ActuacionesForm
-            // data={state.projects[state.selectedProject]} (para incluir en el formulario los datos del proyecto seleccionado)
-            action={action}
-            limpiar={() => dispatch({ type: "DESELECT_PROJECT" })}
-          />
-          <Project
-            activeProject={state.showInactive}
-            project={state.projects[state.selectedProject]}
-            inactiveProject={
-              state.inactiveProjects[state.selectedInactiveProject]
-            }
-            onDeactivateProject={id => {
-              console.log(id);
-              handleDeactivateProject(id);
-            }}
-            onUpdateProject={id => {
-              console.log(id);
-              handleUpdateProject(id);
-            }}
-          />
+          {state.selectedProject == null ? (
+            <>
+              <ActuacionesForm
+                // data={state.projects[state.selectedProject]} (para incluir en el formulario los datos del proyecto seleccionado)
+                action={action}
+                limpiar={() => dispatch({ type: "DESELECT_PROJECT" })}
+              />
+            </>
+          ) : (
+            <>
+              <Project
+                activeProject={state.showInactive}
+                project={state.projects[state.selectedProject]}
+                inactiveProject={
+                  state.inactiveProjects[state.selectedInactiveProject]
+                }
+                onDeactivateProject={id => {
+                  console.log(id);
+                  handleDeactivateProject(id);
+                }}
+                onUpdateProject={id => {
+                  console.log(id);
+                  handleUpdateProject(id);
+                }}
+              />
+              <button onClick={() => dispatch({ type: "DESELECT_PROJECT" })}>
+                Crear nueva actuacion
+              </button>
+            </>
+          )}
         </div>
 
         <div className="actuaciones-container-column2">

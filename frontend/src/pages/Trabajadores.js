@@ -96,6 +96,7 @@ export function Trabajadores() {
   const handleRegister = formData => {
     return createWorker(currentUser.accessToken, formData)
       .then(response => {
+        dispatch({ type: "DESELECT_WORKER" });
         dispatch({ type: "CREATE_WORKER", worker: response.data });
         console.log(response.data);
       })
@@ -161,6 +162,7 @@ export function Trabajadores() {
     <div>
       <Header
         title="Portal Gestión PRL"
+        show={["panel", "actuaciones"]}
         onLogout={e => {
           localStorage.removeItem("currentUser");
           window.location.href = "/";
@@ -202,9 +204,6 @@ export function Trabajadores() {
               data={state.workers[state.selectedWorker]}
               action={action}
               limpiar={() => dispatch({ type: "DESELECT_WORKER" })}
-            />
-
-            <Worker
               activeWorker={state.showInactive}
               worker={state.workers[state.selectedWorker]}
               inactiveWorker={
@@ -213,10 +212,6 @@ export function Trabajadores() {
               onDeactivateWorker={id => {
                 console.log(id);
                 handleDeactivateWorker(id);
-              }}
-              onUpdateWorker={id => {
-                console.log(id);
-                handleUpdateWorker(id);
               }}
               onReactivateWorker={id => {
                 console.log(id);

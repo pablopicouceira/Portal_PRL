@@ -12,6 +12,8 @@ export default function ProjectInfo({ project, getData }) {
     });
   };
 
+  if (!project.id) return <></>;
+
   return (
     <>
       <input
