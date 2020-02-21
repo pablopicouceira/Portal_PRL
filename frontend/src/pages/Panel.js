@@ -85,6 +85,8 @@ export function Panel() {
           window.location.href = "/";
         }}
       />
+
+      <i className="fas sign-out-alt " />
       <section className="panel-columns-container">
         <section className="panel-column1-container">
           <a href="/actuaciones" class="circlebutton">

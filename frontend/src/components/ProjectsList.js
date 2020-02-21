@@ -4,9 +4,9 @@ import React from "react";
 export function ProjectsList({ projects, selectedIndex, onProjectSelected }) {
   return (
     <React.Fragment>
-      <div className="App">
-        <h1>Actuaciones</h1>
-        <ul className="li">
+      <h1>Actuaciones</h1>
+      <div className="li-actuaciones">
+        <ul className="">
           {projects.map((project, index) => (
             <li
               key={project.id}

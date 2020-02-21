@@ -61,7 +61,7 @@ export function Actuaciones() {
   const [state, dispatch] = useReducer(projectsReducer, {
     projects: [],
     inactiveProjects: [],
-    selectedProject: null, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
+    selectedProject: 0, // si le asignamos valor 0 por defecto, la página "Actuaciones" se muestra con la obra seleccionada
     showInactive: false,
     selectedInactiveProject: null,
     notAssociatedWorkers: [],
@@ -71,15 +71,16 @@ export function Actuaciones() {
   const { register, errors, formState, handleSubmit, setError } = useForm();
 
   const getData = () => {
-    getProjects(currentUser.accessToken).then(response =>
-      dispatch({ type: "GET_PROJECTS", initialProjects: response.data })
-    );
-    getInactiveProjects(currentUser.accessToken).then(response =>
+    getProjects(currentUser.accessToken).then(response => {
+      dispatch({ type: "GET_PROJECTS", initialProjects: response.data });
+      getWorkers(response.data[state.selectedProject].id);
+    });
+    getInactiveProjects(currentUser.accessToken).then(response => {
       dispatch({
         type: "GET_INACTIVE_PROJECTS",
         initialProjects: response.data
-      })
-    );
+      });
+    });
   };
 
   useEffect(() => {

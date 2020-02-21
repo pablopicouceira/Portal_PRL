@@ -83,14 +83,14 @@ li:hover {
   font-weight: bolder;
 }
 
-.expired {
+.expired a {
   color: red;
   overflow-y: scroll;
   background-color: rgb(221, 233, 230);
   padding-left: 10px;
 }
 
-.expiring {
+.expiring a {
   color: yellow;
   overflow-y: scroll;
   background-color: grey;
@@ -182,13 +182,57 @@ span {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
-  background-color: rgb(231, 225, 130);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.li-actuaciones {
+  min-height: 20em;
+  margin-top: -40px;
+  width: 30em;
+  overflow-y: scroll;
+  border: 1px solid black;
+  padding-left: 1rem;
+  background-color: darkseagreen;
+}
+
+.actuaciones-container-info ul {
+  overflow-y: scroll;
+  border: 1px solid black;
+  width: 90%;
+  padding-left: 1rem;
+  background-color: darkseagreen;
+  min-height: 25em;
+  max-height: 25em;
+}
+
+.WorkersList-selected,
+.ProjectsList-selected {
+  color: yellow;
+  font-size: large;
+  font-weight: bold;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-container button {
+  /*width: 100%;*/
 }
 
 .trabajadores-column1-container h1 {
@@ -217,9 +261,33 @@ span {
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
-  flex-basis: 30%;
+  flex-basis: 50%;
   margin: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.trabajadores-column2-container input {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  color: green;
+  padding: 25px;
+  margin: 5px;
+  flex-basis: 60%;
+  width: 70%;
+  border: none;
+}
+
+.trabajadores-column2-container-file-upload {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trabajadores-column2-container-file-upload label,
+a {
+  width: 5em;
 }
 
 .trabajadores-column3-container {
@@ -231,6 +299,25 @@ span {
   flex-basis: 40%;
   margin: 10px;
   background-color: white;
+}
+
+.actuaciones-form {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  width: 100%;
+}
+
+.actuaciones-form input {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  color: green;
+  padding: 25px;
+  margin: 5px;
+  flex-basis: 60%;
+  width: 70%;
+  border: none;
 }
 
 .actuaciones-columns-container {
@@ -253,6 +340,7 @@ span {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
   overflow-y: scroll;
+  background-color: white;
 }
 
 .actuaciones-column2-container {
@@ -265,6 +353,12 @@ span {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
   margin: 10px;
+  background-color: white;
+}
+
+.actuaciones-column2-container div {
+  display: flex;
+  flex: 1;
 }
 
 .actuaciones-column3-container {
@@ -275,6 +369,7 @@ span {
   text-align: left;
   flex-basis: 30%;
   margin: 10px;
+  background-color: white;
 }
 
 footer {

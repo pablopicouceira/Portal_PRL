@@ -200,7 +200,7 @@ export function Trabajadores() {
           </button>
         </section>
         <section className="trabajadores-column2-container">
-          <div className=".trabajadores-container-column2 input">
+          <div className="trabajadores-column2-container input">
             <TrabajadoresForm
               data={state.workers[state.selectedWorker]}
               action={action}
@@ -220,7 +220,7 @@ export function Trabajadores() {
               }}
             />
           </div>
-          <div>
+          <div className="trabajadores-column2-container input">
             <FileUpload worker={getWorker()} />
           </div>
         </section>

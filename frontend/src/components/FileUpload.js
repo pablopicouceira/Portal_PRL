@@ -92,7 +92,7 @@ function FileUpload({ worker }) {
         const file = workerFiles.find(f => fT.id == f.Requisitos_id);
 
         return (
-          <div key={key}>
+          <div key={key} className="trabajadores-column2-container-file-upload">
             <label>{fT.name}</label>
             <input
               type="file"

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 //import "../css/Header.css";
+//import Logo from "../img/Screenshot from 2020-02-21 17-24-58.png";
 
 const links = [
   {
@@ -24,6 +25,7 @@ export function Header({ title, onLogout, show }) {
   return (
     <header>
       <h1>{title}</h1>
+      {/*<img src={Logo} />*/}
       <div>
         <nav>
           {links
@@ -34,6 +36,7 @@ export function Header({ title, onLogout, show }) {
         </nav>
         <a href="/" onClick={onLogout}>
           Salir
+          <i style={{ marginLeft: 10 }} className="fas fa-sign-out-alt"></i>
         </a>
       </div>
     </header>

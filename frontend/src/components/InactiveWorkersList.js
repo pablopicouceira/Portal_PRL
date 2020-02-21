@@ -8,21 +8,18 @@ export function InactiveWorkersList({
 }) {
   return (
     <React.Fragment>
-      {console.log("Inactivos")}
-      <div className="App">
-        <h1>Inactivos</h1>
-        <ul>
-          {workers.map((worker, index) => (
-            <li
-              key={worker.id}
-              onClick={() => onWorkerSelected(index)}
-              className={selectedIndex === index && "selected"}
-            >
-              {worker.apellidos}, {worker.nombre} {worker.dni}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h1>Inactivos</h1>
+      <ul>
+        {workers.map((worker, index) => (
+          <li
+            key={worker.id}
+            onClick={() => onWorkerSelected(index)}
+            className={selectedIndex === index && "selected"}
+          >
+            {worker.apellidos}, {worker.nombre} {worker.dni}
+          </li>
+        ))}
+      </ul>
     </React.Fragment>
   );
 }

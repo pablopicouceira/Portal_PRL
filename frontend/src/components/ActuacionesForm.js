@@ -10,125 +10,127 @@ export function ActuacionesForm({ data, action, limpiar }) {
   }, [data]);
 
   return (
-    <form onSubmit={handleSubmit(action)}>
-      <h3>Datos de la Actuación:</h3>
-      <div
-        className={`form-control ${
-          errors.name ? "ko" : formState.touched.name && "ok"
-        }`}
-      >
-        <label>nombre</label>
-        <input
-          ref={register({
-            required: "The name is mandatory"
-          })}
-          defaultValue={data.nombre ? data.nombre : ""}
-          name="nombre"
-          type="text"
-          placeholder="Please enter your name"
-        ></input>
-        {errors.name && (
-          <span className="errorMessage">{errors.name.message}</span>
-        )}
-      </div>
-      <div
-        className={`form-control ${
-          errors.email ? "ko" : formState.touched.email && "ok"
-        }`}
-      >
-        <label>Dirección</label>
-        <input
-          ref={register({
-            required: "The email is mandatory"
-          })}
-          defaultValue={data.direccion}
-          name="direccion"
-          type="text"
-          placeholder="Please enter your email"
-        ></input>
-        {errors.email && (
-          <span className="errorMessage">{errors.email.message}</span>
-        )}
-      </div>
-      <div
-        className={`form-control ${
-          errors.password ? "ko" : formState.touched.password && "ok"
-        }`}
-      >
-        <label>Población</label>
-        <input
-          ref={register({
-            required: "The password is mandatory"
-          })}
-          defaultValue={data.poblacion}
-          name="poblacion"
-          type="text"
-          placeholder="Please enter your password"
-        ></input>
-        {errors.password && (
-          <span className="errorMessage">{errors.password.message}</span>
-        )}
-      </div>
-      <div
-        className={`form-control ${
-          errors.password ? "ko" : formState.touched.password && "ok"
-        }`}
-      >
-        <label>Provincia</label>
-        <input
-          ref={register({
-            required: "The password is mandatory"
-          })}
-          defaultValue={data.provincia}
-          name="provincia"
-          type="text"
-          placeholder="Please enter your password"
-        ></input>
-        {errors.password && (
-          <span className="errorMessage">{errors.password.message}</span>
-        )}
-      </div>
-      <div
-        className={`form-control ${
-          errors.password ? "ko" : formState.touched.password && "ok"
-        }`}
-      >
-        <label>Descripción</label>
-        <input
-          ref={register({
-            required: "The password is mandatory"
-          })}
-          defaultValue={data.provincia}
-          name="descripcion"
-          type="text"
-          placeholder="Please enter your password"
-        ></input>
-        {errors.password && (
-          <span className="errorMessage">{errors.password.message}</span>
-        )}
-      </div>
-      <div className="btn-container">
-        <button
-          type="submit"
-          className="btn"
-          disabled={formState.isSubmitting}
-          onSubmit={handleSubmit(action)}
+    <div className="actuaciones-form">
+      <form onSubmit={handleSubmit(action)}>
+        <h3>Datos de la Actuación:</h3>
+        <div
+          className={`form-control ${
+            errors.name ? "ko" : formState.touched.name && "ok"
+          }`}
         >
-          {Object.keys(data).length
-            ? "Actualizar datos"
-            : "Crear nueva actuación"}
-        </button>
-        <button
-          className="btn"
-          disabled={formState.isSubmitting}
-          onClick={() => {
-            limpiar();
-          }}
+          <label>nombre</label>
+          <input
+            ref={register({
+              required: "The name is mandatory"
+            })}
+            defaultValue={data.nombre ? data.nombre : ""}
+            name="nombre"
+            type="text"
+            placeholder="Please enter your name"
+          ></input>
+          {errors.name && (
+            <span className="errorMessage">{errors.name.message}</span>
+          )}
+        </div>
+        <div
+          className={`form-control ${
+            errors.email ? "ko" : formState.touched.email && "ok"
+          }`}
         >
-          Limpiar Formulario
-        </button>
-      </div>
-    </form>
+          <label>Dirección</label>
+          <input
+            ref={register({
+              required: "The email is mandatory"
+            })}
+            defaultValue={data.direccion}
+            name="direccion"
+            type="text"
+            placeholder="Please enter your email"
+          ></input>
+          {errors.email && (
+            <span className="errorMessage">{errors.email.message}</span>
+          )}
+        </div>
+        <div
+          className={`form-control ${
+            errors.password ? "ko" : formState.touched.password && "ok"
+          }`}
+        >
+          <label>Población</label>
+          <input
+            ref={register({
+              required: "The password is mandatory"
+            })}
+            defaultValue={data.poblacion}
+            name="poblacion"
+            type="text"
+            placeholder="Please enter your password"
+          ></input>
+          {errors.password && (
+            <span className="errorMessage">{errors.password.message}</span>
+          )}
+        </div>
+        <div
+          className={`form-control ${
+            errors.password ? "ko" : formState.touched.password && "ok"
+          }`}
+        >
+          <label>Provincia</label>
+          <input
+            ref={register({
+              required: "The password is mandatory"
+            })}
+            defaultValue={data.provincia}
+            name="provincia"
+            type="text"
+            placeholder="Please enter your password"
+          ></input>
+          {errors.password && (
+            <span className="errorMessage">{errors.password.message}</span>
+          )}
+        </div>
+        <div
+          className={`form-control ${
+            errors.password ? "ko" : formState.touched.password && "ok"
+          }`}
+        >
+          <label>Descripción</label>
+          <input
+            ref={register({
+              required: "The password is mandatory"
+            })}
+            defaultValue={data.provincia}
+            name="descripcion"
+            type="text"
+            placeholder="Please enter your password"
+          ></input>
+          {errors.password && (
+            <span className="errorMessage">{errors.password.message}</span>
+          )}
+        </div>
+        <div className="btn-container">
+          <button
+            type="submit"
+            className="btn"
+            disabled={formState.isSubmitting}
+            onSubmit={handleSubmit(action)}
+          >
+            {Object.keys(data).length
+              ? "Actualizar datos"
+              : "Crear nueva actuación"}
+          </button>
+          <button
+            className="btn"
+            disabled={formState.isSubmitting}
+            onClick={() => {
+              limpiar();
+            }}
+          >
+            Limpiar Formulario
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

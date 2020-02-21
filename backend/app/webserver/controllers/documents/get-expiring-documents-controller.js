@@ -7,7 +7,7 @@ async function getExpiringDocuments(req, res, next) {
 
   try {
     const connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT u.id, t.apellidos, t.nombre, r.tipo, u.FechaCaducidad 
+    const sqlQuery = `SELECT u.id, t.apellidos, t.nombre, r.tipo, u.FechaCaducidad, u.secureUrl
     FROM Trabajadores t 
     JOIN Uploads u on t.id = u.Trabajadores_id 
     JOIN Requisitos r on u.Requisitos_id = r.id
