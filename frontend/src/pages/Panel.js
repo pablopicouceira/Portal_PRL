@@ -131,7 +131,7 @@ export function Panel() {
             <WorkersRegisteredByUser />
           </div>
           <ProjectsCreatedByUser />
-          <div>
+          <div className="victory">
             <VictoryPie
               data={[
                 {
@@ -151,7 +151,7 @@ export function Panel() {
                 duration: 1000
               }}
               colorScale={["green", "yellow", "red"]}
-              padding={{ top: 50, bottom: 100 }}
+              padding={{ top: 100, bottom: 100 }}
               theme={VictoryTheme.material}
             />
           </div>

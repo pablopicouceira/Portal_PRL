@@ -232,7 +232,6 @@ export function Actuaciones() {
             </>
           ) : (
             <>
-              <section></section>
               <Project
                 activeProject={state.showInactive}
                 project={state.projects[state.selectedProject]}
@@ -254,12 +253,11 @@ export function Actuaciones() {
             </>
           )}
         </section>
+        <section className="actuaciones-column2-container">
+          <ProjectInfo project={project} getData={getData} />
+        </section>
 
-        <div className="actuaciones-container-column2">
-          <div className="actuaciones-container-info">
-            <ProjectInfo project={project} getData={getData} />
-          </div>
-
+        <section className="actuaciones-column3-container">
           <div className="actuaciones-container-info">
             <WorkersList
               workers={state.workersAssociated}
@@ -277,7 +275,7 @@ export function Actuaciones() {
             />
             <button onClick={() => addWorker()}>Agregar</button>
           </div>
-        </div>
+        </section>
       </section>
       <Footer />
     </React.Fragment>

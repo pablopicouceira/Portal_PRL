@@ -40,17 +40,17 @@ export default function ProjectsFromWorkers({ worker }) {
   console.log(projects);
 
   return (
-    <div className="App">
+    <React.Fragment>
       <h1>Proyectos asociados</h1>
       {projects.length ? (
         <ul className="li">
           {projects.map((project, index) => (
-            <li key={project.id}>{project.descripcion}</li>
+            <li key={project.id}>{project.nombre}</li>
           ))}
         </ul>
       ) : (
         "No hay proyectos"
       )}
-    </div>
+    </React.Fragment>
   );
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -70,6 +72,8 @@ li {
   list-style: none;
   font-size: 2rem;
   padding-bottom: 4px;
+  cursor: pointer;
+  font-family: "Dosis", sans-serif;
 }
 
 li:hover {
@@ -153,6 +157,9 @@ span {
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
+}
+
+.trabajadores-column1-container ul {
   overflow-y: scroll;
 }
 
@@ -196,8 +203,20 @@ span {
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
-  flex-basis: 50%;
+  flex-basis: 30%;
   overflow-y: scroll;
+}
+
+.actuaciones-column2-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  flex-basis: 30%;
+  margin: 10px;
 }
 
 .actuaciones-column3-container {
@@ -206,7 +225,7 @@ span {
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   text-align: left;
-  flex-basis: 40%;
+  flex-basis: 30%;
   margin: 10px;
 }
 
@@ -301,4 +320,8 @@ code {
   -webkit-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
   transform: rotateY(360deg);
+}
+
+.victory {
+  width: 80%;
 }
