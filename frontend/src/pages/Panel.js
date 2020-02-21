@@ -3,6 +3,7 @@ import { useAuth } from "../context/auth-context";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import ReactMinimalPieChart from "react-minimal-pie-chart";
 
 import { ExpiredDocuments } from "../components/ExpiredDocuments";
 import { ExpiringDocuments } from "../components/ExpiringDocuments";
@@ -78,7 +79,7 @@ export function Panel() {
     <React.Fragment>
       <Header
         title="Portal Gestión PRL"
-        show={["actuaciones", "trabajadores"]}
+        show={[]}
         onLogout={e => {
           localStorage.removeItem("currentUser");
           window.location.href = "/";
@@ -86,21 +87,12 @@ export function Panel() {
       />
       <section className="panel-columns-container">
         <section className="panel-column1-container">
-          <button
-            className="circlebutton"
-            type="button"
-            onclick="changeColor(this.parentNode)"
-          >
-            Actuaciones{" "}
-          </button>
-
-          <button
-            className="circlebutton"
-            type="button"
-            onclick="changeColor(this.parentNode)"
-          >
-            Trabajadores{" "}
-          </button>
+          <a href="/actuaciones" class="circlebutton">
+            Actuaciones
+          </a>
+          <a href="/trabajadores" class="circlebutton">
+            Trabajadores
+          </a>
         </section>
 
         <section className="panel-column2-container">
@@ -132,6 +124,49 @@ export function Panel() {
           </div>
           <ProjectsCreatedByUser />
           <div className="victory">
+            <div>
+              <ReactMinimalPieChart
+                animate
+                animationDuration={5000}
+                animationEasing="ease-out"
+                cx={50}
+                cy={50}
+                data={[
+                  {
+                    color: "green",
+                    title: "One",
+                    value: valid
+                  },
+                  {
+                    color: "yellow",
+                    title: "Two",
+                    value: expiring
+                  },
+                  {
+                    color: "red",
+                    title: "Three",
+                    value: expired
+                  }
+                ]}
+                label={false}
+                labelPosition={100}
+                lengthAngle={360}
+                labelStyle={{
+                  fill: "#121212",
+                  fontFamily: "sans-serif",
+                  fontSize: "5px"
+                }}
+                lineWidth={100}
+                onClick={undefined}
+                onMouseOut={undefined}
+                onMouseOver={undefined}
+                paddingAngle={0}
+                radius={50}
+                rounded={false}
+                startAngle={0}
+                viewBoxSize={[100, 100]}
+              />
+            </div>
             <VictoryPie
               data={[
                 {
