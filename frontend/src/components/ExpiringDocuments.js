@@ -7,7 +7,7 @@ export function ExpiringDocuments({ documents }) {
     <React.Fragment>
       <div className="App">
         <h1>Expirarán en:</h1>
-        <ul className="ExpiredDocuments">
+        <ul className="expiring">
           {documents.map((document, index) => (
             <li key={document.id}>
               {Math.abs(

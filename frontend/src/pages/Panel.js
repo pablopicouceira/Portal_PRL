@@ -76,7 +76,14 @@ export function Panel() {
 
   return (
     <React.Fragment>
-      <Header title="Portal Gestión PRL" />
+      <Header
+        title="Portal Gestión PRL"
+        show={["actuaciones", "trabajadores"]}
+        onLogout={e => {
+          localStorage.removeItem("currentUser");
+          window.location.href = "/";
+        }}
+      />
       <section className="panel-columns-container">
         <section className="panel-column1-container">
           <button

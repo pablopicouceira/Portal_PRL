@@ -169,8 +169,8 @@ export function Trabajadores() {
         }}
       />
 
-      <div className="trabajadores-container-columns">
-        <div className="trabajadores-container-column1">
+      <section className="trabajadores-columns-container">
+        <section className="trabajadores-column1-container">
           {state.showInactive === false && (
             <WorkersList
               workers={state.workers}
@@ -197,8 +197,8 @@ export function Trabajadores() {
           >
             Trabajadores {!state.showInactive ? "Inactivos" : "Activos"}
           </button>
-        </div>
-        <div className="trabajadores-container-column2">
+        </section>
+        <section className="trabajadores-column2-container">
           <div className=".trabajadores-container-column2 input">
             <TrabajadoresForm
               data={state.workers[state.selectedWorker]}
@@ -222,11 +222,11 @@ export function Trabajadores() {
           <div>
             <FileUpload worker={getWorker()} />
           </div>
-        </div>
-        <div className="trabajadores-container-column3">
+        </section>
+        <section className="trabajadores-column3-container">
           <ProjectsFromWorker worker={getWorker()} />
-        </div>
-      </div>
+        </section>
+      </section>
       <Footer />
     </React.Fragment>
   );

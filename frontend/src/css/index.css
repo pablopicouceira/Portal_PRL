@@ -54,6 +54,18 @@ header > div > a {
   text-decoration: none;
 }
 
+header ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 1rem;
+}
+
+header li {
+  padding-left: 3rem;
+  font-size: 1.5rem;
+}
+
 li {
   list-style: none;
   font-size: 2rem;
@@ -69,12 +81,20 @@ li:hover {
   color: red;
 }
 
+.expiring {
+  color: yellow;
+}
+
 span {
   font-size: 3rem;
   color: green;
 }
 
 .panel-columns-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-around;
   height: 80vh;
 }
 
@@ -90,6 +110,7 @@ span {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 10%;
 }
+
 .panel-column2-container {
   display: flex;
   flex-direction: column;
@@ -113,37 +134,90 @@ span {
   margin: 10px;
 }
 
+.trabajadores-columns-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-around;
+  height: 80vh;
+}
+
+.trabajadores-column1-container {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  flex-basis: 30%;
+  overflow-y: scroll;
+}
+
+.trabajadores-column2-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  flex-basis: 30%;
+  margin: 10px;
+}
+
+.trabajadores-column3-container {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  text-align: left;
+  flex-basis: 40%;
+  margin: 10px;
+}
+
+.actuaciones-columns-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-around;
+  height: 80vh;
+}
+
+.actuaciones-column1-container {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  flex-basis: 50%;
+  overflow-y: scroll;
+}
+
+.actuaciones-column3-container {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px -1px 6px 0px black;
+  text-align: left;
+  flex-basis: 40%;
+  margin: 10px;
+}
+
 footer {
   background-color: #4cc0b6;
   font-size: 2rem;
   /*padding: 1rem;*/
 }
 
-header ul {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  margin: 1rem;
-}
-
-header li {
-  padding-left: 3rem;
-  font-size: 1.5rem;
-}
-
 #logout {
   text-align: right;
-}
-
-a {
-  display: block;
-}
-
-.panel-columns-container {
-  display: flex;
-  flex-direction: row;
-  padding: 15px;
-  justify-content: space-around;
 }
 
 .square_btn {

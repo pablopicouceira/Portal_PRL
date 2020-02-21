@@ -183,7 +183,7 @@ export function Actuaciones() {
     : {};
 
   return (
-    <div>
+    <React.Fragment>
       <Header
         title="Portal Gestión PRL"
         show={["panel", "trabajadores"]}
@@ -193,8 +193,8 @@ export function Actuaciones() {
         }}
       />
 
-      <div className="actuaciones-container-columns">
-        <div className="actuaciones-container-column1">
+      <section className="actuaciones-columns-container">
+        <section className="actuaciones-column1-container">
           {state.showInactive === false && (
             <ProjectsList
               projects={state.projects}
@@ -232,6 +232,7 @@ export function Actuaciones() {
             </>
           ) : (
             <>
+              <section></section>
               <Project
                 activeProject={state.showInactive}
                 project={state.projects[state.selectedProject]}
@@ -252,7 +253,7 @@ export function Actuaciones() {
               </button>
             </>
           )}
-        </div>
+        </section>
 
         <div className="actuaciones-container-column2">
           <div className="actuaciones-container-info">
@@ -277,8 +278,8 @@ export function Actuaciones() {
             <button onClick={() => addWorker()}>Agregar</button>
           </div>
         </div>
-      </div>
+      </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
