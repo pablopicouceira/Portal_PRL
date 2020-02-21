@@ -124,8 +124,7 @@ export function Panel() {
           </div>
           <ProjectsCreatedByUser />
           <div className="victory">
-            <div>
-              <ReactMinimalPieChart
+            {/*<ReactMinimalPieChart
                 animate
                 animationDuration={5000}
                 animationEasing="ease-out"
@@ -165,20 +164,20 @@ export function Panel() {
                 rounded={false}
                 startAngle={0}
                 viewBoxSize={[100, 100]}
-              />
-            </div>
+              />*/}
+
             <VictoryPie
               data={[
                 {
-                  x: `Válidos (${((valid / total) * 100).toFixed(2)}%)`,
+                  x: `Válidos (${((valid / total) * 100).toFixed(0)}%)`,
                   y: valid
                 },
                 {
-                  x: `Próximos (${((expiring / total) * 100).toFixed(2)}%)`,
+                  x: `Próximos (${((expiring / total) * 100).toFixed(0)}%)`,
                   y: expiring
                 },
                 {
-                  x: `Expirados (${((expired / total) * 100).toFixed(2)}%)`,
+                  x: `Expirados (${((expired / total) * 100).toFixed(0)}%)`,
                   y: expired
                 }
               ]}

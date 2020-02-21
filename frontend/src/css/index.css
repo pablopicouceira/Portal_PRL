@@ -11,6 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: thistle;
+  background-image: url(../img/puig.jpg);
+  background-size: contain;
 }
 
 #root {
@@ -22,7 +25,7 @@ body {
 }
 
 header {
-  background-color: #4cc0b6;
+  background-color: #19647e;
   color: white;
   font-size: 2rem;
   text-align: center;
@@ -70,23 +73,28 @@ header li {
 
 li {
   list-style: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-bottom: 4px;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
 }
 
 li:hover {
-  background-color: #4cc0b6;
-  color: white;
+  font-weight: bolder;
 }
 
 .expired {
   color: red;
+  overflow-y: scroll;
+  background-color: rgb(221, 233, 230);
+  padding-left: 10px;
 }
 
 .expiring {
   color: yellow;
+  overflow-y: scroll;
+  background-color: grey;
+  padding-left: 10px;
 }
 
 span {
@@ -113,29 +121,52 @@ span {
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 10%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .panel-column2-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 10px;
+  padding-left: 40px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 40%;
   margin: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.panel-column2-container h1 {
+  padding-bottom: 10px;
+  font-size: 2rem;
+  color: gray;
+}
+
+.panel-column2-container div {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+}
+
+.panel-column2-container div ul {
   overflow-y: scroll;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .panel-column3-container {
-  padding: 10px;
+  padding: 30px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   text-align: left;
   flex-basis: 40%;
   margin: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .trabajadores-columns-container {
@@ -157,10 +188,25 @@ span {
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
+  background-color: rgb(231, 225, 130);
+}
+
+.trabajadores-column1-container h1 {
+  padding-bottom: 1rem;
+  font-size: 2rem;
 }
 
 .trabajadores-column1-container ul {
   overflow-y: scroll;
+  border: 1px solid black;
+  width: 90%;
+  padding-left: 1rem;
+  background-color: darkseagreen;
+}
+
+.trabajadores-inactivos-button {
+  margin-top: 2rem;
+  width: 50%;
 }
 
 .trabajadores-column2-container {
@@ -173,6 +219,7 @@ span {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
   margin: 10px;
+  background-color: white;
 }
 
 .trabajadores-column3-container {
@@ -183,6 +230,7 @@ span {
   text-align: left;
   flex-basis: 40%;
   margin: 10px;
+  background-color: white;
 }
 
 .actuaciones-columns-container {
@@ -282,7 +330,34 @@ code {
   font-size: large;
 }
 
-.caja {
+.circlebutton {
+  display: inline-block;
+  text-decoration: none;
+  color: #0a2239;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 50%;
+  border: double 4px #0a2239;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: 0.6s;
+  font-size: 1.5rem;
+  background-color: rgb(120, 194, 194);
+}
+
+.circlebutton:hover {
+  -webkit-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+.victory {
+  width: 80%;
+}
+
+/* .caja {
   width: 25%;
   font-family: sans-serif;
   font-size: 3rem;
@@ -298,30 +373,4 @@ code {
   border: 2px solid #5878ca;
   text-align: center;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-}
-
-.circlebutton {
-  display: inline-block;
-  text-decoration: none;
-  color: red;
-  width: 150px;
-  height: 150px;
-  line-height: 150px;
-  border-radius: 50%;
-  border: double 4px green;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  transition: 0.6s;
-  font-size: 1.5rem;
-}
-
-.circlebutton:hover {
-  -webkit-transform: rotateY(360deg);
-  -ms-transform: rotateY(360deg);
-  transform: rotateY(360deg);
-}
-
-.victory {
-  width: 80%;
-}
+} */
