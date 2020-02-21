@@ -75,20 +75,28 @@ export function Panel() {
   let total = expired + expiring + valid;
 
   return (
-    <div>
+    <React.Fragment>
       <Header title="Portal Gestión PRL" />
-      <div className="trabajadores-container-columns">
-        <div className="panel-container-column1">
-          <button type="button" onclick="changeColor(this.parentNode)">
+      <section className="panel-columns-container">
+        <section className="panel-column1-container">
+          <button
+            className="circlebutton"
+            type="button"
+            onclick="changeColor(this.parentNode)"
+          >
             Actuaciones{" "}
           </button>
 
-          <button type="button" onclick="changeColor(this.parentNode)">
+          <button
+            className="circlebutton"
+            type="button"
+            onclick="changeColor(this.parentNode)"
+          >
             Trabajadores{" "}
           </button>
-        </div>
+        </section>
 
-        <div className="trabajadores-container-column2">
+        <section className="panel-column2-container">
           <div>
             <ExpiredDocuments
               documents={state.expiredDocuments}
@@ -107,8 +115,8 @@ export function Panel() {
               }
             />
           </div>
-        </div>
-        <div className="trabajadores-container-column3">
+        </section>
+        <section className="panel-column3-container">
           <div>
             <DocumentsUploadedByUser />
           </div>
@@ -136,13 +144,13 @@ export function Panel() {
                 duration: 1000
               }}
               colorScale={["green", "yellow", "red"]}
-              padding={{ top: 150, bottom: 60 }}
+              padding={{ top: 50, bottom: 100 }}
               theme={VictoryTheme.material}
             />
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }

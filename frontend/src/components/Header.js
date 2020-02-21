@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/Header.css";
+//import "../css/Header.css";
 
 const links = [
   {
@@ -23,21 +23,19 @@ const links = [
 export function Header({ title, onLogout, show }) {
   return (
     <header>
-      <p>{title}</p>
-      <nav>
-        {links
-          .filter(l => show.includes(l.id))
-          .map(l => (
-            <div>
+      <h1>{title}</h1>
+      <div>
+        <nav>
+          {links
+            .filter(l => show.includes(l.id))
+            .map(l => (
               <Link to={l.to}>{l.name}</Link>
-            </div>
-          ))}
-        <div>
-          <a href="/" onClick={onLogout}>
-            Salir
-          </a>
-        </div>
-      </nav>
+            ))}
+        </nav>
+        <a href="/" onClick={onLogout}>
+          Salir
+        </a>
+      </div>
     </header>
   );
 }

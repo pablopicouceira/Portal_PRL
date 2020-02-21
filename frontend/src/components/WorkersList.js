@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/WorkersList.css";
+//import "../css/WorkersList.css";
 
 export function WorkersList({ workers, selectedIndex, onWorkerSelected }) {
   return (

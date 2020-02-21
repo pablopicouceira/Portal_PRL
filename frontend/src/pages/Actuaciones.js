@@ -21,7 +21,7 @@ import { Project } from "../components/Project";
 import { WorkersList } from "../components/WorkersList";
 import { NotAssociatedWorkers } from "../components/NotAssociatedWorkers";
 
-import "../css/Actuaciones.css";
+//import "../css/Actuaciones.css";
 import ProjectInfo from "../components/ProjectInfo";
 
 function projectsReducer(state, action) {
@@ -186,6 +186,7 @@ export function Actuaciones() {
     <div>
       <Header
         title="Portal Gestión PRL"
+        show={["panel", "trabajadores"]}
         onLogout={e => {
           localStorage.removeItem("currentUser");
           window.location.href = "/";

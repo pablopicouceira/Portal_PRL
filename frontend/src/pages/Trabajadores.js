@@ -18,7 +18,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 import FileUpload from "../components/FileUpload";
-import "../css/Trabajadores.css";
+//import "../css/Trabajadores.css";
 import { TrabajadoresForm } from "../components/TrabajadoresForm";
 import ProjectsFromWorker from "../components/ProjectsFromWorker";
 
@@ -159,7 +159,7 @@ export function Trabajadores() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <Header
         title="Portal Gestión PRL"
         show={["panel", "actuaciones"]}
@@ -228,6 +228,6 @@ export function Trabajadores() {
         </div>
       </div>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }

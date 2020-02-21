@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import "../css/FileUpload.css";
+//import "../css/FileUpload.css";
 import { uploadDocument, getDocumentsWorker } from "../http/workersService";
 import "moment/locale/es";
 import moment from "moment";

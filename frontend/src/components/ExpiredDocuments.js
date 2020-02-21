@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ExpiredDocuments.css";
+//import "../css/ExpiredDocuments.css";
 
 export function ExpiredDocuments({ documents }) {
   const now = new Date();
@@ -7,7 +7,7 @@ export function ExpiredDocuments({ documents }) {
     <React.Fragment>
       <div className="App">
         <h1>Expiraron hace:</h1>
-        <ul className="ExpiredDocuments">
+        <ul className="expired">
           {documents.map((document, index) => (
             <li key={document.id}>
               {Math.round(

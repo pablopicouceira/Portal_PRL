@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ExpiredDocuments.css";
+//import "../css/ExpiredDocuments.css";
 
 export function ExpiringDocuments({ documents }) {
   const now = new Date();

@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ProjectsList.css";
+//import "../css/ProjectsList.css";
 
 export function ProjectsList({ projects, selectedIndex, onProjectSelected }) {
   return (
