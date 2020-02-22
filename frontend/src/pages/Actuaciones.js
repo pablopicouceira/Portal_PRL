@@ -91,6 +91,7 @@ export function Actuaciones() {
     return createProject(formData)
       .then(response => {
         // dispatch({ type: "CREATE_PROJECT", project: response.data });
+        dispatch({ type: "SELECT_PROJECT", ...state.projects[0] });
 
         getData();
         console.log(response.data);
@@ -164,7 +165,7 @@ export function Actuaciones() {
       state.projects[state.selectedProject].id,
       workerIdToAdd
     ).then(response => {
-      getData();
+      //getData();
       getWorkers(state.projects[state.selectedProject].id);
     });
   };
@@ -249,7 +250,11 @@ export function Actuaciones() {
                   handleUpdateProject(id);
                 }}
               />
-              <button onClick={() => dispatch({ type: "DESELECT_PROJECT" })}>
+              <button
+                className="actuaciones-crear-nueva-actuacion-button"
+                className="actuaciones-column1-square-btn"
+                onClick={() => dispatch({ type: "DESELECT_PROJECT" })}
+              >
                 Crear nueva actuacion
               </button>
             </>

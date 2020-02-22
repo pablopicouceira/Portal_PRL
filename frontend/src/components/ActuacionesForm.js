@@ -18,7 +18,7 @@ export function ActuacionesForm({ data, action, limpiar }) {
             errors.name ? "ko" : formState.touched.name && "ok"
           }`}
         >
-          <label>nombre</label>
+          <label>Nombre</label>
           <input
             ref={register({
               required: "The name is mandatory"
@@ -111,23 +111,21 @@ export function ActuacionesForm({ data, action, limpiar }) {
         <div className="btn-container">
           <button
             type="submit"
-            className="btn"
+            className="actuaciones-column1-square-btn"
             disabled={formState.isSubmitting}
             onSubmit={handleSubmit(action)}
           >
-            {Object.keys(data).length
-              ? "Actualizar datos"
-              : "Crear nueva actuación"}
+            {Object.keys(data).length ? "Actualizar datos" : "Guardar"}
           </button>
-          <button
-            className="btn"
+          {/*          <button
+            className="actuaciones-column1-square-btn"
             disabled={formState.isSubmitting}
             onClick={() => {
               limpiar();
             }}
           >
             Limpiar Formulario
-          </button>
+          </button>*/}
         </div>
       </form>
     </div>

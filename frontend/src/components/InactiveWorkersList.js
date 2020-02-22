@@ -16,7 +16,7 @@ export function InactiveWorkersList({
             onClick={() => onWorkerSelected(index)}
             className={selectedIndex === index && "selected"}
           >
-            {worker.apellidos}, {worker.nombre} {worker.dni}
+            {worker.apellidos}, {worker.nombre}
           </li>
         ))}
       </ul>

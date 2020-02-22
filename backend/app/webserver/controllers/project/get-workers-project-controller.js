@@ -97,9 +97,9 @@ async function getWorkersFromProject(req, res, next) {
     const [rows] = await connection.execute(sqlQuery, [Actuaciones_id]);
     connection.release();
 
-    if (rows.length === 0) {
-      return res.status(404).send();
-    }
+    // if (rows.length === 0) {
+    //   return res.status(404).send();
+    // }
 
     const Trabajadores = rows.map(trabajador => {
       return {

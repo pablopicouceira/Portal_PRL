@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -49,13 +51,13 @@ header > div > nav {
 
 header > div > nav > a {
   padding-left: 30px;
-  font-size: 1.5rem;
+  padding-right: 20px;
+  font-size: 1.4rem;
   text-decoration: none;
 }
 
 header > div > a {
-  padding-right: 20px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
 }
 
@@ -88,13 +90,17 @@ li:hover {
   overflow-y: scroll;
   padding-left: 10px;
   text-decoration: none;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 .expiring a {
-  color: rgb(252, 252, 7);
+  color: yellow;
   overflow-y: scroll;
   padding-left: 10px;
   text-decoration: none;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 span {
@@ -194,7 +200,7 @@ span {
 
 .li-actuaciones {
   min-height: 20em;
-  margin-top: -40px;
+
   width: 30em;
   overflow-y: scroll;
   border: 1px solid black;
@@ -230,6 +236,7 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
   flex: 1;
 }
 
@@ -244,6 +251,7 @@ span {
 
 .trabajadores-column1-container ul {
   overflow-y: scroll;
+  border-radius: 5px;
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
@@ -251,6 +259,11 @@ span {
 }
 
 .trabajadores-inactivos-button {
+  margin-top: 2rem;
+  width: 50%;
+}
+
+.actuaciones-crear-nueva-actuacion-button {
   margin-top: 2rem;
   width: 50%;
 }
@@ -303,11 +316,26 @@ a {
   background-color: white;
 }
 
+.trabajadores-column3-container h1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.trabajadores-column3-container ul {
+  overflow-y: scroll;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 90%;
+  padding-left: 1rem;
+  background-color: darkseagreen;
+}
+
 .actuaciones-form {
   display: flex;
   flex-direction: column;
-  flex: 0.5;
-  width: 100%;
+  width: 90%;
+  padding-top: 1rem;
 }
 
 .actuaciones-form input {
@@ -315,7 +343,7 @@ a {
   flex-direction: row;
   background-color: transparent;
   color: green;
-  padding: 25px;
+  padding: 10px;
   margin: 5px;
   flex-basis: 60%;
   width: 70%;
@@ -335,7 +363,7 @@ a {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   border: 1px solid black;
   border-radius: 5px;
@@ -343,6 +371,24 @@ a {
   flex-basis: 30%;
   overflow-y: scroll;
   background-color: white;
+}
+
+.actuaciones-column1-container h1 {
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.actuaciones-column1-square-btn {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #0a2239;
+  background-color: rgb(120, 194, 194);
+  transition: 0.4s;
+  margin-top: 1rem;
+  border: double 4px #0a2239;
+  width: 12rem;
 }
 
 .actuaciones-column2-container {

@@ -49,7 +49,7 @@ export default function ProjectsFromWorkers({ worker }) {
           ))}
         </ul>
       ) : (
-        "No hay proyectos"
+        "El trabajador aún no está asociado a ningún proyecto"
       )}
     </React.Fragment>
   );

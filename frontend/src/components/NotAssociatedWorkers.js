@@ -17,7 +17,7 @@ export function NotAssociatedWorkers({ workers, onChange }) {
           ))}
         </select>
       ) : (
-        "No hay proyectos"
+        "El proyecto aún no tiene trabajadores asociados"
       )}
     </div>
   );
