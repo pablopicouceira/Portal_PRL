@@ -31,7 +31,9 @@ export function updateProject(id, project) {
 }
 
 export function deactivateProject(id) {
-  return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/workers/${id}`);
+  return axios.delete(
+    `${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`
+  );
 }
 
 export function getWorkersFromProject(id) {

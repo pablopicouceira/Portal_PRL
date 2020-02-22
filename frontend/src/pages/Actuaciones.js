@@ -71,11 +71,11 @@ export function Actuaciones() {
   const { register, errors, formState, handleSubmit, setError } = useForm();
 
   const getData = () => {
-    getProjects(currentUser.accessToken).then(response => {
+    getProjects().then(response => {
       dispatch({ type: "GET_PROJECTS", initialProjects: response.data });
-      getWorkers(response.data[state.selectedProject].id);
+      getWorkers(response.data[0].id);
     });
-    getInactiveProjects(currentUser.accessToken).then(response => {
+    getInactiveProjects().then(response => {
       dispatch({
         type: "GET_INACTIVE_PROJECTS",
         initialProjects: response.data
@@ -127,6 +127,7 @@ export function Actuaciones() {
     deactivateProject(id).then(() => {
       dispatch({ type: "DEACTIVATE_PROJECT", id });
     });
+    getData();
   };
 
   const handleUpdateProject = id => {

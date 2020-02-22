@@ -214,7 +214,7 @@ span {
 .WorkersList-selected,
 .ProjectsList-selected {
   color: yellow;
-  font-size: large;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
@@ -359,6 +359,38 @@ a {
 .actuaciones-column2-container div {
   display: flex;
   flex: 1;
+}
+
+.actuaciones-column2-container div h1 {
+  font-size: 2rem;
+}
+
+.actuaciones-column2-container div h2 {
+  font-size: 1.5rem;
+  margin-bottom: -2rem;
+}
+
+.actuaciones-column2-container-description {
+  overflow-y: scroll;
+  margin-bottom: 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-top: 8px;
+  padding-bottom: 15px;
+}
+
+.img {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.img:hover {
+  /*filter: blur(5px);
+  filter: grayscale(80%);*/
+  filter: saturate(200%);
+  transition: all 0.8s ease-in-out;
+  box-shadow: 2px -1px 6px 0px black;
 }
 
 .actuaciones-column3-container {

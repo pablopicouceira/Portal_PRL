@@ -10,7 +10,9 @@ async function getProjects(req, res, next) {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT *
       FROM Actuaciones
-      WHERE deleted_At IS NULL`;
+      WHERE deleted_At IS NULL
+      ORDER BY created_At DESC`;
+
     const [rows] = await connection.execute(sqlQuery);
     connection.release();
 

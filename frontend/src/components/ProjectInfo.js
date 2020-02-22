@@ -26,26 +26,27 @@ export default function ProjectInfo({ project, getData }) {
           onChange={e => uploadImage(e)}
         />
         <img
+          className="img"
           src={
             project.imageUrl ||
-            "https://www.ismedioambiente.com/wp-content/uploads/2019/04/Convenio-Europeo-del-Paisaje.jpg"
+            "https://via.placeholder.com/300x200?text=dogLegs+Portal+Gestión+PRL"
           }
           style={{ width: "100%" }}
           onClick={() => imagepickerRef.click()}
         />
       </div>
       <div>
-        <label>{project.nombre}</label>
+        <h1>{project.nombre}</h1>
       </div>
 
       <div>
-        <label>
+        <h2>
           {project.direccion}, {project.poblacion} ({project.provincia})
-        </label>
+        </h2>
       </div>
 
-      <div style={{ overflow: "scroll" }}>
-        <label>{project.descripcion}</label>
+      <div className="actuaciones-column2-container-description">
+        <p>{project.descripcion}</p>
       </div>
     </>
   );
