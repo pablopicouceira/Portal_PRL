@@ -9,8 +9,8 @@ Listado de endpoints:
 3.  ✔️ Crear Trabajador
 4.  ✔️ Subir documento de Trabajador (Upload)
 5.  ✔️ Actualizar Trabajador
-6.  ✔️ Borrar Trabajador
-7.  ✔️ Recuperar Trabajador
+6.  ✔️ Desactivar Trabajador
+7.  ✔️ Reactivar Trabajador
 8.  ✔️ Asociar Trabajador a Actuación
 9.  ✔️ Mostrar Trabajadores
 10. ✔️ Mostrar trabajador inactivos
@@ -18,7 +18,7 @@ Listado de endpoints:
 12. ✔️ Mostrar Actuaciones en las que está asociado un Trabajador
 13. ✔️ Crear Actuación
 14. ✔️ Actualizar Actuación
-15. ✔️ Borrar Actuación
+15. ✔️ Desactivar Actuación
 16. ✔️ Mostrar Actuaciones
 17. ✔️ Mostrar Actuaciones inactivas
 18. ✔️ Mostrar Actuación
