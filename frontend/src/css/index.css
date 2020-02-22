@@ -181,6 +181,11 @@ span {
   padding-bottom: 0.5rem;
 }
 
+.panel-column3-container-datos {
+  display: flex;
+  flex-direction: row;
+}
+
 .panel-column3-container-valoracion {
   display: inline-block;
   font-size: 1.5rem;

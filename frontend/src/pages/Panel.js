@@ -140,63 +140,29 @@ export function Panel() {
           </div>
         </section>
         <section className="panel-column3-container">
-          <div>
-            <DocumentsUploadedByUser />
-          </div>
-          <div>
-            <WorkersRegisteredByUser />
-          </div>
-          <ProjectsCreatedByUser />
+          <div className="panel-column3-container-datos">
+            <div>
+              <div>
+                <DocumentsUploadedByUser />
+              </div>
+              <div>
+                <WorkersRegisteredByUser />
+              </div>
 
-          <div className="panel-column3-container-valoracion">
-            Valoración:
-            {documents.length * 0.1 +
-              workers.length * 0.5 +
-              projects.length * 1}
+              <div>
+                <ProjectsCreatedByUser />
+              </div>
+            </div>
+
+            <div className="panel-column3-container-valoracion">
+              Valoración:
+              {documents.length * 0.1 +
+                workers.length * 0.5 +
+                projects.length * 1}
+            </div>
           </div>
+
           <div className="victory">
-            {/*<ReactMinimalPieChart
-                animate
-                animationDuration={5000}
-                animationEasing="ease-out"
-                cx={50}
-                cy={50}
-                data={[
-                  {
-                    color: "green",
-                    title: "One",
-                    value: valid
-                  },
-                  {
-                    color: "yellow",
-                    title: "Two",
-                    value: expiring
-                  },
-                  {
-                    color: "red",
-                    title: "Three",
-                    value: expired
-                  }
-                ]}
-                label={false}
-                labelPosition={100}
-                lengthAngle={360}
-                labelStyle={{
-                  fill: "#121212",
-                  fontFamily: "sans-serif",
-                  fontSize: "5px"
-                }}
-                lineWidth={100}
-                onClick={undefined}
-                onMouseOut={undefined}
-                onMouseOver={undefined}
-                paddingAngle={0}
-                radius={50}
-                rounded={false}
-                startAngle={0}
-                viewBoxSize={[100, 100]}
-              />*/}
-
             <VictoryPie
               data={[
                 {
