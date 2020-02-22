@@ -155,7 +155,7 @@ export function Panel() {
             </div>
 
             <div className="panel-column3-container-valoracion">
-              Valoración:
+              Valoración:{" "}
               {documents.length * 0.1 +
                 workers.length * 0.5 +
                 projects.length * 1}
@@ -166,15 +166,15 @@ export function Panel() {
             <VictoryPie
               data={[
                 {
-                  x: `(${((valid / total) * 100).toFixed(0)}%)`,
+                  x: `Válidos (${((valid / total) * 100).toFixed(0)}%)`,
                   y: valid
                 },
                 {
-                  x: `(${((expiring / total) * 100).toFixed(0)}%)`,
+                  x: `< 1 mes (${((expiring / total) * 100).toFixed(0)}%)`,
                   y: expiring
                 },
                 {
-                  x: `(${((expired / total) * 100).toFixed(0)}%)`,
+                  x: `Expirados (${((expired / total) * 100).toFixed(0)}%)`,
                   y: expired
                 }
               ]}
@@ -182,7 +182,7 @@ export function Panel() {
                 duration: 1000
               }}
               colorScale={["green", "yellow", "red"]}
-              padding={{ top: 100, bottom: 100 }}
+              padding={{ top: 75, bottom: 125 }}
               theme={VictoryTheme.material}
             />
           </div>

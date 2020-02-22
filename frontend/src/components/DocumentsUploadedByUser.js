@@ -7,5 +7,10 @@ export function DocumentsUploadedByUser() {
     getDocumentsByUser().then(response => setDocuments(response.data));
   }, []);
   console.log(documents);
-  return <h1>{documents.length} archivos subidos</h1>;
+  return (
+    <h1>
+      <span className="valoracion-span">{documents.length}</span> archivos
+      subidos
+    </h1>
+  );
 }

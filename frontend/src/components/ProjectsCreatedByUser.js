@@ -7,5 +7,10 @@ export function ProjectsCreatedByUser() {
     getProjectsByUser().then(response => setProjects(response.data));
   }, []);
   console.log(projects);
-  return <h1>{projects.length} actuaciones creadas</h1>;
+  return (
+    <h1>
+      <span className="valoracion-span">{projects.length}</span> actuaciones
+      creadas
+    </h1>
+  );
 }
