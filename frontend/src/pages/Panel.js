@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { useAuth } from "../context/auth-context";
 
 import { Header } from "../components/Header";
@@ -15,6 +15,12 @@ import {
   getExpiringDocuments,
   getNotObsoletDocuments
 } from "../http/documentsService";
+import {
+  getDocumentsByUser,
+  getWorkersByUser,
+  getProjectsByUser
+} from "../http/usersService";
+
 import { VictoryPie, VictoryTheme, VictoryLabel } from "victory";
 
 function dashboardReducer(state, action) {
@@ -71,9 +77,25 @@ export function Panel() {
       })
     );
   }, []);
+
   let valid = state.notObsoletDocuments.length - expired - expiring;
 
   let total = expired + expiring + valid;
+
+  const [documents, setDocuments] = useState([]);
+  useEffect(() => {
+    getDocumentsByUser().then(response => setDocuments(response.data));
+  }, []);
+
+  const [workers, setWorkers] = useState([]);
+  useEffect(() => {
+    getWorkersByUser().then(response => setWorkers(response.data));
+  }, []);
+
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    getProjectsByUser().then(response => setProjects(response.data));
+  }, []);
 
   return (
     <React.Fragment>
@@ -125,6 +147,13 @@ export function Panel() {
             <WorkersRegisteredByUser />
           </div>
           <ProjectsCreatedByUser />
+
+          <div className="panel-column3-container-valoracion">
+            Valoración:
+            {documents.length * 0.1 +
+              workers.length * 0.5 +
+              projects.length * 1}
+          </div>
           <div className="victory">
             {/*<ReactMinimalPieChart
                 animate

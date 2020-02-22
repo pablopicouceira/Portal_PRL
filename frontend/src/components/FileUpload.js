@@ -115,7 +115,11 @@ function FileUpload({ worker }) {
         );
       })}
 
-      <button onClick={() => handleUpload()}>Subir archivos</button>
+      <button className=".fa-button" onClick={() => handleUpload()}>
+        {" "}
+        Subir Archivos{" "}
+        <i className="fas fa-cloud-upload-alt" style={{ fontSize: 30 }}></i>
+      </button>
     </div>
   );
   /*

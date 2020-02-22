@@ -27,7 +27,7 @@ body {
 }
 
 header {
-  background-color: #19647e;
+  background-color: rgb(120, 194, 194);
   color: white;
   font-size: 2rem;
   text-align: center;
@@ -176,6 +176,21 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.panel-column3-container h1 {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+
+.panel-column3-container-valoracion {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  padding: 10px;
+  border-style: groove;
+  align-self: center;
+  border-radius: 50px;
+}
+
 .trabajadores-columns-container {
   display: flex;
   flex-direction: row;
@@ -205,7 +220,7 @@ span {
   overflow-y: scroll;
   border: 1px solid black;
   padding-left: 1rem;
-  background-color: darkseagreen;
+  background-color: rgb(120, 194, 194);
 }
 
 .actuaciones-container-info ul {
@@ -213,7 +228,7 @@ span {
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
-  background-color: darkseagreen;
+  background-color: rgb(120, 194, 194);
   min-height: 25em;
   max-height: 25em;
 }
@@ -221,7 +236,7 @@ span {
 .WorkersList-selected,
 .ProjectsList-selected {
   color: yellow;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -255,7 +270,7 @@ span {
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
-  background-color: darkseagreen;
+  background-color: rgb(120, 194, 194);
 }
 
 .trabajadores-inactivos-button {
@@ -281,10 +296,16 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.trabajadores-column2-container form {
+  background-color: rgb(226, 218, 105);
+}
+
 .trabajadores-column2-container input {
   display: flex;
   flex-direction: row;
-  background-color: transparent;
+  background-color: rgb(233, 227, 229);
+  border: 1px solid black;
+  border-radius: 5px;
   color: green;
   padding: 25px;
   margin: 5px;
@@ -294,6 +315,8 @@ span {
 }
 
 .trabajadores-column2-container-file-upload {
+  background-color: rgb(226, 218, 105);
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -313,7 +336,7 @@ a {
   text-align: left;
   flex-basis: 40%;
   margin: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .trabajadores-column3-container h1 {
@@ -328,7 +351,7 @@ a {
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
-  background-color: darkseagreen;
+  background-color: rgb(120, 194, 194);
 }
 
 .actuaciones-form {
@@ -370,7 +393,7 @@ a {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
   overflow-y: scroll;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .actuaciones-column1-container h1 {
@@ -401,7 +424,7 @@ a {
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
   margin: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .actuaciones-column2-container div {
@@ -449,11 +472,11 @@ a {
   text-align: left;
   flex-basis: 30%;
   margin: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 footer {
-  background-color: #4cc0b6;
+  background-color: rgb(120, 194, 194);
   font-size: 2rem;
   /*padding: 1rem;*/
 }
@@ -490,6 +513,23 @@ code {
 }
 
 .circlebutton {
+  display: inline-block;
+  text-decoration: none;
+  color: #0a2239;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 50%;
+  border: double 4px #0a2239;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: 0.6s;
+  font-size: 1.5rem;
+  background-color: rgb(120, 194, 194);
+}
+
+.circlebutlton-upoad {
   display: inline-block;
   text-decoration: none;
   color: #0a2239;
@@ -602,4 +642,9 @@ code {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.fa-button {
+  background-color: blue;
+  height: 4rem;
 }

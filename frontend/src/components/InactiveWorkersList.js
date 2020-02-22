@@ -14,7 +14,7 @@ export function InactiveWorkersList({
           <li
             key={worker.id}
             onClick={() => onWorkerSelected(index)}
-            className={selectedIndex === index && "selected"}
+            className={selectedIndex === index && "WorkersList-selected"}
           >
             {worker.apellidos}, {worker.nombre}
           </li>
