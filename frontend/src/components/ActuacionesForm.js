@@ -26,7 +26,7 @@ export function ActuacionesForm({ data, action, limpiar }) {
             defaultValue={data.nombre ? data.nombre : ""}
             name="nombre"
             type="text"
-            placeholder="Please enter your name"
+            placeholder="Nombre de la Actuación"
           ></input>
           {errors.name && (
             <span className="errorMessage">{errors.name.message}</span>
@@ -40,12 +40,12 @@ export function ActuacionesForm({ data, action, limpiar }) {
           <label>Dirección</label>
           <input
             ref={register({
-              required: "The email is mandatory"
+              required: "Dirección"
             })}
             defaultValue={data.direccion}
             name="direccion"
             type="text"
-            placeholder="Please enter your email"
+            placeholder="Dirección"
           ></input>
           {errors.email && (
             <span className="errorMessage">{errors.email.message}</span>
@@ -64,7 +64,7 @@ export function ActuacionesForm({ data, action, limpiar }) {
             defaultValue={data.poblacion}
             name="poblacion"
             type="text"
-            placeholder="Please enter your password"
+            placeholder="Población"
           ></input>
           {errors.password && (
             <span className="errorMessage">{errors.password.message}</span>
@@ -83,7 +83,7 @@ export function ActuacionesForm({ data, action, limpiar }) {
             defaultValue={data.provincia}
             name="provincia"
             type="text"
-            placeholder="Please enter your password"
+            placeholder="Provincia"
           ></input>
           {errors.password && (
             <span className="errorMessage">{errors.password.message}</span>
@@ -102,7 +102,7 @@ export function ActuacionesForm({ data, action, limpiar }) {
             defaultValue={data.provincia}
             name="descripcion"
             type="text"
-            placeholder="Please enter your password"
+            placeholder="Descripción de la Actuación"
           ></input>
           {errors.password && (
             <span className="errorMessage">{errors.password.message}</span>

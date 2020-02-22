@@ -35,7 +35,7 @@ export function TrabajadoresForm({
           defaultValue={data.apellidos ? data.apellidos : ""}
           name="apellidos"
           type="text"
-          placeholder="Please enter your name"
+          placeholder="Introducir apellidos"
         ></input>
         {errors.name && (
           <span className="errorMessage">{errors.name.message}</span>
@@ -58,7 +58,7 @@ export function TrabajadoresForm({
           defaultValue={data.nombre}
           name="nombre"
           type="text"
-          placeholder="Please enter your email"
+          placeholder="Introducir nombre"
         ></input>
         {errors.email && (
           <span className="errorMessage">{errors.email.message}</span>
@@ -81,7 +81,7 @@ export function TrabajadoresForm({
           name="dni"
           defaultValue={data.dni}
           type="text"
-          placeholder="Please enter your password"
+          placeholder="Introducir DNI"
         ></input>
         {errors.password && (
           <span className="errorMessage">{errors.password.message}</span>
