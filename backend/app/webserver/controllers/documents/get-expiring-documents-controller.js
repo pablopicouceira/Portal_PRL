@@ -24,9 +24,6 @@ async function getExpiringDocuments(req, res, next) {
     const Documentos = rows.map(documento => {
       return {
         ...documento
-        // created_At: undefined,
-        // updated_At: undefined,
-        // deleted_At: undefined
       };
     });
 

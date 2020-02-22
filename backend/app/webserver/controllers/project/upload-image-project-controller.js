@@ -20,10 +20,6 @@ async function uploadImageProject(req, res, next) {
     });
   }
 
-  /**
-   * En este punto, hay archivo (imagen), entonces
-   * necesitamos "streaming" la imagen del usuario (de la request) hacia cloudinary
-   */
   cloudinary.uploader
     .upload_stream(
       {
@@ -40,19 +36,13 @@ async function uploadImageProject(req, res, next) {
           return res.status(400).send(err);
         }
 
-        // const secureUrl = result.secure_url;
         const { secure_url: secureUrl } = result;
 
-        // UPDATE users SET avatar_url = '${secureUrl} WHERE id = ${userId}';
         let connection;
         try {
           const sqlQuery = `UPDATE Actuaciones
       SET  imageUrl= ?
       WHERE id = ?`;
-
-          //         const sqlQuery = `UPDATE users
-          //   SET avatar_url = ?
-          //   WHERE id = ?`;
 
           connection = await mysqlPool.getConnection();
           connection.execute(sqlQuery, [secureUrl, projectId]);

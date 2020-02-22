@@ -3,11 +3,6 @@
 const Joi = require("@hapi/joi");
 const mysqlPool = require("../../../database/mysql-pool");
 
-/**
- *
- * @param {Object} payload
- */
-
 async function validate(payload) {
   const schema = Joi.object({
     workerId: Joi.string()

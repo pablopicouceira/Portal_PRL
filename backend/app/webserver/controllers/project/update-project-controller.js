@@ -31,19 +31,11 @@ async function validateSchema(payload) {
         version: ["uuidv4"]
       })
       .required()
-    // tags: Joi.array().items(Joi.string().guid({ version: ['uuidv4'] })),
   });
 
   Joi.assert(payload, schema);
 }
 
-/**
- * Create a new tag if does not exist
- * @param {Object} req
- * @param {Object} res
- * @param {Function} next
- * @returns {Object} Tag created
- */
 async function updateProject(req, res, next) {
   const { projectId } = req.params;
   const { userId } = req.claims;
@@ -67,9 +59,7 @@ async function updateProject(req, res, next) {
       .toISOString()
       .replace("T", " ")
       .substring(0, 19);
-    /**
-     * Exercise: modify upated_at column to keep track when this record was modified
-     */
+
     const sqlUpdateProject = `UPDATE Actuaciones
       SET nombre = ?,
         direccion = ?,
@@ -79,9 +69,6 @@ async function updateProject(req, res, next) {
       WHERE id = ?
       AND deleted_At IS NULL`;
 
-    /**
-     * Exercise: return 404 if the update was not possible
-     */
     await connection.query(sqlUpdateProject, [
       projectData.nombre,
       projectData.direccion,

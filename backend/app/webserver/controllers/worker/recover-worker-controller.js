@@ -17,7 +17,6 @@ async function validate(payload) {
 
 async function recoverWorker(req, res, next) {
   const { workerId } = req.params;
-  //const { userId } = req.claims;
 
   try {
     await validate({ workerId });

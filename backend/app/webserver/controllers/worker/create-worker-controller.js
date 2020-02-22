@@ -6,13 +6,6 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 const httpServerDomain = process.env.HTTP_SERVER_DOMAIN;
 
-/*
-{
-	"dni": "Z5790285V",
-	"apellidos": "Niño Carbo",
-	"nombre": "Cristian"
-}
-*/
 async function validate(payload) {
   const schema = Joi.object({
     dni: Joi.string()

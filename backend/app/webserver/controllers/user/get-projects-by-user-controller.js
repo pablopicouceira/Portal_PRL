@@ -4,7 +4,6 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 async function getProjectsByUser(req, res, next) {
   const { userId } = req.claims;
-  console.log(userId);
 
   try {
     const connection = await mysqlPool.getConnection();

@@ -45,9 +45,6 @@ async function createAccount(req, res, next) {
     return res.status(400).send(e);
   }
 
-  /**
-   * At this point, all data is valid
-   */
   const created_At = new Date()
     .toISOString()
     .replace("T", " ")
@@ -57,9 +54,8 @@ async function createAccount(req, res, next) {
 
   let connection;
   try {
-    connection = await mysqlPool.getConnection(); // 1
+    connection = await mysqlPool.getConnection();
     await connection.query("INSERT INTO Usuarios SET ?", {
-      // 2
       id: userId,
       email: accountData.email,
       password: securePassword,
@@ -69,14 +65,6 @@ async function createAccount(req, res, next) {
 
     res.status(201).send();
 
-    /**
-     * Nos gustaría mandar un email al usuario para darle la bienvenida a la app
-     * La operación de mandar email no es lo más importante en el flujo de usuario
-     * de "crear cuenta". Lo importante es que la cuenta se cree.
-     * Por ese motivo, independientemente que el email se envíe o no, no influye
-     * en que la cuenta se cree, y pondremos un try / catch especial para el flujo de
-     * "enviar email" para que no afecte al flujo prirncipal de "crear cuenta"
-     */
     try {
       await sendWelcomeEmail(accountData.email);
     } catch (e) {

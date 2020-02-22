@@ -33,7 +33,6 @@ async function getProject(projectId) {
 }
 
 async function associateWorkerToProject(req, res, next) {
-  // /api/notes/37664a0b-0811-4005-8a26-db41b93825a8/tags
   const { projectId, workerId } = req.params;
   const { userId } = req.claims;
 
@@ -56,13 +55,6 @@ async function associateWorkerToProject(req, res, next) {
       return res.status(404).send();
     }
 
-    /**
-     * Exercise 1
-     *  Delete tag from a note
-     *    Exercise: Do a proper query to delete a tag from a note for the logged in user
-     * Exercise 2
-     *  Is it possible to delete a tag from note without perform a getProject call?
-     */
     const sqlAssociateWorkerToProject = `INSERT INTO 
     Actuaciones_Trabajadores SET ?`;
 

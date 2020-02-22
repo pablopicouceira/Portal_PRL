@@ -30,19 +30,11 @@ async function validateSchema(payload) {
         version: ["uuidv4"]
       })
       .required()
-    // tags: Joi.array().items(Joi.string().guid({ version: ['uuidv4'] })),
   });
 
   Joi.assert(payload, schema);
 }
 
-/**
- * Create a new tag if does not exist
- * @param {Object} req
- * @param {Object} res
- * @param {Function} next
- * @returns {Object} Tag created
- */
 async function updateWorker(req, res, next) {
   const { workerId } = req.params;
   const { userId } = req.claims;
@@ -66,9 +58,7 @@ async function updateWorker(req, res, next) {
       .toISOString()
       .replace("T", " ")
       .substring(0, 19);
-    /**
-     * Exercise: modify upated_at column to keep track when this record was modified
-     */
+
     const sqlUpdateWorker = `UPDATE Trabajadores
       SET dni = ?,
         apellidos = ?,
@@ -76,9 +66,6 @@ async function updateWorker(req, res, next) {
         updated_At = ?
       WHERE id = ?`;
 
-    /**
-     * Exercise: return 404 if the update was not possible
-     */
     await connection.query(sqlUpdateWorker, [
       workerData.dni,
       workerData.apellidos,

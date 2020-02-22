@@ -5,18 +5,15 @@ const mysqlPool = require("../../../database/mysql-pool");
 async function getInactiveWorkers(req, res, next) {
   const { userId } = req.claims;
 
-  // 2. Select all tags
   try {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `SELECT *
       FROM Trabajadores
       WHERE deleted_At IS NOT NULL
       ORDER BY Apellidos ASC`;
-    //WHERE user_id = ?`;
-    const [rows] = await connection.execute(sqlQuery); //, [userId]);
+    const [rows] = await connection.execute(sqlQuery);
     connection.release();
     console.log(await connection.execute(sqlQuery));
-    // preparar respuesta
     const Trabajadores = rows.map(trabajador => {
       return {
         ...trabajador,

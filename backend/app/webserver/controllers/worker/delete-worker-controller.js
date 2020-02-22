@@ -17,7 +17,6 @@ async function validate(payload) {
 
 async function deleteWorker(req, res, next) {
   const { workerId } = req.params;
-  //const { userId } = req.claims;
 
   try {
     await validate({ workerId });

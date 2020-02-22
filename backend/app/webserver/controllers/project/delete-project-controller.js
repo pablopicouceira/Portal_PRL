@@ -13,7 +13,6 @@ async function validate(payload) {
 
 async function deleteProject(req, res, next) {
   const { projectId } = req.params;
-  //const { userId } = req.claims;
 
   try {
     await validate({ projectId });

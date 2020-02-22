@@ -6,7 +6,6 @@ async function getNotAssociatedWorkers(req, res, next) {
   const { userId } = req.claims;
   const { projectId } = req.params;
 
-  // 2. Select all tags
   try {
     const connection = await mysqlPool.getConnection();
     const sqlQuery = `select * from Trabajadores where not exists 
@@ -18,7 +17,6 @@ async function getNotAssociatedWorkers(req, res, next) {
 
     const [rows] = await connection.execute(sqlQuery, [projectId]);
     connection.release();
-    // preparar respuesta
 
     return res.status(200).send(rows);
   } catch (e) {
