@@ -9,9 +9,9 @@ export function Project({
 }) {
   return (
     <React.Fragment>
-      <button onClick={() => onDeactivateProject(project.id)}>
+      {/*<button onClick={() => onDeactivateProject(project.id)}>
         Desactivar Actuación
-      </button>
+  </button>*/}
     </React.Fragment>
   );
 }

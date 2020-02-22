@@ -216,13 +216,13 @@ export function Actuaciones() {
               }
             />
           )}
-          <button
+          {/*<button
             onClick={() => {
               dispatch({ type: "TOGGLE_SHOWN_PROJECTS" });
             }}
           >
             Actuaciones {!state.showInactive ? "Inactivas" : "Activas"}
-          </button>
+          </button>*/}
 
           {state.selectedProject == null ? (
             <>

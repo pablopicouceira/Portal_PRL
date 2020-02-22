@@ -12,7 +12,7 @@ body {
   padding: 0;
 }
 
-.centered-container {
+/* .centered-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,21 +23,21 @@ body {
   box-sizing: border-box;
   box-shadow: 0.15px 15px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-}
+} */
 
-.centered-container h3 {
+/* .centered-container h3 {
   font-size: 25px;
   margin: 0 0 30px;
   padding: 0;
   color: white;
   text-align: center;
-}
+} */
 
-.centered-container .form-control {
+/* .centered-container .form-control {
   position: relative;
-}
+} */
 
-.centered-container .form-control input {
+/* .centered-container .form-control input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -48,7 +48,7 @@ body {
   border-bottom: 1px solid white;
   outline: none;
   background: transparent;
-}
+} */
 
 .centered-container .form-control label {
   font-size: 20px;
@@ -65,4 +65,8 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.formo-contrl label {
+  margin-right: 10px;
 }

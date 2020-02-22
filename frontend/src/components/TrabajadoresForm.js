@@ -89,8 +89,8 @@ export function TrabajadoresForm({
       </div>
       <div className="btn-container">
         <button
+          className="trabajadores-column1-square-btn"
           type="submit"
-          className="btn"
           disabled={formState.isSubmitting}
           onSubmit={() => {
             handleSubmit(action);
@@ -102,7 +102,7 @@ export function TrabajadoresForm({
             : "Crear nuevo trabajador"}
         </button>
         <button
-          className="btn"
+          className="trabajadores-column1-square-btn"
           disabled={formState.isSubmitting}
           onClick={() => {
             limpiar();

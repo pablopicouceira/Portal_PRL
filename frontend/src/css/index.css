@@ -230,6 +230,7 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex: 1;
 }
 
 .btn-container button {
@@ -415,22 +416,6 @@ footer {
   text-align: right;
 }
 
-.square_btn {
-  display: inline-block;
-  padding: 7px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #fff;
-  background-image: -webkit-linear-gradient(45deg, #ffc107 0%, #ff8b5f 100%);
-  background-image: linear-gradient(45deg, #ffc107 0%, #ff8b5f 100%);
-  transition: 0.4s;
-}
-
-.square_btn:hover {
-  background-image: -webkit-linear-gradient(45deg, #ffc107 0%, #f76a35 100%);
-  background-image: linear-gradient(45deg, #ffc107 0%, #f76a35 100%);
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -502,3 +487,73 @@ code {
   text-align: center;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 } */
+
+.trabajadores-column1-square-btn {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #0a2239;
+  background-color: rgb(120, 194, 194);
+  transition: 0.4s;
+  margin-top: 1rem;
+  border: double 4px #0a2239;
+  width: 12rem;
+}
+
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0.15px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.centered-container h3 {
+  font-size: 25px;
+  margin: 0 0 30px;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+.centered-container .form-control {
+  position: relative;
+}
+
+.centered-container .form-control input {
+  width: 70%;
+  padding: 10px 10px;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  background: transparent;
+}
+
+.centered-container .form-control label {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.button-container button {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}

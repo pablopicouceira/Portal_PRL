@@ -191,7 +191,7 @@ export function Trabajadores() {
           )}
 
           <button
-            className="trabajadores-inactivos-button"
+            className="trabajadores-column1-square-btn"
             onClick={() => {
               dispatch({ type: "TOGGLE_SHOWN_WORKERS" });
             }}

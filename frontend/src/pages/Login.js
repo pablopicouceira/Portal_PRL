@@ -43,7 +43,7 @@ export function Login() {
   // console.log("ERROR:", errors);
   return (
     <React.Fragment>
-      <Header />
+      <Header title="Portal Gestión PRL" show={[]} />
       <main className="centered-container">
         <h3>Please Login</h3>
 
@@ -100,7 +100,6 @@ export function Login() {
             >
               Login
             </button>
-            <Link to="/portada">"Don't have an account?"</Link>
           </div>
         </form>
       </main>
