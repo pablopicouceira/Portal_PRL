@@ -86,15 +86,15 @@ li:hover {
 .expired a {
   color: red;
   overflow-y: scroll;
-  background-color: rgb(221, 233, 230);
   padding-left: 10px;
+  text-decoration: none;
 }
 
 .expiring a {
-  color: yellow;
+  color: rgb(252, 252, 7);
   overflow-y: scroll;
-  background-color: grey;
   padding-left: 10px;
+  text-decoration: none;
 }
 
 span {
@@ -156,6 +156,7 @@ span {
   overflow-y: scroll;
   border: 1px solid black;
   border-radius: 5px;
+  background-color: rgb(120, 194, 194);
 }
 
 .panel-column3-container {
@@ -481,7 +482,7 @@ code {
 }
 
 .victory {
-  width: 80%;
+  width: 100%;
 }
 
 /* .caja {

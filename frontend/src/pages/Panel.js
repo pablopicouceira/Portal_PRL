@@ -171,15 +171,15 @@ export function Panel() {
             <VictoryPie
               data={[
                 {
-                  x: `Válidos (${((valid / total) * 100).toFixed(0)}%)`,
+                  x: `(${((valid / total) * 100).toFixed(0)}%)`,
                   y: valid
                 },
                 {
-                  x: `Próximos (${((expiring / total) * 100).toFixed(0)}%)`,
+                  x: `(${((expiring / total) * 100).toFixed(0)}%)`,
                   y: expiring
                 },
                 {
-                  x: `Expirados (${((expired / total) * 100).toFixed(0)}%)`,
+                  x: `(${((expired / total) * 100).toFixed(0)}%)`,
                   y: expired
                 }
               ]}
