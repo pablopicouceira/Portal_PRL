@@ -240,7 +240,7 @@
 			"response": []
 		},
 		{
-			"name": "6. Borrar Trabajador",
+			"name": "6. Desactivar Trabajador",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -271,7 +271,7 @@
 			"response": []
 		},
 		{
-			"name": "7. Recuperar Trabajador",
+			"name": "7. Reactivar Trabajador",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -564,7 +564,7 @@
 			"response": []
 		},
 		{
-			"name": "15. Borrar Actuación",
+			"name": "15. Desactivar Actuación",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -591,14 +591,14 @@
 					}
 				],
 				"url": {
-					"raw": "{{baseUrl}}/api/notes/37664a0b-0811-4005-8a26-db41b93825a8",
+					"raw": "{{baseUrl}}/api/projects/1",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"notes",
-						"37664a0b-0811-4005-8a26-db41b93825a8"
+						"projects",
+						"1"
 					]
 				}
 			},
@@ -820,7 +820,123 @@
 			"response": []
 		},
 		{
-			"name": "23. Mostrar Documentos caducados",
+			"name": "23. Obtener Total de Documentos subidos por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/documents",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "24. Obtener Total de Trabajadores registrados por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/workers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"workers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "25. Obtener Total de Actuaciones creadas por Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/projects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "26. Obtener Total de Documentos no obsoletos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/documents/notobsolete",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"documents",
+						"notobsolete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "27. Mostrar Documentos expirados",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -861,7 +977,7 @@
 			"response": []
 		},
 		{
-			"name": "24. Obtener Total de Documentos subidos por Usuario",
+			"name": "28. Mostrar Documentos que van a expirar",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -874,103 +990,28 @@
 					]
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{accessToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
 				"url": {
-					"raw": "{{baseUrl}}/api/users/documents",
+					"raw": "{{baseUrl}}/api/workers/expiringdocuments",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"users",
-						"documents"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "25. Obtener Total de Trabajadores registrados por Usuario",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{accessToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/api/users/workers",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"workers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "26. Obtener Total de Actuaciones creadas por Usuario",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{accessToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/api/users/projects",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"projects"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "27. Obtener Total de Documentos no obsoletos",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{accessToken}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/api/documents/notobsolete",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"api",
-						"documents",
-						"notobsolete"
+						"workers",
+						"expiringdocuments"
 					]
 				}
 			},
