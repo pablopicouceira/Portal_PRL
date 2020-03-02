@@ -40,7 +40,8 @@ async function validate(payload) {
 
 async function createProject(req, res, next) {
   const projectData = { ...req.body };
-  // const { userId } = req.claims;
+  const { userId } = req.claims;
+  const Usuarios_id = userId;
 
   let id = null;
   try {
@@ -69,14 +70,13 @@ async function createProject(req, res, next) {
     return res.status(500).send();
   }
 
-  //const id = uuidV4();
   const project = {
-    // id,
     nombre,
     direccion,
     poblacion,
     provincia,
     descripcion,
+    Usuarios_id,
     created_At
   };
 

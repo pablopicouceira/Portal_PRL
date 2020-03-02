@@ -156,9 +156,11 @@ export function Panel() {
 
             <div className="panel-column3-container-valoracion">
               Valoración:{" "}
-              {documents.length * 0.1 +
+              {(
+                documents.length * 0.1 +
                 workers.length * 0.5 +
-                projects.length * 1}
+                projects.length * 1
+              ).toFixed(1)}
             </div>
           </div>
 

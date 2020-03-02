@@ -50,6 +50,9 @@ function projectsReducer(state, action) {
 
     case "DESELECT_PROJECT":
       return { ...state, selectedProject: null };
+
+    case "SELECT_PROJECT_AFTER_CREATION":
+      return { ...state, selectedProject: 0 };
     default:
       return state;
   }
@@ -91,7 +94,9 @@ export function Actuaciones() {
     return createProject(formData)
       .then(response => {
         // dispatch({ type: "CREATE_PROJECT", project: response.data });
-        dispatch({ type: "SELECT_PROJECT", ...state.projects[0] });
+        dispatch({
+          type: "SELECT_PROJECT_AFTER_CREATION"
+        });
 
         getData();
         console.log(response.data);
