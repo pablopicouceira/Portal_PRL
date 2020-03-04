@@ -95,7 +95,8 @@ export function Actuaciones() {
       .then(response => {
         // dispatch({ type: "CREATE_PROJECT", project: response.data });
         dispatch({
-          type: "SELECT_PROJECT_AFTER_CREATION"
+          type: "SELECT_PROJECT",
+          index: 0
         });
 
         getData();
@@ -193,7 +194,7 @@ export function Actuaciones() {
   return (
     <React.Fragment>
       <Header
-        title="Portal Gestión PRL"
+        title="H&S Docs Manager"
         show={["panel", "trabajadores"]}
         onLogout={e => {
           localStorage.removeItem("currentUser");
