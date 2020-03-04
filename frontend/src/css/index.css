@@ -493,6 +493,7 @@ a {
 footer {
   background-color: rgb(120, 194, 194);
   font-size: 2rem;
+  padding-left: 1rem;
   /*padding: 1rem;*/
 }
 
