@@ -5,8 +5,8 @@ export function ExpiringDocuments({ documents }) {
   const now = new Date();
   return (
     <React.Fragment>
-      <h1>Expirarán en:</h1>
-      <ul className="expiring">
+      <h2>Expirarán en:</h2>
+      <ul className="expired" className="panel-column2-container2">
         {documents.map((document, index) => (
           <li key={document.id}>
             <a href={document.secureUrl} target="_blank">

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
 
 * {
   margin: 0;
@@ -27,7 +28,7 @@ body {
 }
 
 header {
-  background-color: #393a4f;
+  background-color: rgb(29, 58, 104);
   color: white;
   font-size: 2rem;
   text-align: center;
@@ -80,40 +81,23 @@ header li {
   font-size: 1.5rem;
 }
 
-li {
-  list-style: none;
-  font-size: 1.5rem;
-  padding-bottom: 4px;
-  cursor: pointer;
-  font-family: "Dosis", sans-serif;
-}
-
 li:hover {
   font-weight: bolder;
 }
 
-.expired a {
-  color: red;
-  overflow-y: scroll;
-  padding-left: 10px;
-  text-decoration: none;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-}
-
 .expiring a {
-  color: yellow;
+  color: black;
   overflow-y: scroll;
   padding-left: 10px;
   text-decoration: none;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
+/*
 span {
   font-size: 3rem;
   color: green;
-}
+}*/
 
 .panel-columns-container {
   display: flex;
@@ -150,10 +134,10 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.panel-column2-container h1 {
+.panel-column2-container h2 {
   padding-bottom: 10px;
-  font-size: 2rem;
-  color: gray;
+  font-size: 24px;
+  color: #1d3a68;
 }
 
 .panel-column2-container div {
@@ -165,11 +149,44 @@ span {
   padding-right: 2rem;
 }
 
-.panel-column2-container div ul {
+.panel-column2-container1 {
   overflow-y: scroll;
-  border: 1px solid black;
+  border: 5px solid red;
   border-radius: 5px;
-  background-color: rgb(120, 194, 194);
+  background-color: #d6d5d5;
+  padding-left: 20px;
+}
+
+.panel-column2-container1 li {
+  padding-bottom: 8px;
+  font-size: 18px;
+  list-style: none;
+}
+
+.panel-column2-container1 a {
+  text-decoration: none;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+}
+
+.panel-column2-container2 {
+  overflow-y: scroll;
+  border: 5px solid rgb(219, 219, 25);
+  border-radius: 5px;
+  background-color: #d6d5d5;
+  padding-left: 20px;
+}
+
+.panel-column2-container2 li {
+  padding-bottom: 8px;
+  font-size: 18px;
+  list-style: none;
+}
+
+.panel-column2-container2 a {
+  text-decoration: none;
+  color: black;
+  font-family: "Open Sans", sans-serif;
 }
 
 .panel-column3-container {
@@ -186,16 +203,26 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.panel-column3-container h1 {
-  font-size: 1.2rem;
-  padding-bottom: 0.5rem;
+.panel-column3-container h2 {
+  font-size: 24px;
+  color: #1d3a68;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
 }
 
 .panel-column3-container-datos {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: royalblue;
+  background-color: #d6d5d5;
+  border: 2px solid rgb(29, 58, 104);
+  border-radius: 5px;
 }
 
 .panel-column3-container-inputs-valoracion {
@@ -205,20 +232,25 @@ span {
   align-items: center;
 }
 
-.panel-column3-container-input-date input {
+.select {
   display: block;
-  width: max-content;
-  background-color: yellowgreen;
+  width: min-content;
+  background-color: #215ca0;
+  text-align: center;
   margin: 0.2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding-left: 2px;
 }
 
 .panel-column3-container-valoracion {
   display: inline-block;
   font-size: 1.5rem;
-  background-color: gold;
-  color: black;
+  background-color: #fb7555;
+  color: white;
   padding: 10px;
-  border-style: groove;
   align-self: center;
   border-radius: 50px;
 }
@@ -226,6 +258,13 @@ span {
 .valoracion-span {
   color: green;
   font-size: 2rem;
+  padding-right: 5px;
+}
+
+.valoracion-div {
+  color: red;
+  font-size: 1rem;
+  text-align: right;
 }
 
 .trabajadores-columns-container {
@@ -273,8 +312,9 @@ span {
 .WorkersList-selected,
 .ProjectsList-selected {
   color: yellow;
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: bold;
+  background-color: #215ca0;
 }
 
 .form-control {
@@ -298,7 +338,10 @@ span {
 
 .trabajadores-column1-container h1 {
   padding-bottom: 1rem;
-  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #1db100;
 }
 
 .trabajadores-column1-container ul {
@@ -307,7 +350,17 @@ span {
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
-  background-color: rgb(120, 194, 194);
+  background-color: #d6d5d5;
+
+  font-size: 18px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
+}
+
+.trabajadores-column1-container li {
+  list-style: none;
+  padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .trabajadores-inactivos-button {
@@ -325,34 +378,46 @@ span {
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  border: 1px solid black;
   border-radius: 5px;
-  box-shadow: 2px -1px 6px 0px black;
   flex-basis: 50%;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(214, 213, 213, 0.8);
+  border: 1px solid black;
+}
+
+.trabajadores-column2-container h2 {
 }
 
 .trabajadores-column2-container form {
-  background-color: rgb(226, 218, 105);
+  /*background-color: rgb(226, 218, 105);*/
+  padding-top: 30px;
 }
 
 .trabajadores-column2-container input {
   display: flex;
   flex-direction: row;
-  background-color: rgb(233, 227, 229);
-  border: 1px solid black;
+  background-color: white;
   border-radius: 5px;
-  color: green;
-  padding: 25px;
-  margin: 5px;
-  flex-basis: 60%;
-  width: 70%;
+  color: #fb7555;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 50px;
+
+  flex-basis: 65%;
+  width: 100%;
   border: none;
+  font-size: 18px;
+}
+
+.trabajadores-column2-container label {
+  padding-left: 30px;
+  font-size: 20px;
 }
 
 .trabajadores-column2-container-file-upload {
-  background-color: rgb(226, 218, 105);
+  /*background-color: rgb(226, 218, 105);*/
 
   display: flex;
   flex-direction: row;
@@ -363,6 +428,11 @@ span {
 .trabajadores-column2-container-file-upload label,
 a {
   width: 5em;
+}
+
+.trabajadores-column2-container-file-upload input,
+a {
+  background-color: transparent;
 }
 
 .trabajadores-column3-container {
@@ -377,18 +447,30 @@ a {
 }
 
 .trabajadores-column3-container h1 {
-  padding-top: 1rem;
+  padding-top: 1.1rem;
   padding-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 24px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
 }
 
 .trabajadores-column3-container ul {
   overflow-y: scroll;
+  margin-top: 10px;
   border-radius: 5px;
   border: 1px solid black;
   width: 90%;
   padding-left: 1rem;
-  background-color: rgb(120, 194, 194);
+  background-color: #d6d5d5;
+  font-size: 18px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
+}
+
+.trabajadores-column3-container li {
+  list-style: none;
+  padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .actuaciones-form {
@@ -429,13 +511,34 @@ a {
   border-radius: 5px;
   box-shadow: 2px -1px 6px 0px black;
   flex-basis: 30%;
-  overflow-y: scroll;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.actuaciones-column1-container ul {
+  overflow-y: scroll;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 95%;
+  padding-left: 1rem;
+  background-color: #d6d5d5;
+
+  font-size: 18px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
+}
+
+.actuaciones-column1-container li {
+  list-style: none;
+  padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .actuaciones-column1-container h1 {
   padding-bottom: 1rem;
-  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #1db100;
 }
 
 .actuaciones-column1-square-btn {
@@ -485,6 +588,7 @@ a {
   border-radius: 5px;
   padding-top: 8px;
   padding-bottom: 15px;
+  background-color: #d6d5d5;
 }
 
 .img {
@@ -512,11 +616,37 @@ a {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-footer {
-  background-color: #393a4f;
-  font-size: 2rem;
+.actuaciones-column3-container h2 {
+  padding-top: 1.1rem;
+  padding-bottom: 1rem;
+}
+
+.actuaciones-column3-container ul {
+  overflow-y: scroll;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 90%;
   padding-left: 1rem;
-  /*padding: 1rem;*/
+  background-color: #d6d5d5;
+  font-size: 18px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
+}
+
+.actuaciones-column3-container li {
+  list-style: none;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #1d3a68;
+  height: 3vh;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 3px;
 }
 
 #logout {
@@ -553,18 +683,18 @@ code {
 .circlebutton {
   display: inline-block;
   text-decoration: none;
-  color: #0a2239;
+  color: #ffffff;
   width: 150px;
   height: 150px;
   line-height: 150px;
   border-radius: 50%;
-  border: double 4px #0a2239;
+  /*border: double 4px #0a2239;*/
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
   transition: 0.6s;
   font-size: 1.5rem;
-  background-color: rgb(120, 194, 194);
+  background-color: #215ca0;
 }
 
 .circlebutlton-upoad {
@@ -612,17 +742,86 @@ code {
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 } */
 
-.trabajadores-column1-square-btn {
+.trabajadores-inactivos {
   display: inline-block;
   padding: 7px 20px;
   border-radius: 25px;
   text-decoration: none;
-  color: #0a2239;
-  background-color: rgb(120, 194, 194);
+  color: white;
+  background-color: #215ca0;
   transition: 0.4s;
   margin-top: 1rem;
-  border: double 4px #0a2239;
   width: 12rem;
+  font-size: 14px;
+}
+
+.crear-nuevo-trabajador {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(29, 58, 104);
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 12rem;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.limpiar-formulario {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  background-color: #215ca0;
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 12rem;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.desactivar-trabajador {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: rgb(29, 58, 104);
+  background-color: rgb(255, 165, 0);
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 12rem;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.crear-nueva-actuacion {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  background-color: #215ca0;
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 12rem;
+  font-size: 14px;
+}
+
+.agregar {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: rgb(29, 58, 104);
+  background-color: orange;
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 12rem;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .centered-container {
@@ -644,6 +843,12 @@ code {
   padding: 0;
   color: white;
   text-align: center;
+}
+
+h3 {
+  font-size: 18px;
+  color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
 }
 
 .centered-container .form-control {
@@ -683,6 +888,9 @@ code {
 }
 
 .fa-button {
-  background-color: blue;
-  height: 4rem;
+  background-color: #215ca0;
+  color: white;
+  padding: 8px;
+  margin-bottom: 30px;
+  border-radius: 15px;
 }

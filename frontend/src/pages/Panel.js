@@ -44,7 +44,7 @@ function dashboardReducer(state, action) {
 export function Panel() {
   const year = moment().get("Y");
   const [dates, setDates] = useState({
-    minDate: `${year}-01-01`,
+    minDate: `2019-01-01`,
     maxDate: `${year}-12-30`
   });
   const { currentUser } = useAuth();
@@ -146,6 +146,7 @@ export function Panel() {
           </div>
         </section>
         <section className="panel-column3-container">
+          <h2>Datos:</h2>
           <div className="panel-column3-container-datos">
             <div>
               <div>
@@ -161,8 +162,9 @@ export function Panel() {
             </div>
 
             <div className="panel-column3-container-inputs-valoracion">
-              <div className="panel-column3-container-input-date">
+              <div>
                 <input
+                  className="select"
                   type="date"
                   value={dates.minDate}
                   onChange={e =>
@@ -170,6 +172,7 @@ export function Panel() {
                   }
                 />
                 <input
+                  className="select"
                   type="date"
                   value={dates.maxDate}
                   onChange={e =>

@@ -3,9 +3,9 @@ import { getProjectsByUser } from "../http/usersService";
 
 export function ProjectsCreatedByUser({ projects }) {
   return (
-    <h1>
+    <h3>
       <span className="valoracion-span">{projects.length}</span> actuaciones
       creadas
-    </h1>
+    </h3>
   );
 }

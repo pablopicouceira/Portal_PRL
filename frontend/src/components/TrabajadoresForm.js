@@ -21,7 +21,7 @@ export function TrabajadoresForm({
 
   return (
     <form onSubmit={handleSubmit(action)}>
-      <h3>Datos Personales:</h3>
+      <h2>Datos Personales:</h2>
       <div
         className={`form-control ${
           errors.name ? "ko" : formState.touched.name && "ok"
@@ -89,7 +89,7 @@ export function TrabajadoresForm({
       </div>
       <div className="btn-container">
         <button
-          className="trabajadores-column1-square-btn"
+          className="crear-nuevo-trabajador"
           type="submit"
           disabled={formState.isSubmitting}
           onSubmit={() => {
@@ -102,7 +102,7 @@ export function TrabajadoresForm({
             : "Crear nuevo trabajador"}
         </button>
         <button
-          className="trabajadores-column1-square-btn"
+          className="limpiar-formulario"
           disabled={formState.isSubmitting}
           onClick={() => {
             limpiar();

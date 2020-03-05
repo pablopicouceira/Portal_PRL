@@ -257,8 +257,7 @@ export function Actuaciones() {
                 }}
               />
               <button
-                className="actuaciones-crear-nueva-actuacion-button"
-                className="actuaciones-column1-square-btn"
+                className="crear-nueva-actuacion"
                 onClick={() => dispatch({ type: "DESELECT_PROJECT" })}
               >
                 Crear nueva actuacion
@@ -286,7 +285,9 @@ export function Actuaciones() {
                 setworkerIdToAdd(val);
               }}
             />
-            <button onClick={() => addWorker()}>Agregar</button>
+            <button className="agregar" onClick={() => addWorker()}>
+              Agregar
+            </button>
           </div>
         </section>
       </section>

@@ -3,10 +3,12 @@ import { getNotAssociatedWorkersToProject } from "../http/projectsService";
 
 export function NotAssociatedWorkers({ workers, onChange }) {
   return (
-    <div className="App">
-      <h1>Asociar Trabajadores</h1>
+    <div>
+      <h1 style={{ color: "#1d3a68", margin: 10, fontSize: 24 }}>
+        Asociar Trabajadores
+      </h1>
       {workers.length ? (
-        <select onChange={e => onChange(e.target.value)}>
+        <select onChange={e => onChange(e.target.value)} className="select">
           {[
             { id: 0, apellidos: "Selecciona un trabajador", nombre: null },
             ...workers

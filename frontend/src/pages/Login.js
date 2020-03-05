@@ -43,7 +43,7 @@ export function Login() {
   // console.log("ERROR:", errors);
   return (
     <React.Fragment>
-      <Header title="Portal Gestión PRL" show={[]} />
+      <Header title="H&S Docs Manager" show={[]} />
       <main className="centered-container">
         <h3>Please Login</h3>
 

@@ -12,14 +12,14 @@ export function Worker({
     <React.Fragment>
       {activeWorker ? (
         <button
-          className="trabajadores-column1-square-btn"
+          className="desactivar-trabajador"
           onClick={() => onReactivateWorker(inactiveWorker.id)}
         >
           Reactivar Trabajador
         </button>
       ) : (
         <button
-          className="trabajadores-column1-square-btn"
+          className="desactivar-trabajador"
           onClick={() => onDeactivateWorker(worker.id)}
         >
           Desactivar Trabajador

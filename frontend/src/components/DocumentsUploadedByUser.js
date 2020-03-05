@@ -3,9 +3,9 @@ import { getDocumentsByUser } from "../http/usersService";
 
 export function DocumentsUploadedByUser({ documents }) {
   return (
-    <h1>
+    <h3>
       <span className="valoracion-span">{documents.length}</span> archivos
       subidos
-    </h1>
+    </h3>
   );
 }

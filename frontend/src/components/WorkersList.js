@@ -23,8 +23,10 @@ export function WorkersList({ workers, selectedIndex, onWorkerSelected }) {
   return (
     <React.Fragment>
       <input onChange={e => setText(e.target.value)} placeholder="Buscar" />
-      <h1>Trabajadores</h1>
-      <ul className="li">
+      <h1 style={{ color: "#1d3a68", margin: 10, fontSize: 24 }}>
+        Trabajadores
+      </h1>
+      <ul className=".trabajadores-column1-container">
         {getData().map((worker, index) => (
           <li
             key={worker.id}

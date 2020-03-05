@@ -87,7 +87,7 @@ function FileUpload({ worker }) {
 
   return (
     <div>
-      <h3>Documentos:</h3>
+      <h2>Documentos:</h2>
       {filesTypes.map((fT, key) => {
         const file = workerFiles.find(f => fT.id == f.Requisitos_id);
 
@@ -115,10 +115,13 @@ function FileUpload({ worker }) {
         );
       })}
 
-      <button className=".fa-button" onClick={() => handleUpload()}>
+      <button className="fa-button" onClick={() => handleUpload()}>
         {" "}
         Subir Archivos{" "}
-        <i className="fas fa-cloud-upload-alt" style={{ fontSize: 30 }}></i>
+        <i
+          className="fas fa-cloud-upload-alt"
+          style={{ fontSize: 30, color: "white" }}
+        ></i>
       </button>
     </div>
   );

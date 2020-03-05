@@ -192,7 +192,7 @@ export function Trabajadores() {
           )}
 
           <button
-            className="trabajadores-column1-square-btn"
+            className="trabajadores-inactivos"
             onClick={() => {
               dispatch({ type: "TOGGLE_SHOWN_WORKERS" });
             }}
@@ -201,8 +201,9 @@ export function Trabajadores() {
           </button>
         </section>
         <section className="trabajadores-column2-container">
-          <div className="trabajadores-column2-container input">
+          <div>
             <TrabajadoresForm
+              className="trabajadores-column2-container input"
               data={state.workers[state.selectedWorker]}
               action={action}
               limpiar={() => dispatch({ type: "DESELECT_WORKER" })}
@@ -221,8 +222,11 @@ export function Trabajadores() {
               }}
             />
           </div>
-          <div className="trabajadores-column2-container input">
-            <FileUpload worker={getWorker()} />
+          <div>
+            <FileUpload
+              worker={getWorker()}
+              className="trabajadores-column2-container input"
+            />
           </div>
         </section>
         <section className="trabajadores-column3-container">

@@ -41,9 +41,9 @@ export default function ProjectsFromWorkers({ worker }) {
 
   return (
     <React.Fragment>
-      <h1>Proyectos asociados</h1>
+      <h2>Proyectos asociados</h2>
       {projects.length ? (
-        <ul className="li">
+        <ul>
           {projects.map((project, index) => (
             <li key={project.id}>{project.nombre}</li>
           ))}
