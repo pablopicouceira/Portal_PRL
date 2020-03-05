@@ -31,6 +31,11 @@ async function uploadDocument(req, res, next) {
   const fechaCaducidad = `${year}-${month}-${day}`;
   console.log(fechaCaducidad);
 
+  const created_At = new Date()
+    .toISOString()
+    .substring(0, 19)
+    .replace("T", " ");
+
   try {
     const conn = await mysqlPool.getConnection();
     const sqlUploadDocument = `update Uploads set Obsoleto = true where Requisitos_id=${requirementId} AND Trabajadores_id='${workerId}'`;
@@ -62,6 +67,7 @@ async function uploadDocument(req, res, next) {
           Requisitos_id: requirementId,
           Usuarios_id: userId,
           secureUrl,
+          created_At,
           fechaCaducidad,
           Obsoleto: false
         };

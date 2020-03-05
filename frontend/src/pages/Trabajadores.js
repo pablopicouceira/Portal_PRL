@@ -161,7 +161,8 @@ export function Trabajadores() {
   return (
     <React.Fragment>
       <Header
-        title="Portal Gestión PRL"
+        title="H&S Docs Manager
+"
         show={["panel", "actuaciones"]}
         onLogout={e => {
           localStorage.removeItem("currentUser");

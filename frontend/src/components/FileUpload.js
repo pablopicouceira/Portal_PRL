@@ -7,7 +7,7 @@ import moment from "moment";
 moment.locale("es");
 
 const filesTypes = [
-  { id: 1, name: "Formacion" },
+  { id: 1, name: "Formación" },
   { id: 2, name: "Apto" },
   { id: 3, name: "Epis" }
 ];

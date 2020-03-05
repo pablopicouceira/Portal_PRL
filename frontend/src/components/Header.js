@@ -36,7 +36,10 @@ export function Header({ title, onLogout, show }) {
         </nav>
         <a href="/" onClick={onLogout}>
           Salir
-          <i style={{ marginLeft: 10 }} className="fas fa-sign-out-alt"></i>
+          <i
+            style={{ color: "white", marginLeft: 10 }}
+            className="fas fa-sign-out-alt"
+          ></i>
         </a>
       </div>
     </header>

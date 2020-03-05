@@ -27,13 +27,18 @@ body {
 }
 
 header {
-  background-color: rgb(120, 194, 194);
+  background-color: #393a4f;
   color: white;
   font-size: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 12vh;
+}
+
+header h1 {
+  padding-top: 10px;
 }
 
 header > div {
@@ -54,11 +59,13 @@ header > div > nav > a {
   padding-right: 20px;
   font-size: 1.4rem;
   text-decoration: none;
+  color: white;
 }
 
 header > div > a {
   font-size: 1.3rem;
   text-decoration: none;
+  color: white;
 }
 
 header ul {
@@ -188,13 +195,28 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-color: royalblue;
+}
+
+.panel-column3-container-inputs-valoracion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.panel-column3-container-input-date input {
+  display: block;
+  width: max-content;
+  background-color: yellowgreen;
+  margin: 0.2rem;
 }
 
 .panel-column3-container-valoracion {
   display: inline-block;
   font-size: 1.5rem;
   background-color: gold;
-  color: blue;
+  color: black;
   padding: 10px;
   border-style: groove;
   align-self: center;
@@ -491,7 +513,7 @@ a {
 }
 
 footer {
-  background-color: rgb(120, 194, 194);
+  background-color: #393a4f;
   font-size: 2rem;
   padding-left: 1rem;
   /*padding: 1rem;*/

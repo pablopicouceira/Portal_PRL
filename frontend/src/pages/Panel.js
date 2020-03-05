@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect, useState } from "react";
 import { useAuth } from "../context/auth-context";
+import moment from "moment";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -41,6 +42,11 @@ function dashboardReducer(state, action) {
 }
 
 export function Panel() {
+  const year = moment().get("Y");
+  const [dates, setDates] = useState({
+    minDate: `${year}-01-01`,
+    maxDate: `${year}-12-30`
+  });
   const { currentUser } = useAuth();
   const [state, dispatch] = useReducer(dashboardReducer, {
     expiredDocuments: [],
@@ -84,18 +90,18 @@ export function Panel() {
 
   const [documents, setDocuments] = useState([]);
   useEffect(() => {
-    getDocumentsByUser().then(response => setDocuments(response.data));
-  }, []);
+    getDocumentsByUser(dates).then(response => setDocuments(response.data));
+  }, [dates]);
 
   const [workers, setWorkers] = useState([]);
   useEffect(() => {
-    getWorkersByUser().then(response => setWorkers(response.data));
-  }, []);
+    getWorkersByUser(dates).then(response => setWorkers(response.data));
+  }, [dates]);
 
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    getProjectsByUser().then(response => setProjects(response.data));
-  }, []);
+    getProjectsByUser(dates).then(response => setProjects(response.data));
+  }, [dates]);
 
   return (
     <React.Fragment>
@@ -143,24 +149,42 @@ export function Panel() {
           <div className="panel-column3-container-datos">
             <div>
               <div>
-                <DocumentsUploadedByUser />
+                <DocumentsUploadedByUser documents={documents} />
               </div>
               <div>
-                <WorkersRegisteredByUser />
+                <WorkersRegisteredByUser workers={workers} />
               </div>
 
               <div>
-                <ProjectsCreatedByUser />
+                <ProjectsCreatedByUser projects={projects} />
               </div>
             </div>
 
-            <div className="panel-column3-container-valoracion">
-              Valoración:{" "}
-              {(
-                documents.length * 0.1 +
-                workers.length * 0.5 +
-                projects.length * 1
-              ).toFixed(1)}
+            <div className="panel-column3-container-inputs-valoracion">
+              <div className="panel-column3-container-input-date">
+                <input
+                  type="date"
+                  value={dates.minDate}
+                  onChange={e =>
+                    setDates(dates => ({ ...dates, minDate: e.target.value }))
+                  }
+                />
+                <input
+                  type="date"
+                  value={dates.maxDate}
+                  onChange={e =>
+                    setDates(dates => ({ ...dates, maxDate: e.target.value }))
+                  }
+                />
+              </div>
+              <div className="panel-column3-container-valoracion">
+                Valoración:{" "}
+                {(
+                  documents.length * 0.1 +
+                  workers.length * 0.5 +
+                  projects.length * 1
+                ).toFixed(1)}
+              </div>
             </div>
           </div>
 

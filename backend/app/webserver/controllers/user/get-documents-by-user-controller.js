@@ -4,12 +4,17 @@ const mysqlPool = require("../../../database/mysql-pool");
 
 async function getDocumentsByUser(req, res, next) {
   const { userId } = req.claims;
+  const { minDate, maxDate } = req.query;
 
   try {
     const connection = await mysqlPool.getConnection();
-    const sqlQuery = `SELECT * FROM Uploads WHERE Usuarios_id =?`;
+    const sqlQuery = `SELECT * FROM Uploads WHERE Usuarios_id =? and created_At BETWEEN ? and ?;`;
 
-    const [rows] = await connection.execute(sqlQuery, [userId]);
+    const [rows] = await connection.execute(sqlQuery, [
+      userId,
+      minDate,
+      maxDate
+    ]);
     connection.release();
     const uploads = rows.map(upload => {
       return {

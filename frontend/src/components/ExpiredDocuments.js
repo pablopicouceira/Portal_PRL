@@ -9,7 +9,6 @@ export function ExpiredDocuments({ documents }) {
       <ul className="expired">
         {documents.map((document, index) => (
           <li key={document.id}>
-            {console.log(document)}
             <a href={document.secureUrl} target="_blank">
               {Math.round(
                 (Date.now() -
