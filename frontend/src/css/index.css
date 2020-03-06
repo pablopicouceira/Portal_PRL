@@ -138,6 +138,7 @@ span {
   padding-bottom: 10px;
   font-size: 24px;
   color: #1d3a68;
+  font-family: "Open Sans", sans-serif;
 }
 
 .panel-column2-container div {
@@ -208,6 +209,7 @@ span {
   color: #1d3a68;
   margin-top: -15px;
   margin-bottom: 15px;
+  font-family: "Open Sans", sans-serif;
 }
 
 h2 {
@@ -307,6 +309,12 @@ h2 {
   background-color: rgb(120, 194, 194);
   min-height: 25em;
   max-height: 25em;
+}
+
+.actuaciones-container-info h1 {
+  font-size: 24px;
+  color: #1d3a68;
+  margin-top: 15px;
 }
 
 .WorkersList-selected,
